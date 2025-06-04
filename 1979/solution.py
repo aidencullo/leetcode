@@ -1,11 +1,9 @@
 class Solution:
     def findGCD(self, nums: List[int]) -> int:
-        def getGCD(a, b):
-            while a and b:
-                smaller = min(a, b)
-                larger = max(a, b)
-                a, b = larger % smaller, smaller
-            return max(a, b)
+        def getGCD(small, large):
+            while small:
+                large, small = small, large % small
+            return large
 
         smallest = min(nums)
         largest = max(nums)
