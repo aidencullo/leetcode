@@ -1,8 +1,13 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        from collections import Counter
-        counts = Counter(s)
-        counts = [key for key, value in counts.items() if value == 1]
-        if not counts:
-            return -1
-        return s.index(counts[0])
+        common = set()
+        seen = set()
+        for c in s:
+            if c in seen:
+                common.add(c)
+            seen.add(c)
+        for i, c in enumerate(s):
+            if c not in common:
+                return i
+        return -1
+
