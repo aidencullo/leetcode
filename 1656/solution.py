@@ -11,9 +11,3 @@ class OrderedStream:
         while self.start < len(self.values) and self.values[self.start]:
             self.start += 1
         return self.values[index: self.start]
-        
-
-
-# Your OrderedStream object will be instantiated and called as such:
-# obj = OrderedStream(n)
-# param_1 = obj.insert(idKey,value)
