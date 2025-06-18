@@ -1,26 +1,15 @@
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
+        nums.sort()
+        l, r = 0, 0
+        n = len(nums)
         lhs = 0
-        for x in nums:
-            count = 0
-            atleast = 0
-            for y in nums:
-                if x - y == 1:
-                    atleast = 1
-                    count += 1
-                if x - y == 0:
-                    count += 1
-            if atleast:
-                lhs = max(lhs, count)
-            count = 0
-            atleast = 0
-            for y in nums:
-                if y - x == 1:
-                    atleast = 1
-                    count += 1
-                if y - x == 0:
-                    count += 1
-            if atleast:
-                lhs = max(lhs, count)
+        while r < n:
+            while r < n and nums[r] - nums[l] <= 1:
+                r += 1
+            if nums[r - 1] - nums[l] == 1:
+               lhs = max(lhs, r - l)
+            current = nums[l]
+            while l < n and nums[l] == current:
+                l += 1
         return lhs
-            
