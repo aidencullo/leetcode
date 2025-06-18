@@ -6,6 +6,4 @@ class Solution:
         for key in counter:
             if key + 1 in counter:
                 lhs = max(lhs, counter[key] + counter[key + 1])
-            if key - 1 in counter:
-                lhs = max(lhs, counter[key] + counter[key - 1])
         return lhs
