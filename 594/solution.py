@@ -1,14 +1,26 @@
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
-        def check(i, running):
-            if i == len(nums):
-                if not running:
-                    return 0
-                high = max(running)
-                low = min(running)
-                if high - low == 1:
-                    return len(running)
-                return 0
-            else:
-                return max(check(i + 1, running), check(i + 1, running + [nums[i]]))
-        return check(0, [])
+        lhs = 0
+        for x in nums:
+            count = 0
+            atleast = 0
+            for y in nums:
+                if x - y == 1:
+                    atleast = 1
+                    count += 1
+                if x - y == 0:
+                    count += 1
+            if atleast:
+                lhs = max(lhs, count)
+            count = 0
+            atleast = 0
+            for y in nums:
+                if y - x == 1:
+                    atleast = 1
+                    count += 1
+                if y - x == 0:
+                    count += 1
+            if atleast:
+                lhs = max(lhs, count)
+        return lhs
+            
