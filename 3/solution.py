@@ -1,11 +1,12 @@
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        last = 0
-        hash_set = {}
-        longest = 0
-        for right, char in enumerate(s):
-            if char in hash_set:
-                last = max(last, hash_set[char] + 1)
-            hash_set[char] = right
-            longest = max(longest, right - last + 1)
-        return longest        
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        n = len(nums)
+        for i in range(n):
+            for j in range(i + 1, n):
+                for k in range(j + 1, n):
+                    if nums[i] + nums[j] + nums[k] == 0:
+                        throuple = tuple(sorted((nums[i], nums[j], nums[k])))
+                        if throuple not in result:
+                            result.append(throuple)
+        return list(map(list, result))
