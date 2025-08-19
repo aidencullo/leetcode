@@ -1,22 +1,24 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        def twoSum(nums, target):
-            seen = set()
-            res = set()
-            for x in nums:
-                if target - x in seen:
-                    res.add(tuple(sorted((x, target - x))))
-                seen.add(x)
-            return list(list(l) for l in res)
-                
+        nums.sort()
         
-        result = set()
+        from collections import defaultdict
+        indexes = defaultdict(int)
+
+        for i, v in enumerate(nums):
+            indexes[v] += 1
+
         n = len(nums)
+        result = []
+        indexes_i = dict(indexes)
         for i in range(n):
-            remaining = nums[:i] + nums[i + 1:]
-            twoSums = twoSum(remaining, -nums[i])
-            for p1, p2 in twoSums:                
-                throuple = tuple(sorted((p1, p2, nums[i])))
-                if throuple not in result:
-                    result.add(throuple)
-        return list(map(list, result))
+            indexes_i[nums[i]] -= 1
+            indexes_j = dict(indexes_i)
+            for j in range(i + 1, n):
+                indexes_j[nums[j]] -= 1
+                target = nums[i] + nums[j]
+                target *= -1
+
+                if target in indexes_j and indexes_j[target]:
+                    result.append([nums[i], nums[j], target])                                    
+        return result
