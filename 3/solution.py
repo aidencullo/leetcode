@@ -1,8 +1,18 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        from collections import defaultdict
+        
+        seen = defaultdict(int)
+        cleaned = []
+        for num in nums:
+            if seen[num] < 3:
+                seen[num] += 1
+                cleaned.append(num)
+            
+        nums = cleaned
         nums.sort()
         
-        from collections import defaultdict
+
         indexes = defaultdict(int)
 
         for i, v in enumerate(nums):
