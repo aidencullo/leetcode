@@ -20,5 +20,11 @@ class Solution:
                 target *= -1
 
                 if target in indexes_j and indexes_j[target]:
-                    result.append([nums[i], nums[j], target])                                    
-        return result
+                    result.append([nums[i], nums[j], target])
+        seen = set()
+        result_unique = []
+        for triple in result:
+            if tuple(triple) not in seen:
+                seen.add(tuple(triple))
+                result_unique.append(triple)
+        return result_unique
