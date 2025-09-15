@@ -1,5 +1,7 @@
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
+        # Time Complexity: O(n) where n is the length of blocks
+        # Space Complexity: O(1) - only using a constant amount of extra space
         white = 0
         min_white = k
         l, r = 0, k - 1
