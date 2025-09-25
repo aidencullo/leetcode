@@ -6,4 +6,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        pass
+        n = len(nums)
+        pos = 0
+        el = nums[pos]
+        for _ in range(n):
+            next_index = (pos + k) % n
+            next_el = nums[next_index]
+            nums[next_index] = el
+            el = next_el
+            pos = next_index
+            
+            
+            
