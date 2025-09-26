@@ -6,15 +6,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        def swap(left, right):
-            nums[left], nums[right] = nums[right], nums[left]
 
-        def shift_one():
-            el = nums[-1]
-            for i in range(n):
-                el, nums[i] = nums[i], el
+        def swap(i, j):
+            nums[i], nums[j] = nums[j], nums[i]
 
         n = len(nums)
         k %= n
-        for _ in range(k):
-            shift_one()
+        if k == 0:
+            return
+        
+        l, r = 0, k
+        for i in range(n - 1):
+            swap(l, r)
+            l += 1
+            r += 1
+            l %= k
+            r %= n
