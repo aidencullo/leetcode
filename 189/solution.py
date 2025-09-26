@@ -13,14 +13,19 @@ class Solution:
         if k == 0:
             return
 
-        if n % k == 0:
-            self.rotateModulo(nums, k)
-        else:
+        import math
+        
+        gcd = math.gcd(k, n)
+        if gcd == 1:
             self.rotateNonModulo(nums, k)            
+        else:
+            self.rotateModulo(nums, k)
 
     def rotateModulo(self, nums: List[int], k: int) -> None:
         n = len(nums)
-        cycle_len = n // k
+        import math
+        lcm = math.lcm(k, n)
+        cycle_len = lcm // k
         for i in range(k):
             pos = i
             el = nums[pos]
