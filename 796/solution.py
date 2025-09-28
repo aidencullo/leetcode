@@ -1,7 +1,6 @@
 class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
-        def rotate_one(s):
-            return s[-1] + s[:-1]
+        rotate_one = lambda s: s[-1] + s[:-1]
         
         n = len(s)
         current = s
