@@ -1,28 +1,29 @@
-def is_int(x):
-    return isinstance(x, int)
-
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
+
         def buzz(x):
-            if not is_int(x):
-                return x
-            if x % 5 == 0:
-                return "Buzz"
+            try: 
+                if x % 5 == 0:
+                    return "Buzz"
+            except:
+                pass
             return x
 
         def fizz(x):
-            if not is_int(x):
-                return x
-            if x % 3 == 0:
-                return "Fizz"
+            try: 
+                if x % 3 == 0:
+                    return "Fizz"
+            except:
+                pass
             return x
 
 
         def fizz_buzz(x):
-            if not is_int(x):
-                return x
-            if x % 3 == 0 and x % 5 == 0:
-                return "FizzBuzz"
+            try: 
+                if x % 3 == 0 and x % 5 == 0:
+                    return "FizzBuzz"
+            except:
+                pass
             return x
 
         
