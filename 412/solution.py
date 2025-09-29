@@ -27,8 +27,8 @@ class Solution:
 
         
         fizz_buzzed = map(fizz_buzz, range(1, n + 1))
-        fizz_processed = map(fizz, fizz_buzzed)
-        buzz_processed = map(buzz, fizz_processed)
-        result = list(map(str, buzz_processed))
+        fizzed = map(fizz, fizz_buzzed)
+        buzzed = map(buzz, fizzed)
+        result = list(map(str, buzzed))
         
         return result
