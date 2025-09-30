@@ -1,8 +1,3 @@
-from functools import partial
-
-
-
-
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
 
@@ -21,20 +16,15 @@ class Solution:
             except:
                 pass
             return x
- 
+
+
         def fizz_buzz(x):
-            return try_fn(fizz_buzz_inner, x)
-
-        def fizz_buzz_inner(x):
-            if x % 3 == 0 and x % 5 == 0:
-                return "FizzBuzz"
-            return x
-
-        def try_fn(fn, x):
             try: 
-                return fn(x)
+                if x % 3 == 0 and x % 5 == 0:
+                    return "FizzBuzz"
             except:
-                return x
+                pass
+            return x
 
         
         fizz_buzzed = map(fizz_buzz, range(1, n + 1))
