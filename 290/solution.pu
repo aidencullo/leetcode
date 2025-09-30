@@ -1,5 +1,9 @@
 from collections import Counter
 
+
 class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        
+
     def isIsomorphic(self, s: str, t: str) -> bool:
         return len(set(s)) == len(set(zip(s, t))) == len(set(t))
