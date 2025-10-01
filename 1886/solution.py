@@ -1,12 +1,9 @@
-import copy
-
 def rotate(mat):
-    new_mat = copy.deepcopy(mat)
     n = len(mat)
-    for i in range(n):
-        for j in range(n):
-            new_mat[i][j] = mat[-(j + 1)][i]
-    return new_mat
+    return [
+        [mat[-(j + 1)][i] for j in range(n)]
+        for i in range(n)
+    ]
 
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
