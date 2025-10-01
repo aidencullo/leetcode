@@ -1,15 +1,14 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-
-        vowels = [] # 1 time space
-        for c in s: # n time
-            if c in 'aeiouAEIOU': # 1 time space
-                vowels.append(c) # 1 time, agg n space
+        vowels = []
+        for c in s:
+            if c in 'aeiouAEIOU':
+                vowels.append(c)
 
         res = []
-        for c in s: # n time
-            if c in 'aeiouAEIOU': # 1 time space
-                res.append(vowels.pop()) # 1 time n space agg
+        for c in s:
+            if c in 'aeiouAEIOU':
+                res.append(vowels.pop())
             else:
-                res.append(c) # n space agg, 1 time
-        return ''.join(res) # n time space
+                res.append(c)
+        return ''.join(res)
