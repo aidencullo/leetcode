@@ -5,8 +5,8 @@ def rotate(mat):
     n = len(mat)
     for i in range(n):
         for j in range(n):
-            pass
-    return mat
+            new_mat[i][j] = mat[-(j + 1)][i]
+    return new_mat
 
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
