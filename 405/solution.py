@@ -2,7 +2,7 @@ class Solution:
     def toHex(self, num: int) -> str:
         def decToHex(num):
             if num == 0:
-                return '0'
+                return 0
             res = ''
             while num:
                 remainder = num % 16
