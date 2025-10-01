@@ -16,8 +16,15 @@ class Solution {
         return false;
     }
 
+
     private function rotate($mat) {
-        // do nothing, placeholder like Python pass
+        $el = $mat[1][0];
+        for ($i = 0; $i < 2; $i++) {
+            for ($j = 0; $j > -1; $i++) {
+            $next = $mat[$i][$j];
+            $mat[$i][$i] = $el;
+            $el = $next;
+        }
         return $mat;
     }
 }
