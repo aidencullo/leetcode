@@ -1,18 +1,12 @@
 class Solution:
     def findRotation(self, mat: list[list[int]], target: list[list[int]]) -> bool:
-        def rotate(row, col, rotations):
-            for _ in range(rotations):
-                row, col = col, -(row + 1)
-            return row, col
-
+        def rotate(mat):
+            return [list(row) for row in zip(*mat[::-1])]
+            
         n = len(mat)
-        for rotation in range(4):
-            is_equal = True
-            for row in range(n):
-                for col in range(n):
-                    rotated_row, rotated_col = rotate(row, col, rotation)
-                    if target[row][col] != mat[rotated_row][rotated_col]:
-                        is_equal = False
-            if is_equal:
+        current = mat
+        for _ in range(4):
+            if current == target:
                 return True
+            current = rotate(current)
         return False
