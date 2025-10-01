@@ -1,15 +1,23 @@
-struct Solution;
-
 impl Solution {
     pub fn reverse_vowels(s: String) -> String {
-        for c in s.chars() {
-            println!("{}", c);
-        }
-        s // return the original string to satisfy type
-    }
-}
+        let possible_vowels = "aeiouAEIOU";
+        let mut result = String::new();
+        let mut vowels = String::new();
 
-fn main() {
-    let s = "hello".to_string();
-    Solution::reverse_vowels(s);
+        for c in s.chars() {
+            if possible_vowels.contains(c) {
+                vowels.push(c);
+            }
+        }
+
+        for c in s.chars() {
+            if possible_vowels.contains(c) {
+                result.push(vowels.pop().unwrap());
+            } else {
+                result.push(c);
+            }
+        }
+
+        result
+    }
 }
