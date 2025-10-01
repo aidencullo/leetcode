@@ -1,11 +1,8 @@
-class Solution {
-
-    /**
-     * @param Integer[][] $mat
-     * @param Integer[][] $target
-     * @return Boolean
-     */
-    function findRotation($mat, $target) {
+class Solution:
+    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
+        def flipx(x):
+            pass
         
-    }
-}
+        new = flipx(target)
+        print(new)
+        return True
