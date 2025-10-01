@@ -7,5 +7,5 @@ class Solution:
         for _ in range(4):
             if np.array_equal(current, target):
                 return True
-            current = np.rot90(current)
+            current = np.flip(current.T, axis=1)
         return False
