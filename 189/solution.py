@@ -3,14 +3,20 @@ from typing import List
 
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
-        def reverse(lst, l, r):
-            while l < r:
-                lst[l], lst[r] = lst[r], lst[l]
-                l += 1
-                r -= 1
-
         n = len(nums)
         k %= n
-        reverse(nums, 0, n - 1)
-        reverse(nums, 0, k - 1)
-        reverse(nums, k, n - 1)
+        if k == 0:
+            return
+        start = 0
+        i = start
+        prev = nums[i]
+        for _ in range(n):
+            i = (i + k) % n
+            tmp = nums[i]
+            nums[i] = prev
+            prev = tmp
+            if i == start:
+                i += 1
+                prev = nums[i]
+                start = i
+            
