@@ -1,25 +1,28 @@
+from typing import List
+
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        n = len(nums)
-        min_value = min(nums)
-        min_position = nums.index(min_value)
-
-        i = min_position
-        while nums[i - 1] == nums[i]:
-            i -= 1
-            i %= n
-            if i == min_position:
-                break
-        min_position = i
-            
-        el = min_value
-        for i in range(n):
-            wrapped_i = ((i + min_position) % n)
-            x = nums[wrapped_i]
-            if x < el:
-                return False
+        new_nums = []
+        seen = set()
+        import math
+        el = math.inf
+        for x in nums:
+            if x != el:
+                new_nums.append(x)
             el = x
-        return True
-            
+        new_new_nums = new_nums[-1:] + new_nums[:-1]
 
-            
+        min_val = min(new_new_nums)
+        min_pos = new_new_nums.index(min_val)
+
+        n = len(new_new_nums)
+        for i in range(min_pos, n + min_pos - 1):
+            i %= n
+            j = (i + 1) % n
+            if new_new_nums[i] > new_new_nums[j]:
+                return False
+        return True
+
+s = Solution()
+result = s.check([1] * 10)
+print(result)
