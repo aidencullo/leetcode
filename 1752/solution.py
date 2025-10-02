@@ -1,18 +1,25 @@
-from typing import List
-
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        def is_sorted(arr: List[int]) -> bool:
-            prev = float('-inf')
-            for x in arr:
-                if x < prev:
-                    return False
-                prev = x
-            return True
-        
         n = len(nums)
+        min_value = min(nums)
+        min_position = nums.index(min_value)
+
+        i = min_position
+        while nums[i - 1] == nums[i]:
+            i -= 1
+            i %= n
+            if i == min_position:
+                break
+        min_position = i
+            
+        el = min_value
         for i in range(n):
-            rotated = nums[i:] + nums[:i]
-            if is_sorted(rotated):
-                return True
-        return False
+            wrapped_i = ((i + min_position) % n)
+            x = nums[wrapped_i]
+            if x < el:
+                return False
+            el = x
+        return True
+            
+
+            
