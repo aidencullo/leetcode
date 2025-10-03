@@ -21,10 +21,9 @@
 #         right_inorder = inorder[inorder.index(val) + 1:] # O(n)
 #         left_preorder = preorder[:len(left_inorder)] # O(n)
 #         right_preorder = preorder[len(left_inorder):] # O(n)
-#         root.left = self.buildTree(left_preorder, left_inorder) 
+#         root.left = self.buildTree(left_preorder, left_inorder)
 #         root.right = self.buildTree(right_preorder, right_inorder)
 #         return root
-
 
 
 # Solution 2: using hashmap to store inorder index
@@ -32,12 +31,14 @@
 # space complexity: O(n)
 from typing import List, Optional
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
@@ -55,14 +56,16 @@ class Solution:
             new_i_end_l = root_index - 1
             new_i_start_r = root_index + 1
             new_i_end_r = i_end
-            root.left = buildTreeHelper(new_p_start_l, new_p_end_l, new_i_start_l, new_i_end_l)
-            root.right = buildTreeHelper(new_p_start_r, new_p_end_r, new_i_start_r, new_i_end_r)
+            root.left = buildTreeHelper(
+                new_p_start_l, new_p_end_l, new_i_start_l, new_i_end_l
+            )
+            root.right = buildTreeHelper(
+                new_p_start_r, new_p_end_r, new_i_start_r, new_i_end_r
+            )
             return root
+
         hashmap = {val: i for i, val in enumerate(inorder)}
         return buildTreeHelper(0, len(preorder) - 1, 0, len(inorder) - 1)
-
-
-
 
 
 # Definition for a binary tree node.
@@ -78,15 +81,12 @@ class Solution:
         el = preorder.pop(0)
         i = inorder.index(el)
         left_inorder = inorder[:i]
-        right_inoder = inorder[i+1:]
+        right_inoder = inorder[i + 1 :]
         left_tree_len = len(left_inorder)
         left_preorder = preorder[:left_tree_len]
         right_preorder = preorder[left_tree_len:]
         return TreeNode(
-            el, 
-            self.buildTree(left_preorder, left_inorder), 
-            self.buildTree(right_preorder, right_inoder)
+            el,
+            self.buildTree(left_preorder, left_inorder),
+            self.buildTree(right_preorder, right_inoder),
         )
-            
-
-

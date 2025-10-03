@@ -8,7 +8,12 @@ class Solution:
             if grid[row][col] == 0:
                 return 1
             seen.add((row, col))
-            return dfs(grid, row + 1, col) + dfs(grid, row - 1, col) + dfs(grid, row, col + 1) + dfs(grid, row, col - 1)
+            return (
+                dfs(grid, row + 1, col)
+                + dfs(grid, row - 1, col)
+                + dfs(grid, row, col + 1)
+                + dfs(grid, row, col - 1)
+            )
 
         seen = set()
         rows = len(grid)

@@ -5,7 +5,7 @@ class Solution:
 
         def sliding_substrings(s, size):
             for i in range(len(s) - size + 1):
-                yield s[i:i+size]
+                yield s[i : i + size]
 
         for x in sliding_substrings(num_str, k):
             x = int(x)

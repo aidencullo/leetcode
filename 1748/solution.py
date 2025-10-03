@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 class Solution:
     def sumOfUnique(self, nums: list[int]) -> int:
         frequencies = Counter(nums)

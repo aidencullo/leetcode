@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         def dfs(node: int):
@@ -20,7 +21,7 @@ class Solution:
         graph = dict((el, []) for el in range(numCourses))
         for src, dest in prerequisites:
             graph[src].append(dest)
-            
+
         order = []
         cycle, visited = set(), set()
         for node in graph:

@@ -15,9 +15,9 @@ class Solution:
                     p += 1
             nums[end], nums[p] = nums[p], nums[end]
             if k < p:
-                return quickSelect(nums, start, p-1)
+                return quickSelect(nums, start, p - 1)
             if k > p:
-                return quickSelect(nums, p+1, end)
+                return quickSelect(nums, p + 1, end)
             return nums[p]
 
         k = len(nums) - k

@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         return self.isIsomorphic(pattern, s.split())

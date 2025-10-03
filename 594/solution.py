@@ -1,6 +1,7 @@
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
         from collections import Counter
+
         counter = Counter(nums)
         lhs = 0
         for key in counter:

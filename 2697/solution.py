@@ -9,4 +9,4 @@ class Solution:
                 s[l] = s[r]
             l += 1
             r -= 1
-        return ''.join(s)
+        return "".join(s)

@@ -2,10 +2,11 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
-        ((3, 7), 28),        
+        ((3, 7), 28),
         ((3, 2), 3),
         ((7, 3), 28),
         ((3, 3), 6),
@@ -52,7 +53,7 @@ from solution import Solution
         ((17, 16), 300540195),
         ((17, 17), 601080390),
         ((17, 18), 1166803110),
-    ]
+    ],
 )
 def testSolution(test_input, expected):
     assert Solution().uniquePaths(*test_input) == expected

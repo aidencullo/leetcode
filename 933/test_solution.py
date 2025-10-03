@@ -13,6 +13,7 @@ def test_hashset_2():
     hashset.add(2)
     assert hashset.contains(1)
 
+
 def test_hashset_3():
     hashset = MyHashSet()
     hashset.add(1)
@@ -22,6 +23,7 @@ def test_hashset_3():
     hashset.add(5)
     hashset.add(6)
     assert hashset.contains(1)
+
 
 def test_hashset_4():
     hashset = MyHashSet()
@@ -47,6 +49,7 @@ def test_hashset_5():
     hashset.remove(1)
     assert not hashset.contains(1)
     assert hashset.contains(2)
+
 
 def test_hashset_6():
     hashset = MyHashSet()

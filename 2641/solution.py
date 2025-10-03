@@ -23,14 +23,9 @@ class Solution:
 
         while q:
             parent_child = list((parent, child.val) for child, parent in q)
-            grouped = groupby(
-                parent_child,
-                key=itemgetter(0)
-            )
+            grouped = groupby(parent_child, key=itemgetter(0))
             sum_by_parent = {
-                key: sum(value for _, value in group)
-                for key, group
-                in grouped
+                key: sum(value for _, value in group) for key, group in grouped
             }
             total = sum(sum_by_parent.values())
             for i in range(len(q)):

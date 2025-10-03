@@ -7,7 +7,8 @@ class Solution:
         cols = len(grid[0])
         visited = set()
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        def dfs(row,  col):
+
+        def dfs(row, col):
             if row < 0 or row >= rows or col < 0 or col >= cols:
                 return
             if (row, col) in visited:
@@ -19,7 +20,7 @@ class Solution:
         islands = 0
         for row in range(rows):
             for col in range(cols):
-                if grid[row][col] == '0':
+                if grid[row][col] == "0":
                     visited.add((row, col))
         for row in range(rows):
             for col in range(cols):

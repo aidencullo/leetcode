@@ -18,6 +18,7 @@ class Solution:
             if math.floor((left + right + root.val) / (n + m + 1)) == root.val:
                 self.result += 1
             return root.val + left + right, n + m + 1
+
         self.result = 0
         dfs(root)
         return self.result

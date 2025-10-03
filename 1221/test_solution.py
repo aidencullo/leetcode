@@ -3,6 +3,7 @@ from solution import Solution  # Assuming your solution is in a file named solut
 
 sol = Solution()
 
+
 def test_balancedStringSplit():
     assert sol.balancedStringSplit("RLRRLLRLRL") == 4
     assert sol.balancedStringSplit("RLLLLRRRLR") == 3

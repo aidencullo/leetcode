@@ -6,7 +6,6 @@ def test_bst_from_preorder():
     assert sol.buildArray([1, 3], 3) == ["Push", "Push", "Pop", "Push"]
 
 
-
 # Example 1:
 
 # Input: target = [1,3], n = 3

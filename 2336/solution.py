@@ -7,6 +7,6 @@ class SmallestInfiniteSet:
         num = min(self.inf_set)
         self.inf_set.remove(num)
         return num
-    
+
     def addBack(self, num: int) -> None:
         self.inf_set.add(num)

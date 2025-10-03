@@ -1,10 +1,11 @@
 from collections import deque
 from typing import List
 
+
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
 
-        if '0000' in deadends:
+        if "0000" in deadends:
             return -1
 
         def children(comb):
@@ -12,10 +13,10 @@ class Solution:
                 x = int(comb[i])
                 for d in (-1, 1):
                     y = (x + d) % 10
-                    yield comb[:i] + str(y) + comb[i+1:]
-        
+                    yield comb[:i] + str(y) + comb[i + 1 :]
+
         q = deque()
-        q.append(['0000', 0])
+        q.append(["0000", 0])
         visited = set(deadends)
         while q:
             comb, count = q.popleft()

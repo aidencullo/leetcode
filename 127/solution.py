@@ -1,9 +1,10 @@
 from collections import deque
 from typing import List
 
+
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
         wordList = set(wordList)
         q = deque([beginWord])
         count = 0
@@ -16,7 +17,7 @@ class Solution:
                     return count
                 for letter in alphabet:
                     for position in range(len(word)):
-                        newWord = word[:position] + letter + word[position+1:]
+                        newWord = word[:position] + letter + word[position + 1 :]
                         if newWord in wordList:
                             q.append(newWord)
                             wordList.remove(newWord)

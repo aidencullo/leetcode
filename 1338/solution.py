@@ -1,6 +1,7 @@
 from collections import Counter
 import heapq
 
+
 class Solution:
     def minSetSize(self, arr: list[int]) -> int:
         freqs = list(Counter(arr).values())
@@ -11,5 +12,5 @@ class Solution:
         integers = len(freqs)
         while cnt < half:
             cnt -= heapq.heappop(neg_freqs)
-        
+
         return integers - len(neg_freqs)

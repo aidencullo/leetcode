@@ -16,6 +16,7 @@ class Solution:
                 if node.val == val:
                     return node, parent
             return None, None
+
         q = deque([(root, None)])
 
         while q:

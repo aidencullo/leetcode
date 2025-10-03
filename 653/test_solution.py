@@ -3,6 +3,7 @@ from solution import KthLargest
 
 import pytest
 
+
 def test_kth_largest():
     # Initialize KthLargest with k = 3 and initial array [4, 5, 8, 2]
     kthLargest = KthLargest(3, [4, 5, 8, 2])
@@ -14,6 +15,7 @@ def test_kth_largest():
     assert kthLargest.add(9) == 8  # After adding 9, the 3rd largest element is 8
     assert kthLargest.add(4) == 8  # After adding 4, the 3rd largest element is 8
 
+
 def test_leet():
     kthLargest = KthLargest(1, [])
     assert kthLargest.add(-3) == -3
@@ -21,4 +23,3 @@ def test_leet():
     assert kthLargest.add(-4) == -2
     assert kthLargest.add(0) == 0
     assert kthLargest.add(4) == 4
-    

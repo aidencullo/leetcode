@@ -4,7 +4,7 @@ from solution import Solution
 
 
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
         ((8,), 4),
         ((14,), 6),

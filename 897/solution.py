@@ -19,7 +19,7 @@ class Solution:
         root.right = r
         root.left = None
         return head
-     
+
 
 """
 order?

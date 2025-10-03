@@ -3,7 +3,7 @@ class Solution:
         n = len(arr)
         l = k * m
         for i in range(n - l + 1):
-            pattern = arr[i: i + m]
-            if arr[i: i + l] == pattern * k:
+            pattern = arr[i : i + m]
+            if arr[i : i + l] == pattern * k:
                 return True
         return False

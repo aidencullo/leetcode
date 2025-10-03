@@ -1,7 +1,7 @@
 class Solution:
     def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
         from collections import Counter
-        
+
         count1 = Counter(word1)
         count2 = Counter(word2)
 

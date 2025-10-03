@@ -24,16 +24,15 @@
 #         return subCombSum(target)
 
 
-
-
-
 # Solution 2
 # O(2^target) time and and space
 from typing import Optional, List, Tuple
 
+
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         self.res = []
+
         def subCombSum(running, candidate_ptr, target):
             running = running[:]
             if candidate_ptr == len(candidates):
@@ -47,5 +46,6 @@ class Solution:
             if candidate <= target:
                 subCombSum(running + [candidate], candidate_ptr, target - candidate)
             subCombSum(running, candidate_ptr + 1, target)
+
         subCombSum([], 0, target)
         return self.res

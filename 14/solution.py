@@ -5,6 +5,6 @@ class Solution:
             letter = chars[0]
             for c in chars:
                 if c != letter:
-                    return ''.join(prefix)
+                    return "".join(prefix)
             prefix.append(letter)
-        return ''.join(prefix)
+        return "".join(prefix)

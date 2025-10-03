@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class Stack:
 
     def __init__(self):
@@ -10,7 +11,7 @@ class Stack:
 
     def push(self, x: int) -> None:
         self.items.append(x)
-        
+
     def pop(self) -> int:
         return self.items.pop()
 

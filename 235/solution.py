@@ -26,8 +26,11 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         if root.val < p.val and root.val < q.val:
             return self.lowestCommonAncestor(root.right, p, q)
         if root.val > p.val and root.val > q.val:

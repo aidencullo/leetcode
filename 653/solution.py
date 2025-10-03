@@ -17,5 +17,6 @@ class Solution:
                 return True
             hashset.add(root.val)
             return dfs(root.left) or dfs(root.right)
+
         hashset = set()
         return dfs(root)

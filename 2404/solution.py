@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 class Solution:
     def mostFrequentEven(self, nums: list[int]) -> int:
         num_counter = Counter(nums)

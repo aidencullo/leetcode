@@ -1,7 +1,7 @@
 # from typing import Optional, List, Tuple
 
 # class Solution:
-    
+
 #     def coinChange(self, coins: List[int], amount: int) -> int:
 #         def coinChangeHelper(coins: List[int], amount: int) -> int:
 #             if amount <= 0:
@@ -23,15 +23,11 @@
 #         return coinChangeHelper(coins, amount)
 
 
-
-
-
-
-
 from typing import Optional, List, Tuple
 
+
 class Solution:
-    
+
     def coinChange(self, coins: List[int], amount: int) -> int:
         d = [amount + 1] * (amount + 1)
 

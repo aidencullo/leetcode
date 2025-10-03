@@ -11,5 +11,5 @@ class Solution:
                 hash_map[x] -= 1
                 if hash_map[x] == 0:
                     del hash_map[x]
-                res.append(x)                    
+                res.append(x)
         return res

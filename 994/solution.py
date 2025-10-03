@@ -1,6 +1,7 @@
 from typing import List
 from collections import deque
 
+
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         n = len(grid)
@@ -20,11 +21,15 @@ class Solution:
             for __ in range(len(rotten)):
                 row, col, current_day = rotten.popleft()
                 days = max(days, current_day)
-                
+
                 for dr, dc in directions:
                     new_row = row + dr
                     new_col = col + dc
-                    if 0 <= new_row < n and 0 <= new_col < m and grid[new_row][new_col] == 1:
+                    if (
+                        0 <= new_row < n
+                        and 0 <= new_col < m
+                        and grid[new_row][new_col] == 1
+                    ):
                         grid[new_row][new_col] = 2
                         rotten.append((new_row, new_col, current_day + 1))
                         oranges -= 1

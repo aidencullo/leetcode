@@ -15,7 +15,8 @@ class Solution:
                 print(1)
                 return TreeNode(values[0])
             for i, value in enumerate(values):
-                helper(None, values[:i] + values[i + 1:])
+                helper(None, values[:i] + values[i + 1 :])
+
         helper(None, list(range(1, n + 1)))
 
 

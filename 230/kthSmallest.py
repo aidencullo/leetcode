@@ -24,8 +24,6 @@
 #         return self.items[k-1]
 
 
-
-
 # # Solution 2
 
 # # time: O(n)
@@ -60,13 +58,10 @@
 #         return self.res
 
 
-
-
-
-
 # Solution 3
 
 from typing import Optional, List
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -74,6 +69,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:

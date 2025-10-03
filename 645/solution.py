@@ -3,6 +3,7 @@ import itertools
 import operator
 from functools import reduce
 
+
 class Solution:
     def findErrorNums(self, nums: list[int]) -> list[int]:
         n = len(nums)

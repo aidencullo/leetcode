@@ -6,6 +6,7 @@ from solution import Solution
 # Instantiate the Solution class
 solution = Solution()
 
+
 def test_makeSmallestPalindrome():
     # Test case 1: Example from problem statement
     assert solution.makeSmallestPalindrome("egcfe") == "efcfe"
@@ -29,6 +30,10 @@ def test_makeSmallestPalindrome():
     assert solution.makeSmallestPalindrome("zzzzzzzz") == "zzzzzzzz"
 
     # Test case 11: Edge case - mix of characters needing minimal changes
-    assert solution.makeSmallestPalindrome("abcdefghijkllkjihgfedcba") == "abcdefghijkllkjihgfedcba"
+    assert (
+        solution.makeSmallestPalindrome("abcdefghijkllkjihgfedcba")
+        == "abcdefghijkllkjihgfedcba"
+    )
+
 
 # You can add more test cases as needed

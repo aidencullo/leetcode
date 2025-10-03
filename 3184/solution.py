@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class Solution:
     def countCompleteDayPairs(self, hours: list[int]) -> int:
         total = 0

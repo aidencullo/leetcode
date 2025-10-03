@@ -6,4 +6,4 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(letter)
-        return ''.join(stack)
+        return "".join(stack)

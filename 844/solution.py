@@ -10,6 +10,7 @@ class Solution:
                 else:
                     stack.append(letter)
             return "".join(stack)
-        s_backspace =  backspace(s)
-        t_backspace =  backspace(t)
+
+        s_backspace = backspace(s)
+        t_backspace = backspace(t)
         return s_backspace == t_backspace

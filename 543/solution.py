@@ -14,6 +14,7 @@ class Solution:
             r = diam(node.right)
             self.max = max(self.max, l + r)
             return max(l, r) + 1
+
         self.max = 0
         diam(root)
         return self.max

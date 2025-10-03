@@ -10,7 +10,7 @@ def lower_char(char):
 
 def lower_word(word):
     lowered_chars = list(map(lower_char, word))
-    return ''.join(lowered_chars)
+    return "".join(lowered_chars)
 
 
 class Solution:

@@ -1,6 +1,7 @@
 import pytest
 from solution import Solution
 
+
 def test_defangIPaddr():
     solution = Solution()
     assert solution.defangIPaddr("1.1.1.1") == "1[.]1[.]1[.]1"

@@ -3,10 +3,11 @@ import pytest
 from solution import Solution
 from util import compareTree, makeTree
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
-        ([4,2,7,1,3,6,9], [4,7,2,9,6,3,1]),
+        ([4, 2, 7, 1, 3, 6, 9], [4, 7, 2, 9, 6, 3, 1]),
         ([2, 1, 3], [2, 3, 1]),
     ],
 )
@@ -18,13 +19,13 @@ def test_single_node(test_input, expected):
     # Act
     result_tree = Solution().invertTree(input_tree)
 
-    # Assert    
+    # Assert
     assert compareTree(result_tree, expected_tree)
 
 
 def test_makeTree():
     # Arrange
-    l = [4,2,7,1,3,6,9]
+    l = [4, 2, 7, 1, 3, 6, 9]
 
     # Act
     t = makeTree(l)
@@ -36,7 +37,7 @@ def test_makeTree():
 
 def test_makeTree_1():
     # Arrange
-    l = [1,0,7,1,3,5,9]
+    l = [1, 0, 7, 1, 3, 5, 9]
     # Act
     t = makeTree(l)
 
@@ -46,11 +47,12 @@ def test_makeTree_1():
     assert t.right.val == 7
     assert t.right.left.val == 5
 
+
 def test_compareTree():
     # Arrange
-    l = [1,0,7,1,3,5,9]
+    l = [1, 0, 7, 1, 3, 5, 9]
     # Act
     t = makeTree(l)
-    
+
     # Assert
     assert compareTree(t, t)

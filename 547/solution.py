@@ -1,5 +1,6 @@
 from typing import List
 
+
 class UnionFind:
 
     def __init__(self, n: int):
@@ -10,7 +11,7 @@ class UnionFind:
     def union(self, u: int, v: int) -> None:
         u_rep = self.find(u)
         v_rep = self.find(v)
-        if  u_rep == v_rep:
+        if u_rep == v_rep:
             return
         if self.rank[u_rep] < self.rank[v_rep]:
             self.rank[v_rep] += self.rank[u_rep]
@@ -24,6 +25,7 @@ class UnionFind:
         if self.parent[u] != u:
             self.parent[u] = self.find(self.parent[u])
         return self.parent[u]
+
 
 # O(V^2 * logV)
 class Solution:

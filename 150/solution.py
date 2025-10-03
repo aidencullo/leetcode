@@ -2,6 +2,7 @@ import math
 import operator
 from typing import Optional, List, Tuple
 
+
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
@@ -16,12 +17,14 @@ class Solution:
                 stack.append(int(symbol))
         return stack.pop()
 
+
 operators = {
-    '+': lambda x, y: x + y,
-    '-': lambda x, y: x - y,
-    '*': lambda x, y: x * y,
-    '/': lambda x, y: int( x / y),
+    "+": lambda x, y: x + y,
+    "-": lambda x, y: x - y,
+    "*": lambda x, y: x * y,
+    "/": lambda x, y: int(x / y),
 }
-    
+
+
 def operate(x, y, op):
     return operators[op](x, y)

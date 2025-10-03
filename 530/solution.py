@@ -17,7 +17,8 @@ class Solution:
             self.diff = min(self.diff, root.val - self.prev)
             self.prev = root.val
             inorder(root.right)
-        self.diff = float('inf')
-        self.prev = float('-inf')
+
+        self.diff = float("inf")
+        self.prev = float("-inf")
         inorder(root)
         return self.diff

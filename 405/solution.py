@@ -3,30 +3,30 @@ class Solution:
         def decToHex(num):
             if num == 0:
                 return 0
-            res = ''
+            res = ""
             while num:
                 remainder = num % 16
                 if remainder < 10:
-                    res += str(num % 16) 
+                    res += str(num % 16)
                 elif remainder == 10:
-                    res += 'a'       
+                    res += "a"
                 elif remainder == 11:
-                    res += 'b'       
+                    res += "b"
                 elif remainder == 12:
-                    res += 'c'       
+                    res += "c"
                 elif remainder == 13:
-                    res += 'd'       
+                    res += "d"
                 elif remainder == 14:
-                    res += 'e'       
+                    res += "e"
                 elif remainder == 15:
-                    res += 'f'       
+                    res += "f"
                 num //= 16
             return res[::-1]
-        
+
         if num >= 0:
             return decToHex(num)
         magnitude = num if num > 0 else -num
-        invert = ~magnitude & 0xffffffff
+        invert = ~magnitude & 0xFFFFFFFF
         plus_one = invert + 1
         hexadecimal = decToHex(plus_one)
         return hexadecimal

@@ -4,12 +4,10 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
-
-
-
         # (
         #     (
         #         TreeNode(6,
@@ -21,10 +19,6 @@ from solution import Solution
         #     ),
         #     TreeNode(6),
         # ),
-
-
-
-
         # (
         #     (
         #         TreeNode(3,
@@ -38,9 +32,6 @@ from solution import Solution
         #     ),
         #     TreeNode(6),
         # ),
-
-
-
         # (
         #     (
         #         TreeNode(3,
@@ -55,39 +46,21 @@ from solution import Solution
         #         TreeNode(5),
         #         TreeNode(1),
         #     ),
-        #     TreeNode(3),            
+        #     TreeNode(3),
         # ),
-
-
-
-
-
-
-
-
-
         (
             (
-                TreeNode(3,
-                         TreeNode(5,
-                                  TreeNode(6),
-                                  TreeNode(2,
-                                           TreeNode(7),
-                                           TreeNode(4))),
-                         TreeNode(1,
-                                  TreeNode(0),
-                                  TreeNode(8))),
+                TreeNode(
+                    3,
+                    TreeNode(5, TreeNode(6), TreeNode(2, TreeNode(7), TreeNode(4))),
+                    TreeNode(1, TreeNode(0), TreeNode(8)),
+                ),
                 TreeNode(5),
                 TreeNode(4),
             ),
-            TreeNode(5),            
+            TreeNode(5),
         ),
-
-
-
-
-    ]
-
+    ],
 )
 def testSolution(test_input, expected):
     t, _, _ = test_input

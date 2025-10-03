@@ -2,6 +2,7 @@ def print_double_list(double_list):
     for row in double_list:
         print(row)
 
+
 class Solution:
     def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
         def count(m):
@@ -16,11 +17,10 @@ class Solution:
                     i -= 1
             return cnt
 
-
         def bisect(m):
             i = n - 1
             j = 0
-            kth = float('-inf')
+            kth = float("-inf")
             while i >= 0 and j < n:
                 if matrix[i][j] <= m:
                     kth = max(kth, matrix[i][j])
@@ -28,7 +28,6 @@ class Solution:
                 else:
                     i -= 1
             return kth
-
 
         n = len(matrix)
         lower = matrix[0][0]

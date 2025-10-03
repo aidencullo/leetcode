@@ -2,12 +2,13 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
-        (('anagram', 'nagaram'), True),
-        (('rat', 'car'), False),
-        (('rat', 'tar'), True),
+        (("anagram", "nagaram"), True),
+        (("rat", "car"), False),
+        (("rat", "tar"), True),
     ],
 )
 def test_(test_input, expected):
@@ -16,5 +17,5 @@ def test_(test_input, expected):
     # Act
     result = Solution().isAnagram(*test_input)
 
-    # Assert    
+    # Assert
     assert result == expected

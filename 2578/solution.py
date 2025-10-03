@@ -1,6 +1,7 @@
 # time: O(logn)
 # space: O(logn)
 
+
 class Solution:
     def splitNum(self, num: int) -> int:
         digits = []

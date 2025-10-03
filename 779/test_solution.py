@@ -2,8 +2,9 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
         ((1, 1), 0),
         ((2, 1), 0),

@@ -18,13 +18,6 @@
 #         return nums[l]
 
 
-
-
-
-
-
-
-
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         if len(nums) == 1:
@@ -42,4 +35,3 @@ class Solution:
                 r = m
                 continue
             return nums[r]
-            

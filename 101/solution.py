@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -17,4 +18,5 @@ class Solution:
             if tree1.val != tree2.val:
                 return False
             return isEqual(tree1.left, tree2.right) and isEqual(tree1.right, tree2.left)
+
         return isEqual(root.left, root.right)

@@ -10,12 +10,14 @@ def list_to_linkedlist(items):
         curr = curr.next
     return dummy.next
 
+
 def linkedlist_to_list(node):
     items = []
     while node:
         items.append(node.val)
         node = node.next
     return items
+
 
 # Test cases
 def test_remove_nodes():
@@ -50,4 +52,3 @@ def test_remove_nodes():
     expected = [5]
     result = solution.removeNodes(head)
     assert linkedlist_to_list(result) == expected
-

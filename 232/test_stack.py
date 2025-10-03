@@ -2,14 +2,16 @@ import pytest
 
 from util import Stack
 
+
 def testStackEmpty():
     # Arrange
     s = Stack()
 
     # Act
-    
+
     # Arrange
     assert s.isEmpty()
+
 
 def testStackOneItem():
     # Arrange
@@ -17,7 +19,7 @@ def testStackOneItem():
 
     # Act
     s.push(1)
-    
+
     # Arrange
     assert not s.isEmpty()
     assert s.peek() == 1
@@ -32,7 +34,7 @@ def testStackTenItem():
     # Act
     for i in range(10):
         s.push(i)
-    
+
     # Assert
     assert not s.isEmpty()
     for i in range(10)[::-1]:

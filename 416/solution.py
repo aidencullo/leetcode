@@ -9,6 +9,7 @@
 
 from typing import List
 
+
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         nums.sort(reverse=True)
@@ -17,6 +18,7 @@ class Solution:
             return False
         goal = total // 2
         return hasSubset(nums, goal)
+
 
 def hasSubset(nums, target):
     n = len(nums)

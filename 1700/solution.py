@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 class Solution:
     def countStudents(self, students: list[int], sandwiches: list[int]) -> int:
         students_counter = Counter(students)
@@ -7,7 +8,7 @@ class Solution:
         while stack and students_counter[stack[-1]]:
             students_counter[stack.pop()] -= 1
         return students_counter.total()
-        
+
 
 """
 how do we use stack?

@@ -8,7 +8,6 @@ class Solution:
                 total += integer
             return total
 
-
         def transform(x):
             sum_of_digits = 0
             while x:

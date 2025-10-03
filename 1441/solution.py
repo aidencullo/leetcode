@@ -12,4 +12,3 @@ class Solution:
             if j == len(target):
                 break
         return res
-            

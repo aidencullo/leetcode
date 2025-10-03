@@ -11,6 +11,6 @@ class Solution:
 
         i = 2
         while i < n:
-            c, a, b =  a + b + c, b, c
+            c, a, b = a + b + c, b, c
             i += 1
         return c

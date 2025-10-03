@@ -2,9 +2,11 @@ from solution import MedianFinder
 
 import pytest
 
+
 @pytest.fixture
 def median_finder():
     return MedianFinder()
+
 
 def test_find_median(median_finder):
     median_finder.addNum(1)
@@ -13,6 +15,7 @@ def test_find_median(median_finder):
     median_finder.addNum(3)
     assert median_finder.findMedian() == 2.0
 
+
 def test_find_median_2(median_finder):
     median_finder.addNum(2)
     median_finder.addNum(3)
@@ -20,6 +23,7 @@ def test_find_median_2(median_finder):
     assert median_finder.findMedian() == 3.0
     median_finder.addNum(1)
     assert median_finder.findMedian() == 2.5
+
 
 def test_find_median_3(median_finder):
     median_finder.addNum(1)
@@ -30,6 +34,7 @@ def test_find_median_3(median_finder):
     assert median_finder.findMedian() == 3.0
     median_finder.addNum(6)
     assert median_finder.findMedian() == 3.5
+
 
 def test_find_median_4(median_finder):
     median_finder.addNum(1)

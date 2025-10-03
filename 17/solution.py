@@ -2,6 +2,7 @@
 
 from typing import List
 
+
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         def letterCombinationsHelper(num_index: int, running_str: str) -> List[str]:
@@ -12,6 +13,7 @@ class Solution:
             letters = telephone[digits[num_index]]
             for letter in letters:
                 letterCombinationsHelper(num_index + 1, running_str + letter)
+
         telephone = {
             "2": "abc",
             "3": "def",

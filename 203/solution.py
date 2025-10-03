@@ -8,10 +8,7 @@ class ListNode:
 
 
 class Solution:
-    def removeElements(
-            self, head: Optional[ListNode],
-            val: int
-    ) -> Optional[ListNode]:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         pre_head = ListNode(0, head)
         runner = pre_head
         while runner.next:

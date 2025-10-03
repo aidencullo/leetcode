@@ -16,6 +16,7 @@ class Solution:
             self.univalue = self.univalue and root.val == prev
             helper(root.left, prev)
             helper(root.right, prev)
+
         self.univalue = True
         helper(root, root.val)
         return self.univalue

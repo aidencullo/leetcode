@@ -2,6 +2,7 @@ from typing import Optional
 
 from util import ListNode
 
+
 # O(n) time, O(1) space
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:

@@ -3,6 +3,7 @@
 
 from typing import List
 
+
 class Solution:
     def calculate(self, s: str) -> int:
         stack = []
@@ -18,16 +19,16 @@ class Solution:
                 ans = ans + sign * num
                 num = 0
                 continue
-            if s[i] == '+':
+            if s[i] == "+":
                 sign = 1
-            if s[i] == '-':
+            if s[i] == "-":
                 sign = -1
-            if s[i] == '(':
+            if s[i] == "(":
                 stack.append(ans)
                 stack.append(sign)
                 ans = 0
                 sign = 1
-            if s[i] == ')':
+            if s[i] == ")":
                 ans *= stack.pop()
                 ans += stack.pop()
             i += 1

@@ -8,6 +8,7 @@ class Solution:
                 subset.append(nums[i])
                 dfs(i + 1)
                 subset.pop()
+
         res = []
         subset = []
         dfs(0)

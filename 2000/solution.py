@@ -9,4 +9,4 @@ class Solution:
             word[l], word[r] = word[r], word[l]
             l += 1
             r -= 1
-        return ''.join(word)
+        return "".join(word)

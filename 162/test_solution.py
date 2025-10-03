@@ -2,8 +2,9 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
         (([0, 1, 0]), 1),
         (([1, 2, 3, 1]), 2),
@@ -18,7 +19,7 @@ from solution import Solution
         (([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]), 13),
         (([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]), 14),
         (([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]), 15),
-    ]
+    ],
 )
 def testSolution(test_input, expected):
     s = Solution()

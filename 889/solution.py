@@ -9,7 +9,9 @@ class TreeNode:
 
 
 class Solution:
-    def constructFromPrePost(self, preorder: list[int], postorder: list[int]) -> Optional[TreeNode]:
+    def constructFromPrePost(
+        self, preorder: list[int], postorder: list[int]
+    ) -> Optional[TreeNode]:
         if not preorder:
             return
         node = TreeNode(preorder.pop(0))
@@ -22,6 +24,10 @@ class Solution:
             else:
                 pre_right = preorder.index(right_child)
                 post_left = postorder.index(left_child)
-                node.left = self.constructFromPrePost(preorder[:pre_right], postorder[:post_left + 1])
-                node.right = self.constructFromPrePost(preorder[pre_right:], postorder[post_left + 1:])
+                node.left = self.constructFromPrePost(
+                    preorder[:pre_right], postorder[: post_left + 1]
+                )
+                node.right = self.constructFromPrePost(
+                    preorder[pre_right:], postorder[post_left + 1 :]
+                )
         return node

@@ -8,11 +8,12 @@ import re
 
 from tree import TreeNode
 
+
 class Codec:
 
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: TreeNode
         :rtype: str
         """
@@ -27,17 +28,16 @@ class Codec:
                 q.append(node.left)
                 q.append(node.right)
         return str(serial)
-                
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
         if data == "[]":
             return None
-        data = re.sub('[][]', "", data)
+        data = re.sub("[][]", "", data)
         data = [int(c) if c != "None" else None for c in data.split(", ")]
         i = 0
         root = TreeNode(data[i])
@@ -51,17 +51,7 @@ class Codec:
                 node.right = TreeNode(data[i]) if not data[i] is None else None
                 q.append(node.left)
                 q.append(node.right)
-        return root            
-
-
-
-
-
-
-
-
-
-
+        return root
 
 
 # dfs
@@ -74,33 +64,37 @@ import re
 
 from tree import TreeNode
 
+
 class Codec:
 
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: TreeNode
         :rtype: str
         """
         serial = ""
+
         def dfs(node: TreeNode):
             nonlocal serial
             if node:
-                serial += ' ' + str(node.val)
+                serial += " " + str(node.val)
                 dfs(node.left)
                 dfs(node.right)
             else:
-                serial += ' ' + 'None'
+                serial += " " + "None"
+
         dfs(root)
         return serial
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
         data = self.extract_list(data)
+
         def dfs():
             val = data.pop(0)
             if val is None:
@@ -109,7 +103,8 @@ class Codec:
             node.left = dfs()
             node.right = dfs()
             return node
+
         return dfs()
-        
-    def extract_list(self, data):        
-        return [int(c) if c != 'None' else None for c in data.split()]
+
+    def extract_list(self, data):
+        return [int(c) if c != "None" else None for c in data.split()]

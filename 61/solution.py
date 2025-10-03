@@ -4,7 +4,7 @@ class Solution:
             while node:
                 yield node
                 node = node.next
-        
+
         def count(node):
             return sum(1 for x in next_node(node))
 

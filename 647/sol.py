@@ -1,4 +1,3 @@
-
 # # O(n^3) solution
 # class Solution:
 #     def countSubstrings(self, s: str) -> int:
@@ -29,7 +28,6 @@
 # assert s.countSubstrings(input_2) == expected_2
 
 
-
 class Solution:
     def countSubstrings(self, s: str) -> int:
         n = len(s)
@@ -38,7 +36,7 @@ class Solution:
         for i in range(n):
             palindromes += count_palindromes(s, l_start=i, r_start=i)
         for i in range(n - 1):
-            palindromes += count_palindromes(s, l_start=i, r_start=i+1)
+            palindromes += count_palindromes(s, l_start=i, r_start=i + 1)
         return palindromes
 
 
@@ -46,11 +44,12 @@ def count_palindromes(s, *, l_start, r_start):
     n = len(s)
     r, l = r_start, l_start
     palindromes = 0
-    while(r < n and l >= 0 and s[l] == s[r]):
+    while r < n and l >= 0 and s[l] == s[r]:
         palindromes += 1
         r += 1
         l -= 1
     return palindromes
+
 
 s = Solution()
 
@@ -60,5 +59,3 @@ assert s.countSubstrings(input_1) == expected_1
 input_2 = "aaa"
 expected_2 = 6
 assert s.countSubstrings(input_2) == expected_2
-
-

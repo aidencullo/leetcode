@@ -5,10 +5,10 @@ class Solution:
             return min(diff, 26 - diff)
 
         time = 0
-        last = 'a'
+        last = "a"
         for c in word:
             time += move_to(last, c)
             last = c
 
-        time += len(word)        
+        time += len(word)
         return time

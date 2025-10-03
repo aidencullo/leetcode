@@ -1,5 +1,6 @@
-from DoublyLinkedList import DoublyLinkedList        
-        
+from DoublyLinkedList import DoublyLinkedList
+
+
 class MyCircularQueue:
 
     def __init__(self, k: int):

@@ -2,7 +2,13 @@ from collections import deque
 
 
 class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+    def __init__(
+        self,
+        val: int = 0,
+        left: "Node" = None,
+        right: "Node" = None,
+        next: "Node" = None,
+    ):
         self.val = val
         self.left = left
         self.right = right
@@ -10,7 +16,7 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    def connect(self, root: "Optional[Node]") -> "Optional[Node]":
         q = deque([root]) if root else deque()
 
         while q:

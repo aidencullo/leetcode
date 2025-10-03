@@ -3,11 +3,12 @@
 
 from typing import List
 
+
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         task_count = [0] * 26
         for task in tasks:
-            task_count[ord(task) - ord('A')] += 1
+            task_count[ord(task) - ord("A")] += 1
         task_count.sort()
         max_val = task_count[-1] - 1
         idle_slots = max_val * n

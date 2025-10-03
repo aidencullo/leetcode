@@ -5,7 +5,7 @@ class Solution:
     def largestInteger(self, num: int) -> int:
         even_heap = []
         odd_heap = []
-        digits = [-int(digit) for digit in  str(num)]
+        digits = [-int(digit) for digit in str(num)]
 
         for digit in digits:
             if digit % 2 == 0:

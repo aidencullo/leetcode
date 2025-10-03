@@ -4,6 +4,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def balanceBST(self, root: TreeNode) -> TreeNode:
         def insert(arr):
@@ -11,8 +12,8 @@ class Solution:
                 return
             val = arr[len(arr) // 2]
             node = TreeNode(val)
-            node.left = insert(arr[:len(arr) // 2])
-            node.right = insert(arr[len(arr) // 2 + 1:])
+            node.left = insert(arr[: len(arr) // 2])
+            node.right = insert(arr[len(arr) // 2 + 1 :])
             return node
 
         def traverse(root: TreeNode) -> TreeNode:

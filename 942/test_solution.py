@@ -2,9 +2,11 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.fixture
 def setup():
     return Solution()
+
 
 def test_diStringMatch(setup):
     sol = setup

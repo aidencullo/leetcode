@@ -8,7 +8,9 @@ class ListNode:
 
 
 class Solution:
-    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+    def reverseBetween(
+        self, head: Optional[ListNode], left: int, right: int
+    ) -> Optional[ListNode]:
         before_head = ListNode(0, head)
         after_reverse = self.get_nth_node(before_head, right + 2)
         before_reverse = self.get_nth_node(before_head, left)

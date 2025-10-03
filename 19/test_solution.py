@@ -1,18 +1,22 @@
-
 import pytest
 
 from solution import Solution, ListNode
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
-        ((ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))), 2), ListNode(1, ListNode(2, ListNode(3, ListNode(5))))),
+        (
+            (ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))), 2),
+            ListNode(1, ListNode(2, ListNode(3, ListNode(5)))),
+        ),
         ((ListNode(1), 1), None),
         ((ListNode(1, ListNode(2)), 2), ListNode(2)),
     ],
 )
 def test_solution(test_input, expected):
     assert compare_linked_lists(Solution().removeNthFromEnd(*test_input), expected)
+
 
 def compare_linked_lists(l1, l2):
     while l1 and l2:

@@ -17,4 +17,5 @@ class Solution:
                 yield root.val
             yield from dfs(root.left)
             yield from dfs(root.right)
+
         return list(dfs(root1)) == list(dfs(root2))

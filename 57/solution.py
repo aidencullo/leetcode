@@ -25,7 +25,7 @@
 #                         results.append(newInterval)
 #                 results.append(interval)
 #         if running:
-#             results.append(running)            
+#             results.append(running)
 #         if not ran:
 #             results.append(newInterval)
 #         return results
@@ -39,9 +39,12 @@ from typing import List
 
 from utils import combine, intersect
 
+
 # O(nlogn) time and O(n) space
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         intervals.append(newInterval)
         intervals.sort()
         current = intervals[0]
@@ -62,16 +65,19 @@ from neetcode
 """
 from typing import List
 
+
 # O(nlogn) time and O(n) space
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         intervals.append(newInterval)
         intervals.sort()
         result = [intervals[0]]
-        
+
         for start, end in intervals:
             last_end = result[-1][1]
-            
+
             if start <= last_end:
                 result[-1][1] = max(last_end, end)
             else:

@@ -16,7 +16,6 @@ class Trie:
                 current.children[letter] = self.TrieNode()
                 current = current.children[letter]
         current.is_end_of_word = True
-                
 
     def search(self, word: str) -> bool:
         current = self.root

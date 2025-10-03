@@ -12,4 +12,5 @@ class Solution:
             if g and g % 2 == 0:
                 total += root.val
             return total
+
         return dfs(None, None, root)

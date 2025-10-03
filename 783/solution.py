@@ -15,6 +15,7 @@ class Solution:
             if not root:
                 return []
             return inorder(root.left) + [root.val] + inorder(root.right)
+
         traversed = inorder(root)
         res = [abs(a - b) for a, b in zip(traversed[1:], traversed)]
         return min(res)

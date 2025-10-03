@@ -3,6 +3,7 @@
 from collections import deque
 import math
 
+
 class Solution:
     def numSquares(self, n: int) -> int:
         q = deque()
@@ -15,11 +16,11 @@ class Solution:
                 current = q.popleft()
                 max_square = math.floor(math.sqrt(current))
                 for i in range(max_square, 0, -1):
-                    sq = i ** 2
-                    if current-sq == 0:
+                    sq = i**2
+                    if current - sq == 0:
                         return count
-                    if current-sq > 0:
-                        q.append(current-sq)
+                    if current - sq > 0:
+                        q.append(current - sq)
 
 
 # try DP solution

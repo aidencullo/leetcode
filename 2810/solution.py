@@ -6,7 +6,7 @@ class Solution:
         deq = deque()
         front = False
         for letter in s:
-            if letter == 'i':
+            if letter == "i":
                 front = not front
             else:
                 if front:

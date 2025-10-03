@@ -10,6 +10,6 @@ class Solution:
                 l += 1
             else:
                 total -= nums[r]
-                r -= 1                
+                r -= 1
             max_sub = max(max_sub, total)
         return max_sub

@@ -5,11 +5,14 @@
 
 from typing import List
 
+
 class Solution:
 
     def trap(self, heights: List[int]) -> int:
         max_index = heights.index(max(heights))
-        return self.helper(heights[:max_index+1]) + self.helper(heights[max_index:][::-1])
+        return self.helper(heights[: max_index + 1]) + self.helper(
+            heights[max_index:][::-1]
+        )
 
     def helper(self, heights: List[int]) -> int:
         stack = []
@@ -20,19 +23,14 @@ class Solution:
 
     def collect_water(self, stack, heights):
         water = 0
-        for i in range(len(stack)-1):
+        for i in range(len(stack) - 1):
             left = stack[i]
-            right = stack[i+1]
+            right = stack[i + 1]
             left_bar = heights[left]
             right_bar = heights[right]
             water += (right - left - 1) * min(left_bar, right_bar)
-            water -= sum(heights[left+1:right])
+            water -= sum(heights[left + 1 : right])
         return water
-
-
-
-
-
 
 
 # dynamic programming
@@ -42,22 +40,19 @@ class Solution:
 
 from typing import List
 
+
 class Solution:
 
     def trap(self, heights: List[int]) -> int:
         left = [heights[0]] * len(heights)
         for i in range(1, len(heights)):
-            left[i] = max(left[i-1], heights[i])
+            left[i] = max(left[i - 1], heights[i])
 
         right = [heights[-1]] * len(heights)
-        for i in range(len(heights)-2, -1, -1):
-            right[i] = max(right[i+1], heights[i])
+        for i in range(len(heights) - 2, -1, -1):
+            right[i] = max(right[i + 1], heights[i])
 
         return sum(min(left[i], right[i]) - heights[i] for i in range(len(heights)))
-
-
-
-
 
 
 # # two pointers
@@ -84,11 +79,6 @@ class Solution:
 #                 max_r = max(max_r, heights[r])
 #                 r -= 1
 #         return water
-
-
-
-
-
 
 
 # # brute force

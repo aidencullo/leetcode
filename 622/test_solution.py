@@ -28,7 +28,8 @@ def test_Leetcode():
     assert not q.deQueue()
     assert not q.deQueue()
 
-'''
+
+"""
 ["MyCircularQueue","enQueue","Rear","Rear","deQueue","enQueue","Rear","deQueue","Front","deQueue","deQueue","deQueue"]
 [[6],[6],[],[],[],[5],[],[],[],[],[],[]]
-'''
+"""

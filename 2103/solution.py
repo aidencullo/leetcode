@@ -8,6 +8,7 @@ def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
     return zip_longest(*args, fillvalue=fillvalue)
 
+
 class Solution:
     def countPoints(self, rings: str) -> int:
         rods = defaultdict(set)

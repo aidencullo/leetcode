@@ -1,14 +1,17 @@
 from collections import defaultdict
 from typing import List
 
+
 class Node:
-    def __init__(self, val = 0, neighbors = None):
+    def __init__(self, val=0, neighbors=None):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
+
 
 def buildGraph(edges: List[List[int]], N: int):
     if not edges:
         return None
+
     def dfs(i):
         if i in visited:
             return nodes[i]
@@ -46,6 +49,7 @@ def compareGraphByValue(graph_B: Node, graph_A: Node):
             if not compareGraphByValueHelper(neighbor_A, neighbor_B):
                 return False
         return True
+
     visited = set()
     return compareGraphByValueHelper(graph_A, graph_B)
 
@@ -75,5 +79,6 @@ def compareGraphById(graph_B: Node, graph_A: Node):
             if not compareGraphByIdHelper(neighbor_A, neighbor_B):
                 return False
         return True
+
     visited = set()
     return compareGraphByIdHelper(graph_A, graph_B)

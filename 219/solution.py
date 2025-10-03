@@ -4,6 +4,7 @@
 from typing import List
 import math
 
+
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         hash_table = {}

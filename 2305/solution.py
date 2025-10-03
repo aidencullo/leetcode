@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def distributeCookies(self, cookies: List[int], k: int) -> int:
         def distributeCookiesHelper(bags: List[int], cookie_index: int) -> int:
@@ -11,9 +12,10 @@ class Solution:
                 bags[j] += cookie
                 distributeCookiesHelper(bags, cookie_index + 1)
                 bags[j] -= cookie
+
         if k == len(cookies):
             return max(cookies)
         bags = [0] * k
-        self.unfairness = float('inf')
+        self.unfairness = float("inf")
         distributeCookiesHelper(bags, 0)
         return self.unfairness

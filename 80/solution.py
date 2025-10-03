@@ -1,7 +1,7 @@
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         l, r = 0, 0
-        current = float('inf')
+        current = float("inf")
         count = 0
         while r < len(nums):
             if count == 2:

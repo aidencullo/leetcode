@@ -3,13 +3,15 @@
 
 from typing import Optional
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-        
+
+
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         def dfs(node, running):
@@ -21,6 +23,7 @@ class Solution:
                 return
             dfs(node.left, current_value * 10)
             dfs(node.right, current_value * 10)
+
         self.sum = 0
         dfs(root, 0)
         return self.sum

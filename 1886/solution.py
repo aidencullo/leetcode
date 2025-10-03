@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Solution:
     def findRotation(self, mat: list[list[int]], target: list[list[int]]) -> bool:
         current = np.array(mat)

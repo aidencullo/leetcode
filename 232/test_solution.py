@@ -2,6 +2,7 @@ import pytest
 
 from solution import MyQueue
 
+
 @pytest.fixture()
 def q():
     return MyQueue()
@@ -55,6 +56,7 @@ def testQueueComplex(q):
     assert q.pop() == 3
     assert q.pop() == 4
     assert q.empty()
+
 
 def testLeet(q):
 

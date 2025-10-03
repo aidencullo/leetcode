@@ -6,5 +6,5 @@ class Solution:
                 cnt += n & 1
                 n //= 2
             return cnt
-        
+
         return sum(num for i, num in enumerate(nums) if count(i) == k)

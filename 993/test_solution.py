@@ -3,11 +3,12 @@ from solution import TreeNode, Solution
 
 # Define test cases
 test_cases = [
-    ([1,2,3,4], 4, 3, False),
-    ([1,2,3,None,4,None,5], 5, 4, True),
-    ([1,2,3,None,4], 2, 3, False),
+    ([1, 2, 3, 4], 4, 3, False),
+    ([1, 2, 3, None, 4, None, 5], 5, 4, True),
+    ([1, 2, 3, None, 4], 2, 3, False),
     # Add more test cases as needed
 ]
+
 
 # Define helper function to build a binary tree from list
 def build_tree_from_list(nums):
@@ -24,6 +25,7 @@ def build_tree_from_list(nums):
                 node.right = nodes[right_index]
     return nodes[0]
 
+
 # Define pytest test function
 @pytest.mark.parametrize("tree_values, x, y, expected", test_cases)
 def test_isCousins(tree_values, x, y, expected):
@@ -33,6 +35,7 @@ def test_isCousins(tree_values, x, y, expected):
     solution = Solution()
     # Check if nodes are cousins
     assert solution.isCousins(root, x, y) == expected
+
 
 # Run pytest
 if __name__ == "__main__":

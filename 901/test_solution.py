@@ -13,6 +13,7 @@ def test_solution():
     assert s.next(75) == 4
     assert s.next(85) == 6
 
+
 def test_other():
     s = StockSpanner()
     assert s.next(29) == 1
@@ -20,6 +21,7 @@ def test_other():
     assert s.next(62) == 1
     assert s.next(76) == 2
     assert s.next(51) == 1
+
 
 def test_other_2():
     s = StockSpanner()
@@ -33,6 +35,7 @@ def test_other_2():
     assert s.next(80) == 8
     assert s.next(87) == 9
     assert s.next(88) == 10
+
 
 def test_time_limit():
     s = StockSpanner()

@@ -8,7 +8,9 @@ class ListNode:
 
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(
+        self, headA: ListNode, headB: ListNode
+    ) -> Optional[ListNode]:
         a = self.count(headA)
         b = self.count(headB)
         if a > b:

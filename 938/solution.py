@@ -15,4 +15,8 @@ class Solution:
         total = 0
         if low <= root.val <= high:
             total += root.val
-        return total + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+        return (
+            total
+            + self.rangeSumBST(root.left, low, high)
+            + self.rangeSumBST(root.right, low, high)
+        )

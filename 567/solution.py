@@ -2,7 +2,7 @@
 #     def checkInclusion(self, s1: str, s2: str) -> bool:
 #         if len(s1) > len(s2):
 #             return False
-        
+
 #         ht1 = [0] * 26
 #         ht2 = [0] * 26
 
@@ -30,23 +30,16 @@
 #         return matches == 26
 
 
-
-
-
-
-
-
-
 from collections import Counter
 from typing import Optional, List, Tuple
+
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         s1_counter = Counter(s1)
         for i in range(len(s2) - len(s1) + 1):
-            s2_segment = s2[i: i + len(s1)]
+            s2_segment = s2[i : i + len(s1)]
             s2_counter = Counter(s2_segment)
             if s1_counter == s2_counter:
                 return True
         return False
-            

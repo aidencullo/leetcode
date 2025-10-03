@@ -1,6 +1,7 @@
 from functools import reduce
 from typing import List
 
+
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
         def canPartitionKSubsetsHelper(num_index: int, partitions) -> bool:
@@ -17,5 +18,6 @@ class Solution:
                 if not partitions[bin]:
                     break
             return False
+
         nums.sort(reverse=True)
         return canPartitionKSubsetsHelper(0, [0] * k)

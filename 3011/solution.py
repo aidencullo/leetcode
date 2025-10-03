@@ -1,5 +1,6 @@
 from itertools import groupby, pairwise
 
+
 class Solution:
 
     def canSortArray(self, nums: list[int]) -> bool:
@@ -7,4 +8,3 @@ class Solution:
         for _, item in groupby(nums, key=int.bit_count):
             reordered.extend(sorted(item))
         return all(x <= y for x, y in pairwise(reordered))
-

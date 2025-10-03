@@ -18,7 +18,7 @@ class Solution:
             r = helper(root.right, current_sum)
             if not l and not r:
                 self.total += current_sum
-            return True            
+            return True
 
         self.total = 0
         helper(root, 0)

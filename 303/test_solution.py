@@ -1,6 +1,7 @@
 import pytest
 from solution import NumArray
 
+
 def test_numarray():
     # Test case from the example
     numArray = NumArray([-2, 0, 3, -5, 2, -1])
@@ -15,7 +16,7 @@ def test_numarray():
 
     # Test with entire array
     assert numArray.sumRange(0, 5) == -3, "Test case 7 failed"
-    
+
     # Test with different array configurations
     # All positive numbers
     numArray = NumArray([1, 2, 3, 4, 5])

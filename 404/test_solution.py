@@ -3,6 +3,7 @@ import pytest
 # Import the TreeNode class and Solution class from the solution file
 from solution import TreeNode, Solution
 
+
 # Define test cases using pytest
 class TestSolution:
     @pytest.fixture
@@ -27,4 +28,3 @@ class TestSolution:
     def test_single_node(self, solution):
         root = TreeNode(5)
         assert solution.sumOfLeftLeaves(root) == 0
-

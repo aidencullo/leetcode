@@ -3,7 +3,7 @@ class Solution:
         nums.sort()
         n = len(nums)
         best_guess = 0
-        square_diff = float('inf')
+        square_diff = float("inf")
         for i, ele in enumerate(nums):
             l, r = i + 1, n - 1
             while l < r:

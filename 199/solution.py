@@ -1,5 +1,6 @@
 from collections import deque
 
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -17,7 +18,9 @@ class Solution:
             qlen = len(q)
             for i in range(qlen):
                 n = q.popleft()
-                if n.left: q.append(n.left)
-                if n.right: q.append(n.right)
+                if n.left:
+                    q.append(n.left)
+                if n.right:
+                    q.append(n.right)
             results.append(n.val)
         return results

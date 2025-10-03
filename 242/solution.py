@@ -6,7 +6,6 @@
 
 # An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
- 
 
 # Example 1:
 
@@ -16,21 +15,12 @@
 
 # Input: s = "rat", t = "car"
 # Output: false
- 
+
 
 # Constraints:
 
 # 1 <= s.length, t.length <= 5 * 104
 # s and t consist of lowercase English letters.
-
-
-
-
-
-
-
-
-
 
 
 # from collections import defaultdict
@@ -46,7 +36,7 @@
 #         s_dict = defaultdict(int)
 #         for letter in s:
 #             s_dict[letter] += 1
-            
+
 #         t_dict = defaultdict(int)
 #         for letter in t:
 #             t_dict[letter] += 1
@@ -54,6 +44,7 @@
 #         return s_dict == t_dict
 
 from collections import Counter
+
 
 # O(n) time O(n) space
 class Solution:

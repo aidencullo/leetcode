@@ -7,8 +7,8 @@ class Solution:
         index_nums2 = n - 1
         index_merged = m + n - 1
         while index_merged >= 0:
-            n1 = float('-inf') if index_nums1 < 0 else  nums1[index_nums1]
-            n2 = float('-inf') if index_nums2 < 0 else  nums2[index_nums2]
+            n1 = float("-inf") if index_nums1 < 0 else nums1[index_nums1]
+            n2 = float("-inf") if index_nums2 < 0 else nums2[index_nums2]
             if n1 >= n2:
                 nums1[index_merged] = nums1[index_nums1]
                 index_merged -= 1

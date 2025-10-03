@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     # O(log n) time O(n) space?
     def search(self, nums: List[int], target: int) -> int:
@@ -13,6 +14,6 @@ class Solution:
         if target == median:
             return start + mid
         elif target > median:
-            return self.helper(nums[mid+1:], target, mid + start + 1)
+            return self.helper(nums[mid + 1 :], target, mid + start + 1)
         else:
             return self.helper(nums[:mid], target, start)

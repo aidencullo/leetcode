@@ -21,7 +21,7 @@ class Solution:
             return r
 
         n = len(arr)
-        candidates = [arr[n // 4], arr[n // 2], arr[(3*n) // 4]]
+        candidates = [arr[n // 4], arr[n // 2], arr[(3 * n) // 4]]
         for candidate in candidates:
             l = leftBound(candidate)
             r = rightBound(candidate)

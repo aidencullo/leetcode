@@ -4,13 +4,44 @@ from solution import Solution
 from solution import ListNode
 
 
-@pytest.mark.parametrize("test_input, expected", [
-    ((ListNode(1, ListNode(2, ListNode(6, ListNode(3, ListNode(4, ListNode(5, ListNode(6)))))), ), 6),
-     ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))),
-    ((ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))), ), 1),
-     ListNode(2, ListNode(3, ListNode(4, ListNode(5)))), ),
-    ((ListNode(7, ListNode(7, ListNode(7, ListNode(7))), ), 7), None),
-])
+@pytest.mark.parametrize(
+    "test_input, expected",
+    [
+        (
+            (
+                ListNode(
+                    1,
+                    ListNode(
+                        2,
+                        ListNode(6, ListNode(3, ListNode(4, ListNode(5, ListNode(6))))),
+                    ),
+                ),
+                6,
+            ),
+            ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))),
+        ),
+        (
+            (
+                ListNode(
+                    1,
+                    ListNode(2, ListNode(3, ListNode(4, ListNode(5)))),
+                ),
+                1,
+            ),
+            ListNode(2, ListNode(3, ListNode(4, ListNode(5)))),
+        ),
+        (
+            (
+                ListNode(
+                    7,
+                    ListNode(7, ListNode(7, ListNode(7))),
+                ),
+                7,
+            ),
+            None,
+        ),
+    ],
+)
 def test_solution(test_input, expected):
     sol = Solution()
     assert compare_LL(sol.removeElements(*test_input), expected)

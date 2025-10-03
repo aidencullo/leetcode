@@ -8,7 +8,7 @@ class Node:
 
 
 class Solution:
-    def levelOrder(self, root: 'Node') -> list[list[int]]:
+    def levelOrder(self, root: "Node") -> list[list[int]]:
         if not root:
             return []
         res = []

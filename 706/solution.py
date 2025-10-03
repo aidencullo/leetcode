@@ -12,7 +12,6 @@ class MyHashMap:
         self.capacity = 1
         self.hashset = [None] * self.capacity
 
-
     def put(self, key: int, value: int) -> None:
         hash_key = hash(key) % self.capacity
         entry = self.hashset[hash_key]
@@ -87,7 +86,7 @@ class MyHashMap:
         entry.next = Entry(key, value)
 
     def _resize(self):
-        if self._load_factor() < .5:
+        if self._load_factor() < 0.5:
             return
         self.capacity *= 2
         new_hashset = self.hashset[:]

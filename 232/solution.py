@@ -9,7 +9,7 @@ class MyQueue:
 
     def pop(self) -> int:
         self._fix_stack()
-        return self.front.pop()            
+        return self.front.pop()
 
     def peek(self) -> int:
         self._fix_stack()

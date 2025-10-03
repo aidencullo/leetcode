@@ -4,4 +4,4 @@ class Solution:
         n = len(nums)
         l = [x for i, x in enumerate(nums) if i % 2 == 0]
         r = [x for i, x in enumerate(nums) if i % 2 == 1]
-        return int(''.join(l)) + int(''.join(r))
+        return int("".join(l)) + int("".join(r))

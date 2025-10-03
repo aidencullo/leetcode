@@ -7,7 +7,7 @@ class Solution:
         num2 = num2[::-1]
         carry = 0
         res = []
-        for x, y in zip_longest(num1, num2, fillvalue='0'):
+        for x, y in zip_longest(num1, num2, fillvalue="0"):
             a = int(x)
             b = int(y)
             c = a + b + carry
@@ -15,4 +15,4 @@ class Solution:
             carry = c // 10
         if carry:
             res.append(str(carry))
-        return ''.join(res[::-1])
+        return "".join(res[::-1])

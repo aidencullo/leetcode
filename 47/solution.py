@@ -17,6 +17,7 @@
 
 from typing import List
 
+
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         def permuteUniqueHelper(hash_map: dict[int, int], permutation):
@@ -30,6 +31,7 @@ class Solution:
                     permuteUniqueHelper(hash_map, permutation)
                     hash_map[key] += 1
                     permutation.pop()
+
         self.permutations = []
         hash_map = {}
         for num in nums:

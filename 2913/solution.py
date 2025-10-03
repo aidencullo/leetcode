@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class Solution:
     def sumCounts(self, nums: list[int]) -> int:
         n = len(nums)

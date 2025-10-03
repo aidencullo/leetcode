@@ -15,11 +15,11 @@ class Solution:
                 else:
                     r = mid - 1
             return r
-        
+
         events.sort(key=itemgetter(1))
         ends = [end for _, end, _ in events]
         vals = [val for _, _, val in events]
-        dp = [max(vals[:i + 1]) for i in range(len(events))]
+        dp = [max(vals[: i + 1]) for i in range(len(events))]
         max_val = 0
         for start, end, val in events:
             start_index = search(ends, start - 1)

@@ -7,5 +7,5 @@ class Solution:
         for i in range(1, 101):
             result.extend([i] * nums_sorted[i])
         for i in range(0, len(result), 2):
-            result[i], result[i+1] = result[i+1], result[i]
+            result[i], result[i + 1] = result[i + 1], result[i]
         return result

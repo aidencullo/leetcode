@@ -3,7 +3,7 @@ class Solution:
         self.memo = {}
         self.memo[0] = 1
         self.memo[1] = 1
-    
+
     def numTrees(self, n: int) -> int:
         if n in self.memo:
             return self.memo[n]
@@ -12,4 +12,3 @@ class Solution:
             total += self.numTrees(i - 1) * self.numTrees(n - i)
         self.memo[n] = total
         return self.memo[n]
-        

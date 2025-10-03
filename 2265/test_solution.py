@@ -3,6 +3,7 @@ from solution import Solution, TreeNode
 
 import pytest
 
+
 def test_averageOfSubtree():
     # Helper function to build tree from list
     def build_tree(nodes, index=0):
@@ -42,6 +43,7 @@ def test_averageOfSubtree():
     nodes6 = [1, 2, None, 3, 4]
     root6 = build_tree(nodes6)
     assert Solution().averageOfSubtree(root6) == 2
+
 
 # Running the tests
 pytest.main()

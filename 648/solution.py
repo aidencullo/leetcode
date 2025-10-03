@@ -16,7 +16,7 @@
 #         for letter in word:
 #             if not letter in node.children:
 #                 node.children[letter] = TrieNode()
-#             node = node.children[letter]                
+#             node = node.children[letter]
 #         node.isEnd = True
 
 
@@ -50,9 +50,9 @@ class Solution:
         res = []
         for word in sentence.split():
             res.append(word)
-            for i in range(len(word)+1):
+            for i in range(len(word) + 1):
                 if word[:i] in hash_set:
                     res.pop()
                     res.append(word[:i])
                     break
-        return ' '.join(res)
+        return " ".join(res)

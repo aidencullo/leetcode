@@ -1,5 +1,6 @@
 from itertools import zip_longest
 
+
 class Solution:
     def generate(self, numRows: int) -> list[list[int]]:
         if numRows == 1:

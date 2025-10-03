@@ -1,7 +1,7 @@
 class Solution:
     def countVowelSubstrings(self, word: str) -> int:
         def is_vowel_substring(start, end):
-            return set(word[start: end + 1]) == set("aeiou")
+            return set(word[start : end + 1]) == set("aeiou")
 
         def is_vowel(index):
             return word[index] in "aeiou"
@@ -18,13 +18,12 @@ class Solution:
                 count += 1 + end - r
                 l += 1
             return count
-            
-        
+
         n = len(word)
         vowel_substrings = 0
         i = 0
         total = 0
-        
+
         while i < n:
             while i < n and not is_vowel(i):
                 i += 1

@@ -4,7 +4,7 @@ class Node:
         self.val = val
         self.next = next
         self.prev = prev
-        
+
 
 class DoublyLinkedList:
 
@@ -43,6 +43,7 @@ class DoublyLinkedList:
         self.tail = self.tail.prev
         if not self.tail:
             self.head = None
+
 
 # # test
 # ll = DoublyLinkedList()

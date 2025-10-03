@@ -23,4 +23,6 @@ class Solution:
             return False
         if t1.val != t2.val:
             return False
-        return self.compare_trees(t1.left, t2.left) and self.compare_trees(t1.right, t2.right)
+        return self.compare_trees(t1.left, t2.left) and self.compare_trees(
+            t1.right, t2.right
+        )

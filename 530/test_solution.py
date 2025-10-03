@@ -3,6 +3,7 @@ from solution import TreeNode, Solution
 
 import pytest
 
+
 def test_minimum_absolute_difference():
     # Test case 1
     root1 = TreeNode(4)
@@ -34,7 +35,7 @@ def test_minimum_absolute_difference():
 
     # Additional test case 3 (single node)
     root5 = TreeNode(1)
-    assert Solution().getMinimumDifference(root5) == float('inf')
+    assert Solution().getMinimumDifference(root5) == float("inf")
 
 
 def test_minimum_absolute_difference_leet():

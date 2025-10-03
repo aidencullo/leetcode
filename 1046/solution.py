@@ -1,6 +1,7 @@
 class Solution:
     def lastStoneWeight(self, stones: list[int]) -> int:
         import heapq
+
         stones = [-stone for stone in stones]
         heapq.heapify(stones)
         while len(stones) > 1:

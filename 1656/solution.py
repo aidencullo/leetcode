@@ -11,5 +11,5 @@ class OrderedStream:
         while self.ptr in self.values:
             result.append(self.values[self.ptr])
             self.ptr += 1
-            
+
         return result

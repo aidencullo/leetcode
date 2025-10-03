@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
         def dfs(node):
@@ -13,7 +14,7 @@ class Solution:
             child_labels[ord(labels[node]) % 26] += 1
             res[node] = child_labels[ord(labels[node]) % 26]
             return child_labels
-        
+
         graph = dict((node, []) for node in range(n))
         for u, v in edges:
             graph[u].append(v)

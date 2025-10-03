@@ -2,6 +2,7 @@ import pytest
 
 from solution import MyStack
 
+
 @pytest.fixture()
 def s():
     return MyStack()

@@ -17,6 +17,7 @@ class Solution:
             tree_sum = dfs(root.left) + dfs(root.right) + root.val
             tree_sums[tree_sum] += 1
             return tree_sum
+
         tree_sums = defaultdict(int)
         dfs(root)
         max_freq = max(tree_sums.values(), default=0)

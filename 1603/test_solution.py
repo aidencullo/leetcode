@@ -2,10 +2,10 @@ import pytest
 from solution import ParkingSystem
 
 
-@pytest.mark.parametrize("test_input, expected", [
-])
+@pytest.mark.parametrize("test_input, expected", [])
 def test_solution(test_input, expected):
     pass
+
 
 def test_custom():
     s = ParkingSystem(1, 1, 0)

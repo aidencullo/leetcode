@@ -11,6 +11,7 @@ class Solution:
                 r += 1
             self.max = max(self.max, l + r)
             return max(l, r)
+
         self.max = 0
         longest_path(root)
         return self.max

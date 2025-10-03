@@ -32,7 +32,7 @@ def test_all_possible_fbt():
         [0, 0, 0, None, None, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, None, None, None, None, 0, 0],
-        [0, 0, 0, 0, 0, None, None, 0, 0]
+        [0, 0, 0, 0, 0, None, None, 0, 0],
     ]
     assert len(result) == len(expected)
     for tree in result:

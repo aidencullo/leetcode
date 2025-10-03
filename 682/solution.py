@@ -9,11 +9,11 @@ class Solution:
 
         stack = []
         for op in operations:
-            if op == '+':
+            if op == "+":
                 stack.append(stack[-1] + stack[-2])
-            if op == 'C':
+            if op == "C":
                 stack.pop()
-            if op == 'D':
+            if op == "D":
                 stack.append(stack[-1] * 2)
             if is_int_str(op):
                 stack.append(int(op))

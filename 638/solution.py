@@ -1,11 +1,13 @@
 class Solution:
-    def shoppingOffers(self, prices: list[int], special: list[list[int]], needs: list[int]) -> int:
+    def shoppingOffers(
+        self, prices: list[int], special: list[list[int]], needs: list[int]
+    ) -> int:
         def helper(needs):
             if tuple(needs) in memo:
                 return memo[tuple(needs)]
             if any(num < 0 for num in needs):
-                memo[tuple(needs)] = float('inf')
-                return float('inf')
+                memo[tuple(needs)] = float("inf")
+                return float("inf")
             if all(num == 0 for num in needs):
                 memo[tuple(needs)] = 0
                 return 0

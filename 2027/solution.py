@@ -4,7 +4,7 @@ class Solution:
         i = 0
         total = 0
         while i < n:
-            if s[i] == 'X':
+            if s[i] == "X":
                 total += 1
                 i += 3
             else:

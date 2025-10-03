@@ -3,7 +3,7 @@ class Solution:
         target = tickets[k]
         total = 0
         n = len(tickets)
-        
+
         for i in range(k + 1):
             total += min(tickets[i], target)
         for i in range(k + 1, n):

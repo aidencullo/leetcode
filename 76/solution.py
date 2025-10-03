@@ -6,6 +6,7 @@
 import math
 from collections import Counter, defaultdict
 
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         need = Counter(t)
@@ -25,11 +26,7 @@ class Solution:
                     valid_cnt -= 1
                 window[s[left]] -= 1
                 left += 1
-        return s[min_idx:min_idx + min_len] if min_len != math.inf else ''
-
-
-
-
+        return s[min_idx : min_idx + min_len] if min_len != math.inf else ""
 
 
 # brute force
@@ -40,6 +37,7 @@ class Solution:
 import math
 from collections import Counter, defaultdict
 
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         min_len = math.inf
@@ -47,8 +45,8 @@ class Solution:
         need = Counter(t)
         for left in range(len(s)):
             for right in range(left, len(s)):
-                window = Counter(s[left: right+1])
+                window = Counter(s[left : right + 1])
                 if need <= window and right - left + 1 < min_len:
                     min_idx = left
                     min_len = right - left + 1
-        return s[min_idx:min_idx+min_len] if min_len != math.inf else ''
+        return s[min_idx : min_idx + min_len] if min_len != math.inf else ""

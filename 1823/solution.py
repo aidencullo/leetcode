@@ -3,6 +3,7 @@ class ListNode:
         self.val = val
         self.next = None
 
+
 class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
         head = ListNode()

@@ -4,6 +4,7 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 # O(n) time and O(1) space
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:

@@ -28,15 +28,11 @@
 #         return list(levels_dict.values()) # O(n)
 
 
-
-
-
-
-
 # Solution 2
 
 from collections import deque, defaultdict
 from typing import Optional, List, Tuple
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -63,4 +59,3 @@ class Solution:
             if level:
                 result.append(level)
         return result
- 

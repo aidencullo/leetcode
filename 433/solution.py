@@ -6,9 +6,10 @@
 from typing import List
 from collections import deque
 
+
 class Solution:
     def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
-        choices = 'ACGT'
+        choices = "ACGT"
         bank = set(bank)
         q = deque([startGene])
         count = -1
@@ -21,7 +22,7 @@ class Solution:
                     return count
                 for choice in choices:
                     for i in range(len(gene)):
-                        newGene = gene[:i] + choice + gene[i+1:]
+                        newGene = gene[:i] + choice + gene[i + 1 :]
                         if newGene in bank:
                             q.append(newGene)
                             bank.remove(newGene)
@@ -37,6 +38,7 @@ class Solution:
 from typing import List
 from collections import deque
 
+
 class Solution:
     def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
 
@@ -46,13 +48,14 @@ class Solution:
                 return
             for choice in choices:
                 for i in range(len(gene)):
-                    newGene = gene[:i] + choice + gene[i+1:]
+                    newGene = gene[:i] + choice + gene[i + 1 :]
                     if newGene in bank:
                         bank.remove(newGene)
                         dfs(newGene, count + 1)
                         bank.add(newGene)
-        choices = 'ACGT'
+
+        choices = "ACGT"
         bank = set(bank)
-        self.min_len = float('inf')
+        self.min_len = float("inf")
         dfs(startGene, 0)
-        return self.min_len if self.min_len != float('inf') else -1
+        return self.min_len if self.min_len != float("inf") else -1

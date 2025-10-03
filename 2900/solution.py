@@ -5,7 +5,7 @@ class Solution:
             if i == 0:
                 res.append(words[i])
                 continue
-            if groups[i] != groups[i-1]:
+            if groups[i] != groups[i - 1]:
                 res.append(words[i])
                 continue
         return res

@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -16,5 +17,5 @@ class Solution:
         _idx = nums.index(_max)
         node = TreeNode(_max)
         node.left = self.constructMaximumBinaryTree(nums[:_idx])
-        node.right = self.constructMaximumBinaryTree(nums[_idx + 1:])
+        node.right = self.constructMaximumBinaryTree(nums[_idx + 1 :])
         return node

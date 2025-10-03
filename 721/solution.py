@@ -5,7 +5,7 @@
 #     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
 #         def get_emails(index):
 #             return accounts[index][1:]
-            
+
 #         def dfs(index):
 #             visited.add(index)
 #             results = [index]
@@ -14,7 +14,7 @@
 #                     if not edge in visited:
 #                         results.extend(dfs(edge))
 #             return results
-        
+
 #         edges = defaultdict(list)
 
 #         # O(E)
@@ -41,16 +41,12 @@
 
 #         for result in results:
 #             result[1:] = sorted(list(set(result[1:])))
-                
+
 #         return results
 
 
-
-
-
-
 # ## Solution 2
-# # 
+# #
 # from typing import Optional, List, Tuple
 # from collections import defaultdict
 
@@ -78,7 +74,7 @@
 
 
 #         print(f'{uf.par=}')
-            
+
 #         return results
 
 
@@ -105,40 +101,29 @@
 #             self.rank[par_y] += self.rank[par_x]
 
 
-
-
-
-
-
-
-
-
-
-
- 
-
 ## Solution 3
-# 
+#
 from typing import Optional, List, Tuple
 from collections import defaultdict
 
+
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
-        uf = UnionFind(len(accounts)) # O(log V)
+        uf = UnionFind(len(accounts))  # O(log V)
         email_to_accts = {}
-        for acct_index, acct in enumerate(accounts): # O(V + ElogV)
+        for acct_index, acct in enumerate(accounts):  # O(V + ElogV)
             for email in acct[1:]:
                 if email in email_to_accts:
-                    uf.union_find(email_to_accts[email], acct_index) # O(logV)
+                    uf.union_find(email_to_accts[email], acct_index)  # O(logV)
                 else:
                     email_to_accts[email] = acct_index
         results_dict = defaultdict(list)
-        for e, i in email_to_accts.items(): # O(ElogV)
+        for e, i in email_to_accts.items():  # O(ElogV)
             leader = uf.find(i)
             results_dict[leader].append(e)
 
         results = []
-        for i, e in results_dict.items(): # O(V + ElogE)
+        for i, e in results_dict.items():  # O(V + ElogE)
             entry = []
             entry.append(accounts[i][0])
             entry.extend(sorted(e))

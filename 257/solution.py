@@ -18,6 +18,7 @@ class Solution:
             path += str(root.val) + "->"
             helper(root.left, path)
             helper(root.right, path)
+
         self.paths = []
         helper(root, "")
         return self.paths

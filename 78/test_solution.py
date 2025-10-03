@@ -2,11 +2,12 @@ import pytest
 
 from solution import Solution
 
+
 @pytest.mark.parametrize(
-    ('test_input', 'expected'),
+    ("test_input", "expected"),
     [
-        (([1,2,3],), [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]),
-    ]
+        (([1, 2, 3],), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]),
+    ],
 )
 def testSolution(test_input, expected):
     actual = Solution().subsets(*test_input)

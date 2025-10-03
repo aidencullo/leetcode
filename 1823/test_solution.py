@@ -1,5 +1,6 @@
 from solution import Solution
 
+
 def test_find_the_winner():
     sol = Solution()
 
@@ -11,7 +12,6 @@ def test_find_the_winner():
     assert result == expected
 
 
-    
 def test_find_the_winner_alternative():
     sol = Solution()
 

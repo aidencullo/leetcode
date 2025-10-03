@@ -24,5 +24,5 @@ class Solution:
                 decrypted.append(running_sum)
         if k == 0:
             for i in range(n):
-                decrypted.append(0)                   
+                decrypted.append(0)
         return decrypted

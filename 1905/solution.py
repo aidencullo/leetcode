@@ -18,11 +18,11 @@ class Solution:
                 return
             if grid2[r][c] == 0:
                 return
-            grid2[r][c] = 0            
+            grid2[r][c] = 0
             seen.add((r, c))
             for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
                 negative_dfs(r + dr, c + dc)
-        
+
         seen = set()
         m = len(grid2)
         n = len(grid2[0])
