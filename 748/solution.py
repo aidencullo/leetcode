@@ -2,6 +2,17 @@ from collections import Counter
 
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
+        def lower_char(char):
+            ascii_value = ord(char)
+            if ascii_value > 64 and ascii_value < 91:
+                ascii_value += 32
+            return chr(ascii_value)
+        
+        def lower_word(word):
+            lowered_chars = list(filter(lower_char, word))
+            return ''.join(lower_char)
+
+        
         def remove_non_letters(word):
             lowercase_word = word.lower()
             only_letters = [c for c in lowercase_word if c.isalpha()]
