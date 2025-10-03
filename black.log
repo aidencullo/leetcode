@@ -1,0 +1,7 @@
+error: cannot format /Users/mike/Code/leetcode/2217/test_solution.py: Cannot parse: 25:1: Unexpected EOF in multi-line statement
+error: cannot format /Users/mike/Code/leetcode/89/test_solution.py: Cannot parse: 25:1: Unexpected EOF in multi-line statement
+error: cannot format /Users/mike/Code/leetcode/844/test_solution.py: cannot use --safe with this file; failed to parse source file AST: unexpected indent (<unknown>, line 1)
+This could be caused by running Black with an older Python version that does not support new syntax used in your source file.
+
+Oh no! 💥 💔 💥
+742 files left unchanged, 3 files failed to reformat.
