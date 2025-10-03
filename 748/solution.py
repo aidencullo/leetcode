@@ -26,7 +26,6 @@ class Solution:
 
         licensePlate_letters = remove_non_letters(licensePlate)
         licensePlate_counter = Counter(licensePlate_letters)
-        shortest = math.inf
         res = []
         for word in words:
             word_counter = Counter(word)
