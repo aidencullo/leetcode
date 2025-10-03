@@ -1,13 +1,16 @@
 from collections import Counter
 
+# l = len(licensePlate)
+# w = len(words)
+# k = max(map(len, words))
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
-        def remove_non_letters(word):
-            word = word.lower()
-            return [c for c in word if c.isalpha()]
+        def remove_non_letters(word): # l time space
+            word = word.lower() # l time space
+            return [c for c in word if c.isalpha()] # l time space
 
         def is_subset(a, b):
-            return not (a - b)
+            return not (a - b) # a time
         
         licensePlate_letters = remove_non_letters(licensePlate)
         licensePlate_counter = Counter(licensePlate_letters)
