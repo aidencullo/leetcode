@@ -13,10 +13,5 @@ class Solution:
 
         licensePlate_letters = remove_non_letters(licensePlate)
         licensePlate_counter = Counter(licensePlate_letters)
-        res = []
-        for word in words:
-            word_counter = Counter(word)
-            if is_subset(licensePlate_counter, word_counter):
-                res.append(word)
-
+        res = [word for word in words if is_subset(licensePlate_counter, Counter(word))]
         return min(res, key=len)
