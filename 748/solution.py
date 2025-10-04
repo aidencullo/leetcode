@@ -1,3 +1,5 @@
+import random
+from faker import Faker
 from collections import Counter
 
 
@@ -43,4 +45,18 @@ def test_lower_char():
         assert lower_char(c) == c.lower()
 
 
-test_lower_char()
+def randomize_casing(word):
+    return "".join([c.lower() if random.random() > 0.5 else c.upper() for c in word])
+
+
+def test_lower_word():
+
+    fake = Faker()
+    for _ in range(100):
+        word = fake.word()
+        word_random_casing = randomize_casing(word)
+        assert lower_word(word) == word.lower()
+    print("all lower word tests passed!")
+
+
+test_lower_word()
