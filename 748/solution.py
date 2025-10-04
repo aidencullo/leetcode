@@ -1,25 +1,11 @@
-import random
-from faker import Faker
 from collections import Counter
-
-
-def lower_char(char):
-    ascii_value = ord(char)
-    if ascii_value > 64 and ascii_value < 91:
-        ascii_value += 32
-    return chr(ascii_value)
-
-
-def lower_word(word):
-    lowered_chars = list(map(lower_char, word))
-    return "".join(lowered_chars)
 
 
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: list[str]) -> str:
 
         def remove_non_letters(word):
-            lowercase_word = lower_word(word)
+            lowercase_word = word.lower()
             only_letters = [c for c in lowercase_word if c.isalpha()]
             return only_letters
 
@@ -35,28 +21,3 @@ class Solution:
                 res.append(word)
 
         return min(res, key=len)
-
-
-def test_lower_char():
-    import string
-
-    for c in string.ascii_letters:
-        print("testing {}".format(c))
-        assert lower_char(c) == c.lower()
-
-
-def randomize_casing(word):
-    return "".join([c.lower() if random.random() > 0.5 else c.upper() for c in word])
-
-
-def test_lower_word():
-
-    fake = Faker()
-    for _ in range(100):
-        word = fake.word()
-        word_random_casing = randomize_casing(word)
-        assert lower_word(word) == word.lower()
-    print("all lower word tests passed!")
-
-
-test_lower_word()
