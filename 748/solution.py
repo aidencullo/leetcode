@@ -4,9 +4,9 @@ from collections import Counter
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: list[str]) -> str:
         def remove_non_letters(word: str):
-            lowercase_word = word.lower()
-            only_letters = [c for c in lowercase_word if c.isalpha()]
-            return only_letters
+            lowercase = word.lower()
+            letters = list(filter(str.isalpha, lowercase))
+            return letters
 
         def is_subset(a: Counter[str], b: Counter[str]) -> bool:
             return a <= b
