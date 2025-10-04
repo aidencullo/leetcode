@@ -1,47 +1,44 @@
 from pathlib import Path
 
+BLACK_LOG = Path("black.log")
+LEETCODE_DIR = "/Users/mike/Code/leetcode"
+
 
 def read_file() -> str:
-    filename = "black.log"
     try:
-        with open(filename, "r") as f:
+        with BLACK_LOG.open("r") as f:
             return f.read()
     except FileNotFoundError:
         return ""
 
 
 def read_file_lines() -> list[str]:
-    file = read_file()
-    lines = file.splitlines()
-    non_blank_lines = [line for line in lines if line]
-    return non_blank_lines
-
-
-def clean_lines(lines: list[str]) -> list[str]:
-    error_lines = [line for line in lines if is_error_line(line)]
-    return error_lines
+    lines = read_file().splitlines()
+    return [line for line in lines if line]
 
 
 def is_error_line(line: str) -> bool:
     return line.split()[0] == "error:" if line else False
 
 
-def get_filenames(errors: list[str]) -> list[str]:
-    filenames = list(map(get_filename, errors))
-    return filenames
+def clean_lines(lines: list[str]) -> list[str]:
+    return [line for line in lines if is_error_line(line)]
+
+
+def is_filename(word: str) -> bool:
+    return LEETCODE_DIR in word
 
 
 def get_filename(error: str) -> str:
     words = error.split()
-    filenames = list(filter(is_filename, words))
+    filenames = [w for w in words if is_filename(w)]
     if len(filenames) != 1:
         raise Exception("Expected exactly one filename")
     return filenames[0]
 
 
-def is_filename(word: str) -> bool:
-    leetcode_dir = "/Users/mike/Code/leetcode"
-    return leetcode_dir in word
+def get_filenames(errors: list[str]) -> list[str]:
+    return [get_filename(e) for e in errors]
 
 
 def clean_filenames(filenames: list[str]) -> list[str]:
@@ -62,6 +59,10 @@ def delete_files(filenames: list[str]) -> bool:
         return False
 
 
+def interpret_result(result: bool):
+    print("files successfully deleted!" if result else "oops there was an issue")
+
+
 def run() -> None:
     lines = read_file_lines()
     errors = clean_lines(lines)
@@ -71,15 +72,5 @@ def run() -> None:
     interpret_result(result)
 
 
-def interpret_result(result):
-    if result:
-        print("files successfully deleted!")
-    else:
-        print("oops there was an issue")
-
-
-def main() -> None:
+if __name__ == "__main__":
     run()
-
-
-main()
