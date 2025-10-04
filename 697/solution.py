@@ -1,25 +1,26 @@
+from collections import Counter
+
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
-        def degree(lst):
-            if not lst:
-                return
-            counter = Counter(lst)
-            return counter.most_common(1)[0][1]
+        nums_counter = Counter(nums)
+        nums_degree = max(nums_counter.values())
 
-        def generate_subarrays(lst):
-            subarrays = []
-            n = len(lst)
-            for start in range(n):
-                for end in range(start, n):
-                    subarrays.append(lst[start: end + 1])
-            return subarrays
-            
-        
-        nums_degree = degree(nums)
-        subarrays = generate_subarrays(nums)
+        degree = 0
+        counter = Counter()
+        i = 0
+        j = 0
         import math
-        smallest_possible_length = math.inf
-        for subarray in subarrays:
-            if degree(subarray) == nums_degree:
-                smallest_possible_length = min(smallest_possible_length, len(subarray))
-        return smallest_possible_length
+        shortest_subarray = math.inf
+        n = len(nums)
+        while i < n:
+            while degree < nums_degree and i < n:
+                counter[nums[i]] += 1
+                degree = max(counter.values())
+                i += 1
+            while degree == nums_degree:
+                counter[nums[j]] -= 1
+                degree = max(counter.values())
+                j += 1
+            shortest_subarray = min(shortest_subarray, counter.total() + 1)
+        return shortest_subarray
+        
