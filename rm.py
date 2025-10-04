@@ -23,12 +23,7 @@ def clean_lines(lines: list[str]) -> list[str]:
 
 
 def is_error_line(line: str) -> bool:
-    words = line.split()
-    if len(words) == 0:
-        return False
-    if words[0] != "error:":
-        return False
-    return True
+    return line.split()[0] == "error:" if line else False
 
 
 def get_filenames(errors: list[str]) -> list[str]:
