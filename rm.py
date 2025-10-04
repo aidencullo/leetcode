@@ -13,43 +13,53 @@ def read_file_lines() -> list[str]:
     non_blank_lines = list(filter(None, lines))
     return non_blank_lines
 
-def clean_lines(lines):
+
+def clean_lines(lines: list[str]) -> list[str]:
     error_lines = list(filter(is_error_line, lines))
     return error_lines
 
-def is_error_line(line):
+
+def is_error_line(line: str) -> bool:
     words = line.split()
     if len(words) == 0:
         return False
-    if words[0] != 'error:':
+    if words[0] != "error:":
         return False
     return True
 
-def get_filenames(errors):
+
+def get_filenames(errors: list[str]) -> list[str]:
     filenames = list(map(get_filename, errors))
     return filenames
 
-def get_filename(error):
+
+def get_filename(error: str) -> str:
     words = error.split()
     filenames = list(filter(is_filename, words))
     if len(filenames) != 1:
         raise Exception("Expected exactly one filename")
     return filenames[0]
 
-def is_filename(word):
-    return '/Users/mike/Code/leetcode' in word
 
-def clean_filenames(filenames):
-    return list(map(lambda x: x.strip(':'), filenames))
+def is_filename(word: str) -> bool:
+    leetcode_dir = "/Users/mike/Code/leetcode"
+    return leetcode_dir in word
 
-def run():
+
+def clean_filenames(filenames: list[str]) -> list[str]:
+    return [x.strip(":") for x in filenames]
+
+
+def run() -> None:
     lines = read_file_lines()
     errors = clean_lines(lines)
     filenames = get_filenames(errors)
     cleaned_filenames = clean_filenames(filenames)
     print(cleaned_filenames)
 
-def main():
+
+def main() -> None:
     run()
+
 
 main()
