@@ -13,12 +13,12 @@ def read_file() -> str:
 def read_file_lines() -> list[str]:
     file = read_file()
     lines = file.splitlines()
-    non_blank_lines = list(filter(None, lines))
+    non_blank_lines = [line for line in lines if line]
     return non_blank_lines
 
 
 def clean_lines(lines: list[str]) -> list[str]:
-    error_lines = list(filter(is_error_line, lines))
+    error_lines = [line for line in lines if is_error_line(line)]
     return error_lines
 
 
