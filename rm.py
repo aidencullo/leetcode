@@ -50,12 +50,32 @@ def clean_filenames(filenames: list[str]) -> list[str]:
     return [x.strip(":") for x in filenames]
 
 
+def delete_file(file):
+    import os
+
+    os.remove(file)
+
+
+def delete_files(files):
+    try:
+        for file in files:
+            delete_file(file)
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
+
 def run() -> None:
     lines = read_file_lines()
     errors = clean_lines(lines)
     filenames = get_filenames(errors)
     cleaned_filenames = clean_filenames(filenames)
-    print(cleaned_filenames)
+    result = delete_files(cleaned_filenames)
+    if result:
+        print("files successfully deleted!")
+    else:
+        print("oops there was an issue")
 
 
 def main() -> None:
