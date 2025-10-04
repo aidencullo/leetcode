@@ -1,12 +1,17 @@
-def read_file():
+def read_file() -> str:
+    filename = "black.log"
     try:
-        with open("black.log", "r") as f:
+        with open(filename, "r") as f:
             return f.read()
     except FileNotFoundError:
-        return ""  # or None
+        return ""
 
-def get_file():
-    file: str = read_file()
-    print(file)
 
-get_file()
+def read_file_lines() -> list[str]:
+    file = read_file()
+    lines = file.splitlines()
+    return lines
+
+
+result = read_file_lines()
+print(result)
