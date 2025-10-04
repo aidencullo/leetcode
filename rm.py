@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 def read_file() -> str:
     filename = "black.log"
     try:
@@ -51,9 +54,7 @@ def clean_filenames(filenames: list[str]) -> list[str]:
 
 
 def delete_file(filename: str) -> None:
-    import os
-
-    os.remove(filename)
+    Path(filename).unlink()
 
 
 def delete_files(filenames: list[str]) -> bool:
@@ -73,6 +74,7 @@ def run() -> None:
     cleaned_filenames = clean_filenames(filenames)
     result = delete_files(cleaned_filenames)
     interpret_result(result)
+
 
 def interpret_result(result):
     if result:
