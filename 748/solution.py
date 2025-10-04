@@ -9,7 +9,7 @@ class Solution:
             return only_letters
 
         def is_subset(a: Counter[str], b: Counter[str]) -> bool:
-            return all(count <= b[letter] for letter, count in a.items())
+            return a <= b
 
         licensePlate_letters = remove_non_letters(licensePlate)
         licensePlate_counter = Counter(licensePlate_letters)
