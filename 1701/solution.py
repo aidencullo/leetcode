@@ -5,13 +5,15 @@ class Solution:
             while low:
                 low, high = high % low, low
             return high
-        
+
         n = len(str1)
         m = len(str2)
         numeric_gcd = gcd(n, m)
         string_gcd = str1[:numeric_gcd]
 
-        if string_gcd * (n // numeric_gcd) in str1 and
-              string_gcd * (m // numeric_gcd) in str2:
-                return string_gcd
-        return ''
+        if (
+            string_gcd * (n // numeric_gcd) in str1
+            and string_gcd * (m // numeric_gcd) in str2
+        ):
+            return string_gcd
+        return ""
