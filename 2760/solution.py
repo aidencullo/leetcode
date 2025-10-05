@@ -5,7 +5,7 @@ class Solution:
         l, r = 0, 0
         n = len(nums)
         while r < n:
-            while l < n and nums[l] % 2 and nums[l] < threshold:
+            while l < n and (nums[l] % 2 or nums[l] > threshold):
                 l += 1
             r = l
             while r < n:
