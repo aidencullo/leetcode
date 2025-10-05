@@ -5,9 +5,13 @@ class Solution:
             for j in range(cols - 1):
                 if grid[i][j] == grid[i][j + 1]:
                     return False
-        # grid_transpose = [[grid[col][row] for col in range(n)] for row in range(n)]
-        list_of_tuples = list(map(tuple, grid))
-        print(list_of_tuples)
-        if len(set(list_of_tuples)) != 1:
-            return False
+
+        transpose = [list(row) for row in zip(*grid)]
+        rows, cols = cols, rows
+
+        for i in range(rows):
+            for j in range(cols - 1):
+                if transpose[i][j] != transpose[i][j + 1]:
+                    return False
+
         return True
