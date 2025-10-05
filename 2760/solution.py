@@ -8,13 +8,17 @@ class Solution:
             while l < n and nums[l] % 2 and nums[l] < threshold:
                 l += 1
             r = l
-            while r < n and nums[r] <= threshold:
+            while r < n:
+                if nums[r] > threshold:
+                    l = r + 1
+                    r += 1
+                    break
                 if l != r:
                     if nums[r] % 2 == nums[r - 1] % 2:
                         l += 1
                         break
+                longest = max(longest, r - l + 1)
                 r += 1
-                longest = max(longest, r - l)
         return longest
         
             
