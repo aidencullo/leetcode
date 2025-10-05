@@ -6,16 +6,21 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        left, right = 0, 0
+        def is_nice(array):
+            running = 0
+            for x in array:
+                if running & x:
+                    return False
+                running |= x
+            return True
+                
+        subarrays = []
         n = len(nums)
-        running = 0
-
         longest = -math.inf
-        while right < n:
-            while running & nums[right] != 0:
-                running ^= nums[left]
-                left += 1
-            running |= nums[right]
-            right += 1
-            longest = max(longest, right - left)
+        for i in range(n):
+            for j in range(i, n):
+                subarray = nums[i: j + 1]
+                if is_nice(subarray):
+                    longest = max(longest, len(subarray))
         return longest
+            
