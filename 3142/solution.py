@@ -12,10 +12,8 @@ class Solution:
 
         rows = len(grid)
         cols = len(grid[0])
-        for i in range(rows):
-            for j in range(cols):
-                if not is_equal_below(i, j):
-                    return False
-                if not is_different_right(i, j):
-                    return False
-        return True
+        return all(
+            is_equal_below(i, j) and is_different_right(i, j)
+            for i in range(rows)
+            for j in range(cols)
+        )
