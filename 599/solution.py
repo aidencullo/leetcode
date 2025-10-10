@@ -6,10 +6,11 @@ class Solution:
         else:
             shorter_list = list2
             longer_list = list1
-            
+
         first_seen = dict()
         minimum_restaurants = []
         import math
+
         least_index_sum = math.inf
         for i, restaurant in enumerate(shorter_list):
             if restaurant not in first_seen:
@@ -23,5 +24,3 @@ class Solution:
                 elif index_sum == least_index_sum:
                     minimum_restaurants.append(restaurant)
         return minimum_restaurants
-
-            

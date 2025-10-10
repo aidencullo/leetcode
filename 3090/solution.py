@@ -1,6 +1,7 @@
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
         from collections import Counter
+
         counter = Counter()
 
         n = len(s)

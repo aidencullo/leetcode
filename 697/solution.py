@@ -1,6 +1,7 @@
 from collections import Counter
 from collections import defaultdict
 
+
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
         first_seen = dict()
@@ -18,5 +19,3 @@ class Solution:
             if counts[x] == degree:
                 shortest = min(shortest, i - first_seen[x] + 1)
         return shortest
-            
-            

@@ -1,6 +1,7 @@
 class Solution:
     def longestAlternatingSubarray(self, nums: List[int], threshold: int) -> int:
         import math
+
         longest = 0
         l, r = 0, 0
         n = len(nums)
@@ -20,6 +21,3 @@ class Solution:
                 longest = max(longest, r - l + 1)
                 r += 1
         return longest
-        
-            
-                
