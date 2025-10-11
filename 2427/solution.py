@@ -1,13 +1,4 @@
-import math
-
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
-        factors = set()
-        for x in range(1, math.ceil(math.sqrt(a)) + 1):
-            if a % x == 0:
-                y = a // x
-                if b % x == 0:
-                    factors.add(x)
-                if b % y == 0:
-                    factors.add(y)
-        return len(factors)
+        return (len(set(i for i in range(1, a + 1) if a % i == 0)
+                    & set(i for i in range(1, b + 1) if b % i == 0)))
