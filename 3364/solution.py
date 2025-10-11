@@ -7,7 +7,7 @@ class Solution:
             if subarray_length > n:
                 break
 
-            current_sum = sum(nums[:subarray_length])
+            current_sum = sum(nums[i] for i  in range(subarray_length))
             if current_sum > 0:
                 minimum_sum = min(minimum_sum, current_sum)
 
