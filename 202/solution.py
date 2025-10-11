@@ -8,15 +8,12 @@ class Solution:
                 y //= 10
             return squares
         
-        current = n
+        runner = n
+        double_runner = squares(n)
         seen = set()
-        while current != 1:
-            current = squares(current)
-            if current in seen:
+        while runner != 1:
+            if runner == double_runner:
                 return False
-            seen.add(current)
+            runner = squares(runner)
+            double_runner = squares(squares(double_runner))
         return True
-        
-
-s = Solution()
-s.isHappy(2)
