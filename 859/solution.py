@@ -1,16 +1,18 @@
 class Solution:
     def buddyStrings(self, s: str, goal: str) -> bool:
         from collections import Counter
-        if Counter(s) != Counter(goal):
+        if len(s) != len(goal):
             return False
-        n = len(s)
-        count = 0
-        for i in range(n):
+        diffs = []
+        for i in range(len(s)):
             if s[i] != goal[i]:
-                count += 1
+                diffs.append(i)
+        count = len(diffs)
+        if count == 0:
+            if max(Counter(s).values()) > 1:
+                return True
+            return False
         if count == 2:
-            return True
-        if s == goal and max(Counter(s).values()) > 1:
-            return True
+            return s[diffs[0]] == goal[diffs[1]] and s[diffs[1]] == goal[diffs[0]]
         return False
         
