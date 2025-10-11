@@ -10,9 +10,7 @@ class Solution:
                 count += 1
         if count == 2:
             return True
-        if count > 2:
-            return False
-        if max(Counter(s).values()) > 1:
+        if s == goal and max(Counter(s).values()) > 1:
             return True
         return False
         
