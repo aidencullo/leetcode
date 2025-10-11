@@ -1,21 +1,17 @@
-from typing import Optional
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-from util import ListNode
-
-
-# O(n) time, O(1) space
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        runner = head
-        skipper = head
-        while skipper:
-            if not skipper.next:
-                return False
-            skipper = skipper.next
-            if not skipper.next:
-                return False
-            skipper = skipper.next
-            runner = runner.next
-            if runner == skipper:
+        pointer = head
+        skip_pointer = head
+        while pointer and skip_pointer:
+            pointer = pointer.next if pointer else None
+            skip_pointer = skip_pointer.next if skip_pointer else None
+            skip_pointer = skip_pointer.next if skip_pointer else None
+            if pointer and skip_pointer and pointer == skip_pointer:
                 return True
         return False
