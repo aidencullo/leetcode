@@ -1,11 +1,18 @@
 class Solution:
     def buddyStrings(self, s: str, goal: str) -> bool:
+        from collections import Counter
+        if Counter(s) != Counter(goal):
+            return False
         n = len(s)
+        count = 0
         for i in range(n):
-            for j in range(i + 1, n):
-                new_s = list(s)
-                new_s[i], new_s[j] = new_s[j], new_s[i]
-                new_s = "".join(new_s)
-                if new_s == goal:
-                    return True
+            if s[i] != goal[i]:
+                count += 1
+        if count == 2:
+            return True
+        if count > 2:
+            return False
+        if max(Counter(s).values()) > 1:
+            return True
         return False
+        
