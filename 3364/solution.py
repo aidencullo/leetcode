@@ -3,11 +3,10 @@ class Solution:
         n = len(nums)
         import math
         minimum_sum = math.inf
-        for i in range(n):
-            current_sum = 0
-            for j in range(i, n):
-                current_sum += nums[j]
-                width = j - i + 1
-                if width >= l and width <= r and current_sum > 0:
-                    minimum_sum = min(minimum_sum, current_sum)
+        for subarray_length in range(l, r + 1):
+            for i in range(n):
+                if i + subarray_length <= n:
+                    current_sum = sum(nums[i: i + subarray_length])
+                    if current_sum > 0:
+                        minimum_sum = min(minimum_sum, current_sum)
         return minimum_sum if minimum_sum != math.inf else -1
