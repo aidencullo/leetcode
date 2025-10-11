@@ -10,12 +10,13 @@ The repository is organized as follows:
 
 - **`/<problem_number>/`**: A directory for each LeetCode problem.
   - **`solution.py`**: Contains one or more Python solutions for the problem.
-  - **`test_solution.py`**: Contains `pytest` tests to verify the correctness of the solution(s).
+  - **`test_solution.py`**: Contains `pytest` tests to verify the correctness of the solution(s). Note: Not all problems have a test file.
 
 ## Development Conventions
 
 - **Solutions**: Solutions are implemented as methods within a `Solution` class in the `solution.py` file. Multiple solution approaches may be present in the same file.
 - **Testing**: The `pytest` framework is used for testing. Tests are located in the `test_solution.py` file and use `pytest.mark.parametrize` to test multiple input cases.
+- **Commits**: Commit messages should be descriptive and include the problem number. For example: `feat(leetcode): 401 simplify solution`.
 
 ## Building and Running
 
@@ -26,4 +27,15 @@ For example, to run the tests for problem 1:
 ```bash
 cd 1
 pytest
+```
+
+## .gitignore
+
+The `.gitignore` file contains the following patterns:
+
+```
+*~
+*#
+.#*
+solution
 ```
