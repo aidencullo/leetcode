@@ -1,9 +1,22 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        seen = set((n,))
-        while n != 1:
-            n = sum(int(digit) ** 2 for digit in str(n))
-            if n in seen:
+        def squares(x):
+            squares = 0
+            y = x
+            while y:
+                squares += (y % 10) ** 2
+                y //= 10
+            return squares
+        
+        current = n
+        seen = set()
+        while current != 1:
+            current = squares(current)
+            if current in seen:
                 return False
-            seen.add(n)
+            seen.add(current)
         return True
+        
+
+s = Solution()
+s.isHappy(2)
