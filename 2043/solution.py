@@ -6,7 +6,6 @@ class Bank:
 
     def validate_account(self, account: int):
         return account > 0 and account < self.n + 1
-    
 
     def transfer(self, account1: int, account2: int, money: int) -> bool:
         if not self.validate_account(account1):
@@ -17,14 +16,12 @@ class Bank:
             return False
         self.deposit(account2, money)
         return True
-        
 
     def deposit(self, account: int, money: int) -> bool:
         if not self.validate_account(account):
             return False
         self.balance[account - 1] += money
         return True
-        
 
     def withdraw(self, account: int, money: int) -> bool:
         if not self.validate_account(account):
@@ -33,7 +30,6 @@ class Bank:
             return False
         self.balance[account - 1] -= money
         return True
-        
 
 
 # Your Bank object will be instantiated and called as such:
