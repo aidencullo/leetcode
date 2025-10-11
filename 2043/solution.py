@@ -1,7 +1,7 @@
 class Bank:
 
     def __init__(self, balance: List[int]):
-        self.balance = balance[:]
+        self.balance = balance
         self.n = len(balance)
 
     def validate_account(self, account: int):
@@ -9,10 +9,11 @@ class Bank:
     
 
     def transfer(self, account1: int, account2: int, money: int) -> bool:
-        if not self.validate_account(account1) or not self.validate_account(account2):
+        if not self.validate_account(account1):
             return False
-        withdrawal = self.withdraw(account1, money)
-        if not withdrawal:
+        if not self.validate_account(account2):
+            return False
+        if not self.withdraw(account1, money):
             return False
         self.deposit(account2, money)
         return True
