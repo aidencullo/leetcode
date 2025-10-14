@@ -1,16 +1,15 @@
+import math
+
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
-        last = -1
-        current = 0
-        last_bit = -1
+        last_count, count = 0, 0
+        i = 0
         substrings = 0
-        for bit in s:
-            if bit != last_bit:
-                last = current
-                current = 1
-                last_bit = bit
-            else:
-                current += 1
-            if current <= last:
-                substrings += 1
+        while i < len(s):
+            current = s[i]
+            while i < len(s) and s[i] == current:
+                count += 1
+                i += 1
+            substrings += min(count, last_count)
+            last_count, count = count, 0
         return substrings
