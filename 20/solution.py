@@ -1,20 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
+        left_brackets = set('([{')
+        right_brackets_dict = {
+            ')': '(',
+            ']': '[',
+            '}': '{'
+        }
         for c in s:
-            if c in '([{':
+            if c in left_brackets:
                 stack.append(c)
-                continue
-            if not stack:
+            elif not stack:
                 return False
-            popped = stack.pop()
-            if c == ')' and popped != '(':
+            elif stack.pop() != right_brackets_dict[c]:
                 return False
-            if c == ']' and popped != '[':
-                return False
-            if c == '}' and popped != '{':
-                return False
-
         return not stack
 
     
