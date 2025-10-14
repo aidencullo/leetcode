@@ -1,16 +1,34 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        def isPalindrome(s):
-            for i in range(len(s) // 2):
-                if s[i] != s[len(s) - i - 1]:
+
+        def isPalindromeLeft(s):
+            different = False
+            l = 0
+            r = len(s) - 1
+            while l < r:
+                if s[l] != s[r] and different:
                     return False
+                if s[l] != s[r]:
+                    different = True
+                    l += 1
+                    continue
+                l += 1
+                r -= 1
             return True
 
-        if isPalindrome(s):
+        def isPalindromeRight(s):
+            different = False
+            l = 0
+            r = len(s) - 1
+            while l < r:
+                if s[l] != s[r] and different:
+                    return False
+                if s[l] != s[r]:
+                    different = True
+                    r -= 1
+                    continue
+                l += 1
+                r -= 1
             return True
-
-        for i in range(len(s)):
-            new_s = s[:i] + s[i + 1:]
-            if isPalindrome(new_s):
-                return True
-        return False
+                
+        return isPalindromeLeft(s) or isPalindromeRight(s)
