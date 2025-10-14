@@ -1,17 +1,20 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        partner = {
-            "}": "{",
-            "]": "[",
-            ")": "(",
-        }
         for c in s:
-            if c in "({[":
+            if c in '([{':
                 stack.append(c)
-            else:
-                if not stack:
-                    return False
-                if partner[c] != stack.pop():
-                    return False
+                continue
+            if not stack:
+                return False
+            popped = stack.pop()
+            if c == ')' and popped != '(':
+                return False
+            if c == ']' and popped != '[':
+                return False
+            if c == '}' and popped != '{':
+                return False
+
         return not stack
+
+    
