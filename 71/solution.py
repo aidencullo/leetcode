@@ -5,9 +5,8 @@ class Solution:
         for dir in dirs:
             if dir == '' or dir == '.':
                 continue
-            if dir == '..':
-                if stack:
-                    stack.pop()
-            else:
+            if dir == '..' and stack:
+                stack.pop()
+            if dir != '..':
                 stack.append(dir)
         return '/' + '/'.join(stack)
