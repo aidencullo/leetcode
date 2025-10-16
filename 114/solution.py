@@ -9,18 +9,9 @@ class Solution:
         
         def traverse(root: Optional[TreeNode]) -> None:
             if root:
-                nodes.append(root)
-                traverse(root.left)
+                left = traverse(root.left)
+                left.right = root.right
                 traverse(root.right)
-
-        nodes = []
+                root.right = root.left
         traverse(root)
-        head = TreeNode(0)
-        current = head
-        for node in nodes:
-            current.right = node
-            current = node
-            current.left = None
-            current.right = None
-        return head.right
-                
+        return root
