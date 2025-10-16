@@ -6,22 +6,22 @@
 #         self.right = right
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
-        
-        def traverse(node: Optional[TreeNode]) -> None:
-            if node:
-                left = node.left
-                right = node.right
-                rightmost_left = traverse(left)
-                if left:
-                    node.left = None
-                    node.right = left
-                    rightmost_left.right = right
-                rightmost_right = traverse(right)
-                if right:
-                    return rightmost_right
-                if left:
-                    return rightmost_left
-                return node
+        stack = []
+        if root:
+            stack.append(root)
+        head = TreeNode(0)
+        last = head
 
-        traverse(root)
+        while stack:
+            node = stack.pop()
+            last.left = None
+            last.right = node
+
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+
+            last = node
+            
         return root
