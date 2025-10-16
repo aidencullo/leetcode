@@ -6,7 +6,21 @@
 #         self.right = right
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
-        """
-        Do not return anything, modify root in-place instead.
-        """
-        pass
+        
+        def traverse(root: Optional[TreeNode]) -> None:
+            if root:
+                nodes.append(root)
+                traverse(root.left)
+                traverse(root.right)
+
+        nodes = []
+        traverse(root)
+        head = TreeNode(0)
+        current = head
+        for node in nodes:
+            current.right = node
+            current = node
+            current.left = None
+            current.right = None
+        return head.right
+                
