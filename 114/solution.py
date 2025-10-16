@@ -1,27 +1,18 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
-        stack = []
-        if root:
-            stack.append(root)
-        head = TreeNode(0)
-        last = head
+        if not root:
+            return
 
+        prev, stack = None, [root]
         while stack:
             node = stack.pop()
-            last.left = None
-            last.right = node
 
+            if prev:
+                prev.left, prev.right = None, node
             if node.right:
                 stack.append(node.right)
             if node.left:
                 stack.append(node.left)
-
-            last = node
+            prev = node
             
         return root
