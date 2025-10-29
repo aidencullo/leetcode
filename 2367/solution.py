@@ -3,9 +3,8 @@ class Solution:
         triplets = 0
         n = len(nums)
         seen = set()
-        for j in range(n):
-            for k in range(j + 1, n):
-                if nums[k] - nums[j] == diff and nums[j] - diff in seen:
-                    triplets += 1
-            seen.add(nums[j])
+        for k in range(n):
+            if nums[k] - diff in seen and nums[k] - 2 * diff in seen:
+                triplets += 1
+            seen.add(nums[k])
         return triplets
