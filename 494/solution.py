@@ -1,15 +1,13 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        def findTargetSumWaysRecursive(index: int, running: int) -> int:
-            if (index, running) in mem:
-                return mem[(index, running)]
-            if index == n and running == target:
-                return 1
-            if index == n and running != target:
-                return 0
-            mem[(index, running)] = findTargetSumWaysRecursive(index + 1, running + nums[index]) + findTargetSumWaysRecursive(index + 1, running - nums[index])
-            return mem[(index, running)]
-
+        s = sum(nums)
         n = len(nums)
-        mem = {}
-        return findTargetSumWaysRecursive(0, 0)
+        sums = defaultdict(int)
+        sums[0] = 1
+        for num in nums:
+            new_sums = defaultdict(int)
+            for value, frequency in sums.items():
+                new_sums[value + num] += frequency
+                new_sums[value - num] += frequency
+            sums = new_sums
+        return sums[target]
