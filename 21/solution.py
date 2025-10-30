@@ -17,10 +17,5 @@ class Solution:
                 list2 = list2.next
             runner = runner.next
 
-        if list1:
-            runner.next = list1
-        else:
-            runner.next = list2
-
         return result.next
             
