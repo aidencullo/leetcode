@@ -8,6 +8,8 @@ class Solution:
         result = 0
         magnitude = 1
         digit = 0
+        result = ListNode()
+        runner = result
         while not (l1 is None and l2 is None):
             if l1:
                 digit += l1.val
@@ -15,18 +17,13 @@ class Solution:
             if l2:
                 digit += l2.val
                 l2 = l2.next
-            result += digit % 10 * magnitude
-            digit //= 10
-            magnitude *= 10
-        result += digit % 10 * magnitude
-        if not result:
-            return ListNode()
-        result_linked_list = ListNode()
-        runner = result_linked_list
-        while result:
-            current = ListNode(result % 10)
-            runner.next = current
+            digit, val = divmod(digit, 10)
+            cur = ListNode(val)
+            runner.next = cur
             runner = runner.next
-            result //= 10
-        return result_linked_list.next
+        digit, val = divmod(digit, 10)
+        if val:
+            cur = ListNode(val)
+            runner.next = cur
+        return result.next
                 
