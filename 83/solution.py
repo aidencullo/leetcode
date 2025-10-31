@@ -5,9 +5,11 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        seen = set()
         runner = head
         while runner:
-            while runner.next and runner.val == runner.next.val:
+            seen.add(runner.val)
+            while runner.next and runner.next.val in seen:
                 runner.next = runner.next.next
             runner = runner.next
         return head
