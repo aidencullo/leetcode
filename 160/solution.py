@@ -6,4 +6,25 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        pass
+        def measure(node):
+            count = 0
+            while node:
+                count += 1
+                node = node.next
+            return count
+        
+        a = measure(headA)
+        b = measure(headB)
+        if a > b:
+            for _ in range(a - b):
+                headA = headA.next
+        else:
+            for _ in range(b - a):
+                headB = headB.next
+        while headA and headB:
+            if headA is headB:
+                return headA
+            headA = headA.next
+            headB = headB.next
+        
+            
