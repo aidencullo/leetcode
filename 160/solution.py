@@ -15,16 +15,17 @@ class Solution:
         
         a = measure(headA)
         b = measure(headB)
+
         if a > b:
             for _ in range(a - b):
                 headA = headA.next
         else:
             for _ in range(b - a):
                 headB = headB.next
-        while headA and headB:
-            if headA is headB:
-                return headA
+
+        while headA != headB:
             headA = headA.next
             headB = headB.next
+        return headA
         
             
