@@ -8,10 +8,11 @@ class Solution:
         stack = []
         while head:
             stack.append(head.val)
+            head = head.next
         reversed_head = ListNode()
         runner = reversed_head
-        while val := stack.pop():
-            cur = ListNode(val)
+        while stack:
+            cur = ListNode(stack.pop())
             runner.next = cur
             runner = runner.next
         return reversed_head.next
