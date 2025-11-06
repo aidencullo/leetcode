@@ -1,8 +1,11 @@
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
-        for i in range(len(arr)):
-            for j in range(len(arr)):
-                if arr[i] == 2 * arr[j] and j != i:
-                    return True
+        seen = set()
+        for x in arr:
+            if 2 * x in seen:
+                return True
+            if x / 2 in seen:
+                return True
+            seen.add(x)
         return False
             
