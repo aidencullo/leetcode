@@ -1,30 +1,22 @@
 class Solution:
     def isLongPressedName(self, name: str, typed: str) -> bool:
-        def next_char(i, s):
-            return s[i]
+        from itertools import groupby
+        name_grouped = [(k, len(list(g))) for k, g in groupby(name)]
+        typed_grouped = [(k, len(list(g))) for k, g in groupby(typed)]
 
-        def next_char_frequency(i, s):
-            j = i
-            c = s[j]
-            while j < len(s) and s[j] == c:
-                j += 1
-            return j - i
+        if len(name_grouped) != len(typed_grouped):
+            return False
+
+        for (a, b), (c, d) in zip(name_grouped, typed_grouped):
+            if a != c:
+                return False
+            if b > d:
+                return False
+
+        return True
+            
         
-        name_index, typed_index = 0, 0
 
-        while name_index < len(name) and typed_index < len(typed):
-            next_name_char = next_char(name_index, name)
-            next_typed_char = next_char(typed_index, typed)
-            next_name_char_frequency = next_char_frequency(name_index, name)
-            next_typed_char_frequency = next_char_frequency(typed_index, typed)
-
-            if next_name_char != next_typed_char:
-                return False
-            if next_name_char_frequency > next_typed_char_frequency:
-                return False
-
-            name_index += next_name_char_frequency
-            typed_index += next_typed_char_frequency
-
-
-        return typed_index == len(typed) and name_index == len(name)
+# data = [1, 1, 2, 3, 3, 3, 2]
+# grouped = [(k, list(g)) for k, g in groupby(data)]
+# print(grouped)  # [(1, [1, 1]), (2, [2]), (3, [3, 3, 3]), (2, [2])]
