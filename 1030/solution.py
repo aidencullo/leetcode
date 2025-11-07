@@ -1,6 +1,21 @@
+
+class deque:
+
+    def __init__(self):
+        self.items = []
+
+    def __len__(self):
+        return len(self.items)
+
+    def append(self, item):
+        self.items.append(item)
+
+    def popleft(self):
+        return self.items.pop(0)
+
+
 class Solution:
     def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
-        from collections import deque
 
         dq = deque()
 
