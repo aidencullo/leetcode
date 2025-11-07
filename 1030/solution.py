@@ -8,7 +8,7 @@ class Deque:
         self.head = self.tail = None
 
     def __bool__(self):
-        return bool(self.head)
+        return self.head is not None
 
     def append(self, item):
         new_node = self.Node(item)
@@ -19,6 +19,8 @@ class Deque:
         self.tail = self.tail.next
 
     def popleft(self):
+        if not self.head:
+            raise IndexError("pop from empty deque")  # avoid NoneType errors
         if self.head == self.tail:
             item = self.head.item
             self.head = self.tail = None
