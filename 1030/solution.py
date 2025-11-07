@@ -1,7 +1,5 @@
-class deque:
-
+class Deque:
     class Node:
-
         def __init__(self, item=None, next=None):
             self.item = item
             self.next = next
@@ -14,7 +12,7 @@ class deque:
 
     def append(self, item):
         new_node = self.Node(item)
-        if not self.head:   
+        if not self.head:
             self.head = self.tail = new_node
             return
         self.tail.next = new_node
@@ -28,18 +26,13 @@ class deque:
         item = self.head.item
         self.head = self.head.next
         return item
-        
 
 
 class Solution:
     def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
-
-        dq = deque()
-
+        dq = Deque()
         r_pair = (rCenter, cCenter)
-
         dq.append(r_pair)
-        
 
         seen = set()
         seen.add(r_pair)
@@ -53,9 +46,8 @@ class Solution:
                 new_r = r + dr
                 new_c = c + dc
                 new_pair = (new_r, new_c)
-                if new_r >= 0 and new_r < rows and new_c >= 0 and new_c < cols and new_pair not in seen:
+                if 0 <= new_r < rows and 0 <= new_c < cols and new_pair not in seen:
                     seen.add(new_pair)
                     dq.append(new_pair)
-                        
+
         return cells
-            
