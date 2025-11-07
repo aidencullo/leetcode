@@ -1,5 +1,5 @@
 class Deque:
-    class Node:
+    class _Node:
         def __init__(self, item=None, next=None):
             self.item = item
             self.next = next
@@ -11,7 +11,7 @@ class Deque:
         return self.head is not None
 
     def append(self, item):
-        new_node = self.Node(item)
+        new_node = self._Node(item)
         if not self.head:
             self.head = self.tail = new_node
             return
@@ -21,12 +21,11 @@ class Deque:
     def popleft(self):
         if not self.head:
             raise IndexError("pop from empty deque")  # avoid NoneType errors
-        if self.head == self.tail:
-            item = self.head.item
-            self.head = self.tail = None
-            return item
         item = self.head.item
-        self.head = self.head.next
+        if self.head == self.tail:
+            self.head = self.tail = None
+        else:
+            self.head = self.head.next
         return item
 
 
