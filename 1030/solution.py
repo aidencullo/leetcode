@@ -1,11 +1,10 @@
-
 class deque:
 
     def __init__(self):
         self.items = []
 
-    def __len__(self):
-        return len(self.items)
+    def __bool__(self):
+        return bool(self.items)
 
     def append(self, item):
         self.items.append(item)
