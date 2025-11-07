@@ -1,16 +1,34 @@
 class deque:
 
+    class Node:
+
+        def __init__(self, item=None, next=None):
+            self.item = item
+            self.next = next
+
     def __init__(self):
-        self.items = []
+        self.head = self.tail = None
 
     def __bool__(self):
-        return bool(self.items)
+        return bool(self.head)
 
     def append(self, item):
-        self.items.append(item)
+        new_node = self.Node(item)
+        if not self.head:   
+            self.head = self.tail = new_node
+            return
+        self.tail.next = new_node
+        self.tail = self.tail.next
 
     def popleft(self):
-        return self.items.pop(0)
+        if self.head == self.tail:
+            item = self.head.item
+            self.head = self.tail = None
+            return item
+        item = self.head.item
+        self.head = self.head.next
+        return item
+        
 
 
 class Solution:
