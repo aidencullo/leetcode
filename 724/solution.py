@@ -16,8 +16,9 @@ class Solution:
         
         from itertools import accumulate
         left_prefix = list(accumulate(nums))
-        right_prefix = list(reversed(list(accumulate(reversed(nums)))))
+        total_sum = sum(nums)
         n = len(nums)
+        right_prefix = [total_sum - left_prefix[i] + nums[i] for i in range(n)]
         for i in range(n):
             if get_left_sum(i) == get_right_sum(i):
                 return i
