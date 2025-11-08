@@ -2,9 +2,13 @@ class Solution:
     def findLengthOfLCIS(self, nums: List[int]) -> int:
         min_stack = []
         LCIS = 1
+        current_IS = 0
+        last = -math.inf
         for x in nums:
-            if min_stack and min_stack[-1] >= x:
-                min_stack = []
-            min_stack.append(x)
-            LCIS = max(LCIS, len(min_stack))
+            if last < x:
+                current_IS += 1
+            else:
+                current_IS = 1
+            LCIS = max(LCIS, current_IS)
+            last = x
         return LCIS
