@@ -2,10 +2,7 @@ class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
         def heapsort(lst):
             heapq.heapify(lst)
-            res = []
-            while lst:
-                res.append(heapq.heappop(lst))
-            return res
+            return heapq.nsmallest(len(lst), lst)
 
             
         
