@@ -1,6 +1,16 @@
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
-        arr.sort()
+        def heapsort(lst):
+            heapq.heapify(lst)
+            res = []
+            while lst:
+                res.append(heapq.heappop(lst))
+            return res
+
+            
+        
+
+        arr = heapsort(arr)
         min_diff = math.inf
         min_diff_list = []
         n = len(arr)
