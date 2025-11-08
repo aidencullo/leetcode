@@ -1,6 +1,16 @@
+#for now let's just assume all objects are immutable or lists
+def deepcopy(obj):
+    if isinstance(obj, list):
+        res = []
+        for sub_obj in obj:
+            res.append(deepcopy(sub_obj))
+        return res
+    # immutable
+    return obj
+
+
 class Solution:
     def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
-        from copy import deepcopy
         smoother = deepcopy(img)
         rows = len(img)
         cols = len(img[0])
