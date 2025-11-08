@@ -4,7 +4,7 @@ class Solution:
         LCIS = 1
         for x in nums:
             if min_stack and min_stack[-1] >= x:
-                min_stack.clear()
+                min_stack = []
             min_stack.append(x)
             LCIS = max(LCIS, len(min_stack))
         return LCIS
