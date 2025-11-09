@@ -6,7 +6,7 @@ class Solution:
         if r * c != rows * cols:
             return mat
 
-        data = []
+        data = [item for row in mat for item in row]
         reshaped = [[0] * c for _ in range(r)]
 
         for row in range(rows):
@@ -14,5 +14,5 @@ class Solution:
                 data_index = row * cols + col
                 new_row = data_index // c
                 new_col = data_index % c
-                reshaped[new_row][new_col] = mat[row][col]
+                reshaped[new_row][new_col] = data[data_index]
         return reshaped
