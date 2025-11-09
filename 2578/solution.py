@@ -1,18 +1,8 @@
-# time: O(logn)
-# space: O(logn)
-
-
 class Solution:
     def splitNum(self, num: int) -> int:
-        digits = []
-        while num:
-            digits.append(num % 10)
-            num //= 10
+        digits = [int(c) for c in str(num)]
         digits.sort(reverse=True)
-        left = ""
-        right = ""
-        while digits:
-            left += str(digits.pop())
-            if digits:
-                right += str(digits.pop())
-        return int(left) + int(right)
+        res = 0
+        for i, digit in enumerate(digits):
+            res += digit * 10 ** (i // 2)
+        return res
