@@ -6,8 +6,6 @@ class Solution:
         counter = Counter(words)
         most_common = ""
         most_common_freq = 0
-        for word, freq in counter.items():
-            if word not in banned_unique and freq > most_common_freq:
-                most_common = word
-                most_common_freq = freq
-        return most_common
+        word_counts = [(k, v) for k, v in counter.items() if k not in banned]
+        max_word = max(word_counts, key=lambda x: x[1])[0]
+        return max_word
