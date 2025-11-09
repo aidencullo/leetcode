@@ -6,10 +6,8 @@ class Solution:
         if r * c != rows * cols:
             return mat
 
-        data = [item for row in mat for item in row]
-        reshaped = []
-
-        for i in range(0, len(data), c):
-            reshaped.append(data[i: i + c])
-
+        from itertools import chain
+        from itertools import batched
+        data = list(chain.from_iterable(mat))
+        reshaped = list(batched(data, c))
         return reshaped
