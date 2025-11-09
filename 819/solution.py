@@ -1,8 +1,11 @@
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        import string
+        for punc in string.punctuation:
+            paragraph = paragraph.replace(punc, ' ')
         paragraph = paragraph.lower()
-        words = re.findall(r'\b\w+\b', paragraph)
-        words = [word for word in words if word not in banned]
+        words = paragraph.split()
+        # words = re.findall(r'\b\w+\b', paragraph)
+        words = [word for word in words if word not in banned and word]
         counter = Counter(words)
-        max_word = max(counter.items(), key=lambda x: x[1])[0]
-        return max_word
+        return max(counter, key=counter.get)
