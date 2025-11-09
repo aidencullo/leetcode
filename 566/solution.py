@@ -7,12 +7,9 @@ class Solution:
             return mat
 
         data = [item for row in mat for item in row]
-        reshaped = [[0] * c for _ in range(r)]
+        reshaped = []
 
-        for row in range(rows):
-            for col in range(cols):
-                data_index = row * cols + col
-                new_row = data_index // c
-                new_col = data_index % c
-                reshaped[new_row][new_col] = data[data_index]
+        for i in range(0, len(data), c):
+            reshaped.append(data[i: i + c])
+
         return reshaped
