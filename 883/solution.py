@@ -6,12 +6,11 @@ class Solution:
         n = len(grid)
         for i in range(n):
             for j in range(n):
-                x[i] = max(x[i], grid[i][j])
                 y[j] = max(y[j], grid[i][j])
                 z_area += 1 if grid[i][j] else 0
 
 
-        x_area = sum(x)
+        x_area = sum(max(row) for row in grid)
         y_area = sum(y)
 
         return z_area + y_area + x_area
