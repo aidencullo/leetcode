@@ -9,11 +9,10 @@ class Solution:
         if not root:
             return True
         
-        def helper(node, x):
+        def helper(node):
             if not node:
                 return True
             
-            return node.val == x and helper(node.left, x) and helper(node.right, x)
+            return node.val == root.val and helper(node.left) and helper(node.right)
 
-        c = root.val
-        return helper(root, c)
+        return helper(root)
