@@ -17,6 +17,6 @@ class Solution:
 
         values = []
         helper(root)
-        return sum(filter(lambda x: low <= x <= high, values))
+        return sum(x for x in values if low <= x <= high)
 
         
