@@ -3,8 +3,9 @@ class Solution:
         total = sum(arr)
         prefix = list(accumulate(arr))
         n = len(prefix)
-        for i in range(n):
-            for j in range(i + 1, n - 1):
-                if prefix[j] == 2 * prefix[i] and total == 3 * prefix[i]:
-                        return True
+        seen = set()
+        for x in prefix[:-1]:
+            if x / 2 in seen and x / 2 == total - x:
+                return True
+            seen.add(x)
         return False
