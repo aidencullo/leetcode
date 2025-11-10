@@ -1,11 +1,10 @@
 class Solution:
     def canThreePartsEqualSum(self, arr: List[int]) -> bool:
-        total = sum(arr)
+        avg = sum(arr) / 3
         prefix = list(accumulate(arr))
-        n = len(prefix)
-        seen = set()
-        for x in prefix[:-1]:
-            if x / 2 in seen and x / 2 == total - x:
-                return True
-            seen.add(x)
-        return False
+        count = 0
+        for x in prefix:
+            print(x, avg, count)
+            if x == avg or x == avg * 2:
+                count += 1
+        return count >= 2
