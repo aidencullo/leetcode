@@ -1,21 +1,29 @@
-from typing import List
-
-
 class Solution:
-    def floodFill(
-        self, image: List[List[int]], sr: int, sc: int, color: int
-    ) -> List[List[int]]:
-        def dfs(row, col):
-            if row < 0 or row >= len(image) or col < 0 or col >= len(image[0]):
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        def dfs(x, y, old_color):
+            if not (0 <= x < n and 0 <= y < m):
                 return
-            if image[row][col] != start_color:
-                return
-            image[row][col] = color
-            for dr, dc in directions:
-                dfs(row + dr, col + dc)
 
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        start_color = image[sr][sc]
-        if start_color != color:
-            dfs(sr, sc)
+            if (x, y) in seen:
+                return
+
+            if image[x][y] != old_color:
+                return
+
+            image[x][y] = color
+            seen.add((x, y))
+
+            dfs(x + 1, y, old_color)
+            dfs(x - 1, y, old_color)
+            dfs(x, y + 1, old_color)
+            dfs(x, y - 1, old_color)
+
+            
+            
+
+            
+        n = len(image)
+        m = len(image[0])
+        seen = set()
+        dfs(sr, sc, image[sr][sc])
         return image
