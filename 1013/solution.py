@@ -3,8 +3,10 @@ class Solution:
         avg = sum(arr) / 3
         prefix = list(accumulate(arr))
         count = 0
-        for x in prefix:
-            print(x, avg, count)
-            if x == avg or x == avg * 2:
-                count += 1
-        return count >= 2
+        first = False
+        for x in prefix[:-1]:
+            if first and x == avg * 2:
+                return True
+            if x == avg:
+                first = True
+        return False
