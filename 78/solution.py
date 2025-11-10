@@ -2,10 +2,12 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def subsets(index, subset):
             if index == n:
-                res.append(subset)
+                res.append(subset[:])
                 return
 
-            subsets(index + 1, subset + [nums[index]])
+            subset.append(nums[index])
+            subsets(index + 1, subset)
+            subset.pop()
             subsets(index + 1, subset)
 
         n = len(nums)
