@@ -9,14 +9,14 @@ class Solution:
         def get_leaf_value_sequence(root):
             def helper(node):
                 if not node.left and not node.right:
-                    sequence.append(node.val)
+                    return [node.val]
+                res = []
                 if node.left:
-                    helper(node.left)
+                    res.extend(helper(node.left))
                 if node.right:
-                    helper(node.right)
-            sequence = []
-            helper(root)
-            return sequence
+                    res.extend(helper(node.right))
+                return res
+            return helper(root)
 
         
         tree1_leaf_value_sequence = get_leaf_value_sequence(root1)
