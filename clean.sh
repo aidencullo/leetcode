@@ -1,5 +1,5 @@
-for d in */ 2>/dev/null; do
+for d in */; do
   echo "Contents of $d:"
   ls "$d"
   echo
-done
+done 2>/dev/null
