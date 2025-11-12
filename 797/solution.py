@@ -4,13 +4,13 @@ class Solution:
             if node in seen:
                 return
 
+            seen.append(node)
+
             if node == n - 1:
-                seen.append(node)
                 paths.append(list(seen))
                 seen.pop()
                 return
 
-            seen.append(node)
 
             for neighbor in graph[node]:
                 dfs(neighbor)
