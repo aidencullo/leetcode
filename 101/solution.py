@@ -1,22 +1,27 @@
-from typing import Optional
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        def isEqual(tree1: Optional[TreeNode], tree2: Optional[TreeNode]):
-            if not tree1 and not tree2:
-                return True
-            if not tree1 or not tree2:
-                return False
-            if tree1.val != tree2.val:
-                return False
-            return isEqual(tree1.left, tree2.right) and isEqual(tree1.right, tree2.left)
+        if not root:
+            return True
 
-        return isEqual(root.left, root.right)
+        def dfs(p, q):
+            if not p and not q:
+                return True
+            if not p or not q:
+                return False
+            if p.val != q.val:
+                return False
+
+            return (
+                dfs(p.left, q.right)
+                and dfs(p.right, q.left)
+            )
+    
+            
+        return dfs(root.left, root.right)
+
