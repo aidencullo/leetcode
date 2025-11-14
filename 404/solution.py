@@ -11,24 +11,18 @@ class Solution:
         
         def sumOfLeftLeaves(node):
             if not node:
-                return
+                return 0
             
             if is_leaf(node):
-                nonlocal left_leaves_sum
-                left_leaves_sum += node.val
-                return
+                return node.val
 
-            sumOfLeftLeaves(node.left)
-            sumOfLeaves(node.right)
+            return sumOfLeftLeaves(node.left) + sumOfLeaves(node.right)
 
         def sumOfLeaves(node):
             if not node:
-                return
+                return 0
             
-            sumOfLeftLeaves(node.left)
-            sumOfLeaves(node.right)
+            return sumOfLeftLeaves(node.left) + sumOfLeaves(node.right)
 
 
-        left_leaves_sum = 0
-        sumOfLeaves(root)
-        return left_leaves_sum
+        return sumOfLeaves(root)
