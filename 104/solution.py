@@ -9,4 +9,21 @@ class Solution:
         if not root:
             return 0
 
-        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+        from collections import deque
+
+        q = deque()
+        q.appendleft(root)
+
+        d = 0
+
+        while q:
+            d += 1
+            for i in range(len(q)):
+                node = q.pop()
+
+                if node.left:
+                    q.appendleft(node.left)
+                if node.right:
+                    q.appendleft(node.right)
+
+        return d
