@@ -8,36 +8,13 @@ class Solution:
         
         def dfs(r, c):
             if is_water(r, c):
-                return
+                return False
             
-            if (r, c) in seen:
-                return
+            return is_water(r + 1, c) + is_water(r - 1, c) + is_water(r, c + 1) + is_water(r, c - 1)
 
-            seen.add((r, c))
-            
-            nonlocal perimeter
-
-            if is_water(r + 1, c):
-                perimeter += 1
-            if is_water(r - 1, c):
-                perimeter += 1
-            if is_water(r, c + 1):
-                perimeter += 1
-            if is_water(r, c - 1):
-                perimeter += 1
-
-            dfs(r, c + 1)
-            dfs(r, c - 1)
-            dfs(r + 1, c)
-            dfs(r - 1, c)
-
-
-        perimeter = 0
-        seen = set()
-        from itertools import product
         rows = len(grid)
         cols = len(grid[0])
-        pairs = product(range(rows), range(cols))
-        for i, j in pairs:
-                dfs(i, j)
+        perimeter = 0
+        for i, j in product(range(rows), range(cols)):
+                perimeter += dfs(i, j)
         return perimeter
