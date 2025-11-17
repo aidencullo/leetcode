@@ -1,20 +1,13 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
+        def in_grid(r, c):
+            return 0 <= r < rows and 0 <= c < cols
+        
         def is_water(r, c):
-            if not 0 <= r < len(grid):
-                return True
-            if not 0 <= c < len(grid[0]):
-                return True
-
-            return not grid[r][c]
+            return not in_grid(r, c) or not grid[r][c]
         
         def dfs(r, c):
-            if not 0 <= r < len(grid):
-                return
-            if not 0 <= c < len(grid[0]):
-                return
-
-            if not grid[r][c]:
+            if is_water(r, c):
                 return
             
             if (r, c) in seen:
@@ -41,13 +34,10 @@ class Solution:
 
         perimeter = 0
         seen = set()
-        # from collections import product
-        # pairs = product(range(rows), range(cols))
-        # for i, j in pairs:
-        #         dfs(i, j)
+        from itertools import product
         rows = len(grid)
         cols = len(grid[0])
-        for i in range(rows):
-            for j in range(cols):
+        pairs = product(range(rows), range(cols))
+        for i, j in pairs:
                 dfs(i, j)
         return perimeter
