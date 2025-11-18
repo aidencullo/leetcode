@@ -26,6 +26,8 @@ def timed_factorial(n):
         end = time.time()
         print(f'n={n:<10}: {end - start:>10.6f}s')
 
-
-timed_factorial(10)
-
+def time(fn):
+    def wrapper(*args, **kwargs):
+        print("calling", fn.__name__)
+        return fn(*args, **kwargs)
+    return wrapper
