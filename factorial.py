@@ -1,5 +1,5 @@
 import time
-
+# from decorators import timer
 import sys
 sys.setrecursionlimit(10**5)  # default ~1000
 
@@ -26,8 +26,14 @@ def timed_factorial(n):
         end = time.time()
         print(f'n={n:<10}: {end - start:>10.6f}s')
 
-def time(fn):
+def timer(fn):
     def wrapper(*args, **kwargs):
-        print("calling", fn.__name__)
-        return fn(*args, **kwargs)
+        start = time.time()
+        result = fn(*args, **kwargs)
+        end = time.time()
+        print(f'{end - start}s')
+        return result
     return wrapper
+
+timed = timer(factorial)
+timed(1)
