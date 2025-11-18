@@ -1,24 +1,10 @@
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
-        graph = defaultdict(int)
-        nodes = set()
-        
+        a, b = edges[0]
+        c, d = edges[1]
 
-        for edge in edges:
-            u, v = edge
-
-            nodes.add(u)
-            nodes.add(v)
-
-        n = len(nodes)
-
-        for edge in edges:
-            u, v = edge
-
-            graph[u] += 1
-            graph[v] += 1
-
-            if graph[u] == n - 1:
-                return u
-            if graph[v] == n - 1:
-                return v
+        if a == c:
+            return a
+        if a == d:
+            return a
+        return b
