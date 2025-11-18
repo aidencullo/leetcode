@@ -9,31 +9,10 @@ class Solution:
         def is_land(r, c):
             return not is_water(r, c)
         
-        def dfs(r, c):
-            if is_water(r, c):
-                return False
-
-            if (r, c) in seen:
-                return
-
-            seen.add((r, c))
-
-            nonlocal perimeter
-
-            perimeter += is_water(r + 1, c) + is_water(r - 1, c) + is_water(r, c + 1) + is_water(r, c - 1)
-
-            dfs(r + 1, c)
-            dfs(r - 1, c)
-            dfs(r, c + 1)
-            dfs(r, c - 1)
-            
-
         rows = len(grid)
         cols = len(grid[0])
         perimeter = 0
-        seen = set()
-        for i, j in product(range(rows), range(cols)):
-            if is_land(i, j):
-                dfs(i, j)
-                break
+        for r, c in product(range(rows), range(cols)):
+            if is_land(r, c):
+                perimeter += is_water(r + 1, c) + is_water(r - 1, c) + is_water(r, c + 1) + is_water(r, c - 1)
         return perimeter
