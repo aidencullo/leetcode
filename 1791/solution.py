@@ -13,5 +13,3 @@ class Solution:
         for node in graph:
             if graph[node] == n - 1:
                 return node
-
-        return -1
