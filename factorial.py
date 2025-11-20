@@ -31,9 +31,6 @@ def timer(fn):
         start = time.time()
         result = fn(*args, **kwargs)
         end = time.time()
-        print(f'{end - start}s')
-        return result
+        return end - start
     return wrapper
 
-timed = timer(factorial)
-timed(1)
