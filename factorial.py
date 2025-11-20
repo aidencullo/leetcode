@@ -1,6 +1,6 @@
 import time
-# from decorators import timer
 import sys
+
 sys.setrecursionlimit(10**5)  # default ~1000
 
 
@@ -15,6 +15,11 @@ assert factorial(1) == 1
 assert factorial(0) == 1
 assert factorial(5) == 120
 assert factorial(10) == 3628800
+try:
+    factorial(-1)
+    assert False, "Exception not raised"
+except Exception:
+    pass
 
 
 def timed_factorial(n):
