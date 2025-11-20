@@ -1,41 +1,16 @@
+from factorial_base import factorial
+
 import time
 import sys
 
 sys.setrecursionlimit(10**5)  # default ~1000
 
-
-def factorial(n):
-    if n < 0:
-        raise Exception
-    if n == 0:
-        return 1
-    return n * factorial(n - 1)
-
-assert factorial(1) == 1
-assert factorial(0) == 1
-assert factorial(5) == 120
-assert factorial(10) == 3628800
-try:
-    factorial(-1)
-    assert False, "Exception not raised"
-except Exception:
-    pass
-
-
-def timed_factorial(n):
-
+def time_fn(fn):
     for i in range(5):
         n = 10 ** i
         start = time.time()
-        result = factorial(n)
+        result = fn(n)
         end = time.time()
         print(f'n={n:<10}: {end - start:>10.6f}s')
 
-def timer(fn):
-    def wrapper(*args, **kwargs):
-        start = time.time()
-        result = fn(*args, **kwargs)
-        end = time.time()
-        return end - start
-    return wrapper
-
+time_fn(factorial)
