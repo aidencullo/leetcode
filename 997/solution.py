@@ -1,10 +1,11 @@
 class Solution:
-    def findJudge(self, n: int, trust: list[list[int]]) -> int:
-        graph = {i: [0, 0] for i in range(1, n + 1)}
-        for a, b in trust:
-            graph[a][0] += 1
-            graph[b][1] += 1
-        for i, (in_degree, out_degree) in enumerate(graph.values(), 1):
-            if in_degree == 0 and out_degree == n - 1:
-                return i
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        is_trusted_by = defaultdict(int)
+        trusts = defaultdict(int)
+        for truster, trustee in trust:
+            is_trusted_by[trustee] += 1
+            trusts[truster] += 1
+        for person in is_trusted_by:
+            if is_trusted_by[person] == n - 1 and trusts[person] == 0:
+                return person
         return -1
