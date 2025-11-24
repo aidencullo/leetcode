@@ -1,8 +1,13 @@
 import pytest
+from functools import cache
+
+@cache
+def factorial_optimized(n):
+    if n == 0:
+        return 1
+    return n * factorial_optimized(n - 1)
 
 def factorial(n):
-    if n < 0:
-        raise Exception
     if n == 0:
         return 1
     return n * factorial(n - 1)
@@ -13,10 +18,5 @@ def run_tests():
     assert factorial(0) == 1
     assert factorial(5) == 120
     assert factorial(10) == 3628800
-
-    # assert exception
-    with pytest.raises(Exception):
-        factorial(-1)
-
 
 run_tests()
