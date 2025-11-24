@@ -1,4 +1,4 @@
-from factorial_base import factorial, factorial_optimized
+from factorial_base import factorial_iter, factorial_recursive
 
 import time
 import sys
@@ -16,5 +16,5 @@ def time_fn(fn, n):
         end = time.time()
         print(f'n={n:<10}: {end - start:>10.6f}s')
 
-time_fn_mult(factorial)
-time_fn_mult(factorial_optimized)
+time_fn_mult(factorial_recursive)
+time_fn_mult(factorial_iter)
