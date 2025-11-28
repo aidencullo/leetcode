@@ -32,10 +32,11 @@ class Solution:
                     distances[neighbor] = other_path_to_neighbor
                     paths[neighbor] = paths[node]
                     heapq.heappush(heap, (other_path_to_neighbor, neighbor))
-                else:
+                elif distances[neighbor] == other_path_to_neighbor:
                     paths[neighbor] += paths[node]
                     
 
             visited.add(node)
 
+        print(paths)
         return paths[n - 1]
