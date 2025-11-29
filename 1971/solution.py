@@ -1,22 +1,26 @@
-from collections import defaultdict
-
-
 class Solution:
-    def validPath(
-        self, n: int, edges: list[list[int]], source: int, destination: int
-    ) -> bool:
+    def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         graph = defaultdict(list)
-        for u, v in edges:
-            graph[u].append(v)
-            graph[v].append(u)
-        stack = [source]
+
+        for a, b in edges:
+            graph[a].append(b)
+            graph[b].append(a)
+
         seen = set()
-        while stack:
-            cur = stack.pop()
-            if cur in seen:
-                continue
-            seen.add(cur)
-            if cur == destination:
+
+        def dfs(node):
+
+            if node in seen:
+                return
+
+            if node == destination:
                 return True
-            stack.extend(graph[cur])
-        return False
+
+            seen.add(node)
+
+            return any(dfs(neighbor) for neighbor in graph[node])
+
+        return dfs(source)
+
+
+        
