@@ -1,4 +1,4 @@
-from collections import defaultdict, deque
+from collections import defaultdict
 from typing import List
 
 
@@ -13,10 +13,10 @@ class Solution:
 
         visited = set()
 
-        def dfs(node):
+        def dfs(node: int) -> bool:
             if node in visited:
                 return False
-            
+
             visited.add(node)
 
             if node == destination:
