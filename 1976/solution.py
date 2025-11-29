@@ -38,5 +38,4 @@ class Solution:
 
             visited.add(node)
 
-        print(paths)
-        return paths[n - 1]
+        return paths[n - 1] % (10**9 + 7)
