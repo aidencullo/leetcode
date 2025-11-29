@@ -6,21 +6,29 @@ class Solution:
             graph[a].append(b)
             graph[b].append(a)
 
+        from collections import deque
+
         seen = set()
+        q = deque()
 
-        def dfs(node):
+        q.append(source)
 
-            if node in seen:
-                return
+        while q:
+            q_len = len(q)
+            for _ in range(q_len):
+                node = q.popleft()
 
-            if node == destination:
-                return True
+                if node == destination:
+                    return True
+                
+                seen.add(node)
+                
+                for neighbor in graph[node]:
+                    if neighbor not in seen:
+                        q.append(neighbor)
 
-            seen.add(node)
+        return False
 
-            return any(dfs(neighbor) for neighbor in graph[node])
-
-        return dfs(source)
-
+                        
 
         
