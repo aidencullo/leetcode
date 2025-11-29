@@ -11,17 +11,21 @@ class Solution:
             graph[a].append(b)
             graph[b].append(a)
 
-        seen = set()
-        q = deque([source])
+        visited = set()
 
-        while q:
-            for _ in range(len(q)):
-                node = q.popleft()
-                if node == destination:
+        def dfs(node):
+            if node in visited:
+                return False
+            
+            visited.add(node)
+
+            if node == destination:
+                return True
+
+            for neighbor in graph[node]:
+                if dfs(neighbor):
                     return True
-                seen.add(node)
-                for neighbor in graph[node]:
-                    if neighbor not in seen:
-                        q.append(neighbor)
 
-        return False
+            return False
+
+        return dfs(source)
