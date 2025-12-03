@@ -36,7 +36,26 @@ def test_fibonacci_times(fibo_impl, max_n=30, step=10):
 # test_fibonacci_times(fibo_cached, max_n=100000, step=100)
 # test_fibonacci_times(fibo)
 
-time_fibo_once(fibo_cached, 10)
+fibo_cached.cache_clear()
 time_fibo_once(fibo_cached, 100)
-time_fibo_once(fibo_cached, 1000)
+fibo_cached.cache_clear()
+time_fibo_once(fibo_cached, 200)
+fibo_cached.cache_clear()
+time_fibo_once(fibo_cached, 300)
+fibo_cached.cache_clear()
+time_fibo_once(fibo_cached, 400)
+fibo_cached.cache_clear()
+time_fibo_once(fibo_cached, 500)
+
+
+'''
+not showing linear -- not sure what's going on
+
+
+100 0.000060796737671
+200 0.000340938568115
+300 0.000891923904419
+400 0.001120567321777
+500 0.000471115112305
+'''
 
