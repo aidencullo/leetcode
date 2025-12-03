@@ -7,23 +7,25 @@
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
 
-        q = deque()
-        q.append(root)
+        def get_height(node):
+            if not node:
+                return 0
+            return 1 + max(get_height(node.left), get_height(node.right))
+            
+        height = get_height(root)
+        leaves_sum = 0
 
-        while q:
-
-            new_q = deque()
-            leaves_sum = 0
-
-            while q:
-                node = q.popleft()
+        def dfs(node, depth):
+            nonlocal leaves_sum
+            
+            if not node:
+                return
+            
+            if depth == height:
                 leaves_sum += node.val
-                if node.left:
-                    new_q.append(node.left)
-                if node.right:
-                    new_q.append(node.right)
-                
-            q = new_q
 
+            dfs(node.left, depth + 1)
+            dfs(node.right, depth + 1)
 
+        dfs(root, 1)
         return leaves_sum
