@@ -1,15 +1,29 @@
 from functools import cmp_to_key
 
+def get_place(n):
+    def get(a):
+        while n > 0:
+            a //= 10
+        return a % 10
+    return get
+
+def compare_custom(n):
+    get = get_place(n)
+    def cmp(a, b):
+        return get(a) - get(b)
+    return cmp
+
 def compare_ones(a, b):
-    return (a % 10) - (b % 10)
+    cmp = compare_custom(0)
+    return cmp(a, b)
 
 def compare_tens(a, b):
-    return (a // 10) - (b // 10)
+    cmp = compare_custom(1)
+    return cmp(a, b)
 
 def compare_hundreds(a, b):
-    return (a // 100) - (b // 100)
-
-
+    cmp = compare_custom(2)
+    return cmp(a, b)
 
 def radixSort(lst):
     lst.sort(key=cmp_to_key(compare_ones))
