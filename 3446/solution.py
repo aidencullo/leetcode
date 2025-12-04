@@ -3,35 +3,22 @@ from typing import List
 
 class Solution:
     def sortMatrix(self, grid: List[List[int]]) -> List[List[int]]:
-        def process_bottom_left_triangle():
-            n = len(grid)
-            for starting_row in range(n):
-                seq = []
-                col = 0
-                for row in range(starting_row, n):
-                    seq.append(grid[row][col])
-                    col += 1
-                seq_sorted = sorted(seq, reverse=True)
-                col = 0
-                for row in range(starting_row, n):
-                    grid[row][col] = seq_sorted[col]
-                    col += 1
+        n = len(grid)
 
-        def process_top_right_triangle():
-            n = len(grid)
-            for starting_col in range(1, n):
-                seq = []
-                row = 0
-                for col in range(starting_col, n):
-                    seq.append(grid[row][col])
-                    row += 1
-                seq_sorted = sorted(seq)
-                row = 0
-                for col in range(starting_col, n):
-                    grid[row][col] = seq_sorted[row]
-                    row += 1
+        def sort_diagonal(indices, reverse=False):
+            diag = [grid[i][j] for i, j in indices]
+            diag_sorted = sorted(diag, reverse=reverse)
+            for (i, j), val in zip(indices, diag_sorted):
+                grid[i][j] = val
 
-        process_bottom_left_triangle()
-        process_top_right_triangle()
+        # Bottom-left diagonals
+        for start_row in range(n):
+            indices = [(r, c) for r, c in zip(range(start_row, n), range(n))]
+            sort_diagonal(indices, reverse=True)
+
+        # Top-right diagonals
+        for start_col in range(1, n):
+            indices = [(r, c) for r, c in zip(range(n), range(start_col, n))]
+            sort_diagonal(indices)
 
         return grid
