@@ -16,9 +16,11 @@ class FindElements:
                 
                 if node.left:
                     node.left.val = 2 * x + 1
+                    self.values.add(node.left.val)
 
                 if node.right:
                     node.right.val = 2 * x + 2
+                    self.values.add(node.right.val)
 
                 recover_recurse(node.right)
                 recover_recurse(node.left)
@@ -27,17 +29,11 @@ class FindElements:
             recover_recurse(root)
         
         self.root = root
+        self.values = set((0,))
         recover(self.root)
 
     def find(self, target: int) -> bool:
-        def find(node, target):
-            if not node:
-                return False
-            if node.val == target:
-                return True
-
-            return any([find(node.left, target), find(node.right, target)])
-        return find(self.root, target)
+        return target in self.values
         
 
 
