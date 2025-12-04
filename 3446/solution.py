@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def sortMatrix(self, grid: List[List[int]]) -> List[List[int]]:
         def process_bottom_left_triangle():
@@ -14,8 +17,6 @@ class Solution:
                     grid[row][col] = seq_sorted[col]
                     col += 1
 
-        process_bottom_left_triangle()
-
         def process_top_right_triangle():
             n = len(grid)
             for starting_col in range(1, n):
@@ -25,12 +26,12 @@ class Solution:
                     seq.append(grid[row][col])
                     row += 1
                 seq_sorted = sorted(seq)
-                col = 0
                 row = 0
                 for col in range(starting_col, n):
                     grid[row][col] = seq_sorted[row]
                     row += 1
 
+        process_bottom_left_triangle()
         process_top_right_triangle()
 
         return grid
