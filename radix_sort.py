@@ -2,8 +2,10 @@ from functools import cmp_to_key
 
 def get_place(n):
     def get(a):
-        while n > 0:
+        m = n
+        while m > 0:
             a //= 10
+            m -= 1
         return a % 10
     return get
 
