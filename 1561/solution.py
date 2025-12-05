@@ -34,4 +34,25 @@ so the second approach is more optimal, why?
 
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
-        pass
+        def get_max_index():
+            return piles.index(max(piles))
+
+        def pop_max():
+            max_index = get_max_index()
+            return piles.pop(max_index)
+
+        def get_min_index():
+            return piles.index(min(piles))
+
+        def pop_min():
+            min_index = get_min_index()
+            return piles.pop(min_index)
+
+        my_coins = 0
+        
+        while piles:
+            pop_max()
+            my_coins += pop_max()
+            pop_min()
+
+        return my_coins
