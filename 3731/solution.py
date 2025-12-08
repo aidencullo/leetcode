@@ -4,5 +4,5 @@ class Solution:
         high = max(nums)
         all_nums = dict.fromkeys(range(low, high + 1))
         for num in nums:
-            all_nums.pop(num, None)  # does nothing, no error
+            all_nums.pop(num)
         return list(all_nums.keys())
