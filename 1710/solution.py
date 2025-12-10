@@ -4,12 +4,14 @@ class Solution:
         units = 0
         i = 0
         n = len(boxTypes)
-        while truckSize > 0 and i < n:
-            if boxTypes[i][0] == 0:
-                i += 1
-                continue
-            units += boxTypes[i][1]
-            boxTypes[i][0] -= 1
-            truckSize -= 1
+        truck_box_slots = truckSize
+        while truck_box_slots > 0 and i < n:
+            box_type_units = boxTypes[i][1]
+            box_type_boxes = boxTypes[i][0]
+            possible_boxes_to_add = min(box_type_boxes, truck_box_slots)
+            units += possible_boxes_to_add * box_type_units
+            boxTypes[i][0] -= possible_boxes_to_add
+            truck_box_slots -= possible_boxes_to_add
+            i += 1
         return units
 
