@@ -1,4 +1,4 @@
 class Solution:
     def minimumCost(self, cost: List[int]) -> int:
-        cost.sort(reverse=True);
-        return sum((sum(cost[i:i+2]) for i in range(0, len(cost), 3)), 0);
+        cost.sort(reverse=True)
+        return sum(cost[i] for i in range(len(cost)) if i % 3 != 2)
