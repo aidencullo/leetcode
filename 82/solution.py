@@ -1,26 +1,28 @@
-from typing import Optional
-
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
-            return None
-        new_head = ListNode(float("-inf"), head)
-        last = new_head
-        runner = head
-        while runner and runner.next:
-            if runner.val == runner.next.val:
-                while runner.next and runner.val == runner.next.val:
-                    runner = runner.next
-                last.next = runner.next
-                runner = runner.next
+            return
+
+        seen = set()
+        duplicate = set()
+
+        cur = head
+        while cur:
+            if cur.val in seen:
+                duplicate.add(cur.val)
+            seen.add(cur.val)
+            cur = cur.next
+
+        new_head = ListNode(-101, head)
+        cur = new_head
+        while cur and cur.next:
+            if cur.next.val in duplicate:
+                cur.next = cur.next.next
             else:
-                last = runner
-                runner = runner.next
+                cur = cur.next
         return new_head.next
