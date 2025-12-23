@@ -11,5 +11,11 @@ class Solution:
 
         def and_compose(iters, x):
             return reduce(lambda acc, f: acc and f(x), iters, True)
+
+
+        import numpy as np
+
+        arr = np.array(matrix)  # mat is your double list
+        # np.all(arr <= len(mat))
         
-        return valid(matrix) and valid(zip(*matrix))
+        return valid(arr) and valid(arr.T)
