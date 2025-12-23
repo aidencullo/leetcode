@@ -1,16 +1,7 @@
 class Solution:
     def checkValid(self, matrix: List[List[int]]) -> bool:
-        def unique(mat):
-            return all(len(set(row)) == len(row) for row in mat)
-
-        def less_than(arr):
-            return np.all(arr <= len(arr))
-
         def valid(mat):
-            return less_than(mat) and unique(mat)
+            return any(set(row) != one_to_n for row in mat)
 
-        import numpy as np
-
-        arr = np.array(matrix)
-        
-        return valid(arr) and valid(arr.T)
+        one_to_n = set(range(1, len(matrix) + 1))
+        return valid(matrix) and valid(zip(*matrix))
