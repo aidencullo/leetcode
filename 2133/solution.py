@@ -7,6 +7,9 @@ class Solution:
             return all(x <= len(mat) for x in itertools.chain.from_iterable(mat))
 
         def valid(mat):
-            return unique(mat) and less_than(mat)
+            return and_compose([unique, less_than], mat)
+
+        def and_compose(iters, x):
+            return reduce(lambda acc, f: acc and f(x), iters, True)
         
         return valid(matrix) and valid(zip(*matrix))
