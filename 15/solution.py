@@ -5,8 +5,12 @@ class Solution:
         n = len(nums)
         nums.sort()
         for i in range(n):
+            if i != 0 and nums[i] == nums[i - 1]:
+                continue
             for j in range(i + 1, n):
+                if j != 0 and nums[j] == nums[j - 1]:
+                    continue
                 if -nums[i] - nums[j] in seen:
                     res.append([nums[i], nums[j], -nums[i] - nums[j]])
             seen.add(nums[i])
-        return [list(t) for t in set(tuple(triplet) for triplet in res)]
+        return res
