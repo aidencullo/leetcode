@@ -9,4 +9,4 @@ class Solution:
                 if -nums[i] - nums[j] in seen:
                     res.append([nums[i], nums[j], -nums[i] - nums[j]])
             seen.add(nums[i])
-        return res
+        return [list(t) for t in set(tuple(triplet) for triplet in res)]
