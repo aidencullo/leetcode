@@ -4,17 +4,13 @@ class Solution:
             return all(len(set(row)) == len(row) for row in mat)
 
         def less_than(arr):
-            return np.all(arr <= len(mat))
+            return np.all(arr <= len(arr))
 
         def valid(mat):
-            return and_compose([unique, less_than], mat)
-
-        def and_compose(iters, x):
-            return reduce(lambda acc, f: acc and f(x), iters, True)
-
+            return less_than(mat) and unique(mat)
 
         import numpy as np
 
-        arr = np.array(matrix)  # mat is your double list
+        arr = np.array(matrix)
         
         return valid(arr) and valid(arr.T)
