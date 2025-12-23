@@ -3,14 +3,10 @@ class Solution:
         res = []
         seen = set()
         n = len(nums)
+        nums.sort()
         for i in range(n):
             for j in range(i + 1, n):
-                for k in range(j + 1, n):
-                    if nums[i] + nums[j] + nums[k] == 0:
-                        triplet = [nums[i], nums[j], nums[k]]
-                        if tuple(sorted(triplet)) in seen:
-                            continue
-                        
-                        res.append(triplet)
-                        seen.add(sorted(triplet))
+                if -nums[i] - nums[j] in seen:
+                    res.append([nums[i], nums[j], -nums[i] - nums[j]])
+            seen.add(nums[i])
         return res
