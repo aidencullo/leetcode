@@ -3,8 +3,8 @@ class Solution:
         def unique(mat):
             return all(len(set(row)) == len(row) for row in mat)
 
-        def less_than(mat):
-            return all(x <= len(mat) for x in itertools.chain.from_iterable(mat))
+        def less_than(arr):
+            return np.all(arr <= len(mat))
 
         def valid(mat):
             return and_compose([unique, less_than], mat)
@@ -16,6 +16,5 @@ class Solution:
         import numpy as np
 
         arr = np.array(matrix)  # mat is your double list
-        # np.all(arr <= len(mat))
         
         return valid(arr) and valid(arr.T)
