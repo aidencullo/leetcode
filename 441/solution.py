@@ -1,10 +1,15 @@
 class Solution:
     def arrangeCoins(self, n: int) -> int:
-        def arithmetic_series(x):
-            return (x * (x + 1)) // 2
+        l, r = 1, n
 
-        x = bisect.bisect_left(range(n), n, key=arithmetic_series)
-        if arithmetic_series(x) == n:
-            return x
-        else:
-            return x - 1
+        while l <= r:
+            k = (r + l) // 2
+            steps = k * (k + 1) / 2
+
+            if n >= steps:
+                l = k + 1
+            else:
+                r = k - 1
+
+        return r
+                
