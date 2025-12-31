@@ -9,12 +9,12 @@ class Solution:
             
             left, right = width, area
             while left <= right:
-                k = (left + right) // 2
+                middle = (left + right) // 2
 
-                if length >= k:
-                    r = k + 1
+                if length >= middle:
+                    left = middle + 1
                 else:
-                    l = k - 1
+                    right = middle - 1
 
             if right < width:
                 continue
