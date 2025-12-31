@@ -2,6 +2,7 @@ from typing import List
 
 class Solution:
     def _max_leq(self, low: int, high: int, target: int) -> int:
+        return low + bisect.bisect_left(range(low, high + 1), target)
         left, right = low, high
         while left <= right:
             mid = (left + right) // 2
@@ -14,15 +15,13 @@ class Solution:
     def constructRectangle(self, area: int) -> List[int]:
         dimensions = None
         for width in range(1, area + 1):
+            length = area // width
+            
             if area % width != 0:
                 continue
-
-            length = area // width
-            candidate = self._max_leq(width, area, length)
-
-            if candidate < width:
+            if length < width:
                 continue
-            if candidate == length:
-                dimensions = [length, width]
+
+            dimensions = [length, width]
 
         return dimensions
