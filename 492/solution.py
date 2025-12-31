@@ -1,15 +1,9 @@
 from typing import List
+import math
 
 class Solution:
     def constructRectangle(self, area: int) -> List[int]:
-        dimensions = None
-
-        for width in range(1, math.isqrt(area) + 1):
-            length = area // width
-            
-            if area % width != 0:
-                continue
-
-            dimensions = [length, width]
-
-        return dimensions
+        for width in range(math.isqrt(area), 0, -1):
+            if area % width == 0:
+                length = area // width
+                return [length, width]
