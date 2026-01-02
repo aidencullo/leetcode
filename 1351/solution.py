@@ -1,3 +1,10 @@
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
-        return sum(1 for row in grid for el in row if el < 0)
+        import numpy as np
+
+        np_grid = np.array(grid)
+
+        rows, cols = np_grid.shape        
+        min_axis = min(rows, cols)
+        last_row = rows - 1
+        last_col = cols - 1
