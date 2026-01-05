@@ -1,11 +1,6 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        sqrt = 0
-        
-        for i in range(x + 1):
-            if i * i <= x:
-                sqrt = i
-            else:
-                break
+        return bisect.bisect_left(range(x + 1), x, key=lambda x: i ** 2)
 
-        return sqrt
+
+         # 367/solution.py:        x = bisect.bisect_left(range(num), num, key=lambda x: x ** 2)
