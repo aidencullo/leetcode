@@ -1,9 +1,14 @@
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
-        negatives = 0
-        
-        for row in grid:
-            negative_i = bisect.bisect_right(list(reversed(row)), -1)
-            negatives += negative_i
+        rows, cols = len(grid), len(grid[0])
+        r, c = rows - 1, 0
+        count = 0
 
-        return negatives
+        while r >= 0 and c < cols:
+            if grid[r][c] < 0:
+                count += cols - c
+                r -= 1
+            else:
+                c += 1
+
+        return count
