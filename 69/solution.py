@@ -1,6 +1,13 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        return bisect.bisect_left(range(x + 1), x, key=lambda x: i ** 2)
+        """
+        LeetCode 69: Sqrt(x)
+        Given a non-negative integer x, return the square root of x rounded down to the nearest integer.
+        """
+        largest_sqrt = 1
+        
+        for y in range(1, x + 1):
+            if y ** 2 <= x:
+                largest_sqrt = y
 
-
-         # 367/solution.py:        x = bisect.bisect_left(range(num), num, key=lambda x: x ** 2)
+        return largest_sqrt
