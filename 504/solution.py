@@ -9,6 +9,7 @@ class Solution:
 
         while x:
             x, digit = divmod(x, 7)
+            print(x, digit)
             digits.append(digit)
 
         digits.reverse()
