@@ -3,5 +3,7 @@ class Solution:
         from itertools import permutations
         perms = [''.join(p) for p in permutations(words)]
         perms = set(perms)
+        l = len(list(perms)[0])
+        
 
-        return [i for i in range(len(s)) if s[i: i + len(perms[0])] in perms]
+        return [i for i in range(len(s)) if s[i: i + l] in perms]
