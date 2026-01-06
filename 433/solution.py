@@ -1,24 +1,27 @@
 class Solution:
     def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
-        def dfs(gene, mutations):
 
-            nonlocal min_mutations
+        levels = 0
+        q = deque([startGene])
+        seen = set()
+
+        while q:
+
+            seen.add(gene)
 
             if gene == endGene:
-                min_mutations = min(min_mutations, mutations)
-                return
-            
-            seen.add(gene)
-            for pos in range(len(gene)):
-                for letter in 'ACTG':
-                    if letter != gene[pos]:
-                        new_gene = gene[:pos] + letter + gene[pos + 1:]
-                        if new_gene in bank and new_gene not in seen:
-                            dfs(new_gene, mutations + 1)
-            
-            pass
+                return levels
 
-        min_mutations = math.inf
-        seen = set()
-        dfs(startGene, 0)
-        return min_mutations if min_mutations != math.inf else -1
+            levels += 1
+
+            new_q = deque()
+            qlen = len(q)
+            for _ in range(qlen):
+                for pos in range(len(gene)):
+                    for letter in 'ACTG':
+                        if letter != gene[pos]:
+                            new_gene = gene[:pos] + letter + gene[pos + 1:]
+                            if new_gene in bank and new_gene not in seen:
+                                new_q.append(new_gene)
+
+        return -1
