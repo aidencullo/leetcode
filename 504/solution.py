@@ -4,13 +4,17 @@ class Solution:
         LeetCode 504: Base 7
         Given an integer num, convert it to a base 7 string.
         """
-        x = num
+        if num == 0:
+            return "0"
+        
+        x = num if num > 0 else -num
         digits = []
 
         while x:
             x, digit = divmod(x, 7)
-            print(x, digit)
             digits.append(digit)
 
         digits.reverse()
-        return ''.join(str(digit) for digit in digits)
+        base_7_str = ''.join(str(digit) for digit in digits)
+        return base_7_str if num > 0 else '-' + base_7_str
+    
