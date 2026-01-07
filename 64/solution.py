@@ -15,4 +15,23 @@ class Solution:
         Returns:
             The minimum sum path from top-left to bottom-right
         """
-        pass
+        def dfs(r, c, last):
+
+            if not (0 <= r < rows and 0 <= c < cols):
+                return
+
+            val = grid[r][c]
+            current = last + val
+
+            if r == rows - 1 and c == cols - 1:
+                path = min(current, path)
+
+            dfs(r, c + 1, current)
+            dfs(r + 1, c, current)
+
+            
+                
+        rows, cols = len(grid), len(grid[0])
+        path = math.inf
+        dfs(0, 0, 0)
+        return path
