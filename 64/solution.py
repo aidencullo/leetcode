@@ -17,6 +17,8 @@ class Solution:
         """
         def dfs(r, c, last):
 
+            nonlocal path
+
             if not (0 <= r < rows and 0 <= c < cols):
                 return
 
