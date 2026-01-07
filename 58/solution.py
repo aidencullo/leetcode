@@ -1,5 +1,3 @@
-from typing import List
-
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        pass
+        return len([w for w in s.split() if w][-1])
