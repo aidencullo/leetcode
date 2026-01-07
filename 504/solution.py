@@ -10,11 +10,14 @@ class Solution:
         x = num if num > 0 else -num
         digits = []
 
+        i = 0
+        base_7 = 0
+
         while x:
             x, digit = divmod(x, 7)
-            digits.append(digit)
+            base_7 += digit * 10 ** i
+            i += 1
 
-        digits.reverse()
-        base_7_str = ''.join(str(digit) for digit in digits)
-        return base_7_str if num > 0 else '-' + base_7_str
+        base_7 = base_7 if num > 0 else -base_7
+        return str(base_7)
     
