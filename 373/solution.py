@@ -5,7 +5,7 @@ class Solution:
         from itertools import product
         pairs = product(nums1, nums2)
         pair_sum_kv = [(sum(pair), pair) for pair in pairs]
-        pair_sum_kv.sort()
-        pairs_k = [pair for (value, pair) in pair_sum_kv]
-        return pairs_k[:k]
+        heapq.heapify(pair_sum_kv)
+        pairs_k = heapq.nsmallest(k, arr))  # [1, 3]
+        return [pair for (s, pair) in pairs_k]
                    
