@@ -1,22 +1,21 @@
+import functools
+import math
+
 class Solution:
     def minPathSum(self, grid: list[list[int]]) -> int:
-        rows, cols = len(grid), len(grid[0])
-        mem = {}
+        from copy import deepcopy
+        min_path_grid = deepcopy(grid)
+        rows = len(grid)
+        cols = len(grid[0])
 
-        def dfs(r, c):
-            if not (0 <= r < rows and 0 <= c < cols):
-                return math.inf
-
-            val = grid[r][c]
-
-            if r == rows - 1 and c == cols - 1:
-                return val
-
+        def get(r, c):
+            if 0 <= r < rows and 0 <= c < cols:
+                return grid[r][c]
+            return math.inf
             
-
-            if (r, c) not in mem:
-                mem[(r, c)] = val + min(dfs(r, c + 1), dfs(r + 1, c))
-
-            return mem[(r, c)]
-
-        return dfs(0, 0)
+        
+        for r in range(rows):
+            for c in range(cols):
+                min_path_grid[r][c] += min(get(r - 1, c), get(r, c - 1))
+        return min_path_grid[-1][-1]
+        
