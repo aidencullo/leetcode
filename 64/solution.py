@@ -16,16 +16,3 @@ class Solution:
             The minimum sum path from top-left to bottom-right
         """
         pass
-
-
-# Test cases
-if __name__ == "__main__":
-    sol = Solution()
-    
-    # Example 1
-    grid1 = [[1,3,1],[1,5,1],[4,2,1]]
-    print(f"Example 1: {sol.minPathSum(grid1)}")  # Expected: 7
-    
-    # Example 2
-    grid2 = [[1,2,3],[4,5,6]]
-    print(f"Example 2: {sol.minPathSum(grid2)}")  # Expected: 12
