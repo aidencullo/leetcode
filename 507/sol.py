@@ -10,12 +10,4 @@ class Solution:
     def checkPerfectNumber(self, num: int) -> bool:
 
         divisors = [i for i in range(1, num) if num % i == 0]
-        
-        def helper(current):
-            if current == 0:
-                return True
-            if current < 0:
-                return False
-            return any(helper(current - d) for d in divisors)
-
-        return helper(num)
+        return sum(divisors) == num
