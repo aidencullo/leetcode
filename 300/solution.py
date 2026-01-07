@@ -1,19 +1,18 @@
 from typing import List
+import math
+from functools import cache
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        def backtrack(i, last, count):
-            nonlocal lis
-            
+        @cache
+        def backtrack(i, last):
             if i == len(nums):
-                lis = max(lis, count)
-                return
-
-            backtrack(i + 1, last, count)
+                return 0
+            # skip current
+            lis = backtrack(i + 1, last)
+            # take current if increasing
             if last < nums[i]:
-                backtrack(i + 1, nums[i], count + 1)
-            
+                lis = max(lis, backtrack(i + 1, nums[i]) + 1)
+            return lis
 
-        lis = 0
-        backtrack(0, -math.inf, 0)
-        return lis
+        return backtrack(0, -math.inf)
