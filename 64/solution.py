@@ -1,22 +1,22 @@
-import functools
-import math
-
 class Solution:
     def minPathSum(self, grid: list[list[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
-        path = math.inf
+        mem = {}
 
-        @functools.cache
-        def dfs(r, c, last):
-            nonlocal path
+        def dfs(r, c):
             if not (0 <= r < rows and 0 <= c < cols):
-                return
-            val = grid[r][c]
-            current = last + val
-            if r == rows - 1 and c == cols - 1:
-                path = min(current, path)
-            dfs(r, c + 1, current)
-            dfs(r + 1, c, current)
+                return math.inf
 
-        dfs(0, 0, 0)
-        return path
+            val = grid[r][c]
+
+            if r == rows - 1 and c == cols - 1:
+                return val
+
+            
+
+            if (r, c) not in mem:
+                mem[(r, c)] = val + min(dfs(r, c + 1), dfs(r + 1, c))
+
+            return mem[(r, c)]
+
+        return dfs(0, 0)
