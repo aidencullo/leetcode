@@ -3,12 +3,13 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        l, r = 0, 0
+        write = 0
         n = len(nums)
+        for i in range(n):
+            if nums[i] != 0:
+                nums[write] = nums[i]
+                write += 1
 
-        while r < n:
-            while r < n - 1 and nums[r] == 0:
-                r += 1
-            nums[l], nums[r] = nums[r], nums[l]
-            l += 1
-            r += 1
+        for i in range(write, n):
+            nums[i] = 0
+        
