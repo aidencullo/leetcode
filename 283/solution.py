@@ -7,10 +7,8 @@ class Solution:
         n = len(nums)
 
         while r < n:
-            while r < n and nums[r] == 0:
+            while r < n - 1 and nums[r] == 0:
                 r += 1
-            if r == n:
-                break
             nums[l], nums[r] = nums[r], nums[l]
             l += 1
             r += 1
