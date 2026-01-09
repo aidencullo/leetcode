@@ -1,3 +1,3 @@
 class Solution:
-    def solve(self, args):
+    def numUniqueEmails(self, emails: List[str]) -> int:
         pass
