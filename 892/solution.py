@@ -1,5 +1,4 @@
 class Solution:
-    # Time: O(n^2) | Space: O(1)
     def surfaceArea(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
         area = 0
@@ -10,7 +9,7 @@ class Solution:
                 if h == 0:
                     continue
 
-                area += 2  # top + bottom
+                area += 2
 
                 area += max(h - (grid[r-1][c] if r > 0 else 0), 0)
                 area += max(h - (grid[r+1][c] if r < rows-1 else 0), 0)
