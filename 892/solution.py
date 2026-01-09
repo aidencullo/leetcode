@@ -1,30 +1,20 @@
 class Solution:
-    # Time: O(n²) | Space: O(1)
+    # Time: O(n^2) | Space: O(1)
     def surfaceArea(self, grid: List[List[int]]) -> int:
-        def inside_grid(pair):
-            return (0 <= pair[0] < len(grid)
-                    and 0 <= pair[1] < len(grid[0]))
+        rows, cols = len(grid), len(grid[0])
+        area = 0
 
-        def outside_grid(pair):
-            return not inside_grid(pair)
+        for r in range(rows):
+            for c in range(cols):
+                h = grid[r][c]
+                if h == 0:
+                    continue
 
-        def get_pair(p):
-            r, c = p
-            return grid[r][c]
-        
-        def surface_between(p1, p2):
-            if outside_grid(p2):
-                return get_pair(p1)
-            return 0 if get_pair(p1) < get_pair(p2) else get_pair(p1) - get_pair(p2)
-        
-        def calculate(r, c):
-            surface_area = 0
-            surface_area += surface_between((r, c), (r + 1, c))
-            surface_area += surface_between((r, c), (r - 1, c))
-            surface_area += surface_between((r, c), (r, c + 1))
-            surface_area += surface_between((r, c), (r, c - 1))
-            surface_area += 2 if grid[r][c] else 0
-            return surface_area
-        
-        return sum(calculate(r, c) for r, c in product(range(len(grid)), range(len(grid[0]))))
-            
+                area += 2  # top + bottom
+
+                area += max(h - (grid[r-1][c] if r > 0 else 0), 0)
+                area += max(h - (grid[r+1][c] if r < rows-1 else 0), 0)
+                area += max(h - (grid[r][c-1] if c > 0 else 0), 0)
+                area += max(h - (grid[r][c+1] if c < cols-1 else 0), 0)
+
+        return area
