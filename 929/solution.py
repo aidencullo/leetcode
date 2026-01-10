@@ -1,3 +1,17 @@
 class Solution:
     def numUniqueEmails(self, emails: List[str]) -> int:
-        pass
+        def remove_plus(s):
+            i = s.find('+')
+            if i == -1:
+                return s
+            return s[:i]
+
+        def clean(email):
+            local, domain = email.split('@')
+            local_without_periods = "".join([c for c in local if c != '.'])
+            local_without_plus = remove_plus(local_without_periods)
+            cleaned_email = local_without_plus + '@' + domain
+            return cleaned_email
+
+        cleaned = {clean(email) for email in emails}
+        return len(cleaned)
