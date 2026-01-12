@@ -8,7 +8,7 @@ class Solution:
 
         def clean(email):
             local, domain = email.split('@')
-            local_without_periods = "".join([c for c in local if c != '.'])
+            local_without_periods = local.replace('.', '')
             local_without_plus = remove_plus(local_without_periods)
             cleaned_email = local_without_plus + '@' + domain
             return cleaned_email
