@@ -1,10 +1,7 @@
 class Solution:
     def numUniqueEmails(self, emails: List[str]) -> int:
         def remove_plus(s):
-            i = s.find('+')
-            if i == -1:
-                return s
-            return s[:i]
+            return s.split('+')[0]
 
         def clean(email):
             local, domain = email.split('@')
