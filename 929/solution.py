@@ -13,5 +13,5 @@ class Solution:
             cleaned_email = local_without_plus + '@' + domain
             return cleaned_email
 
-        cleaned = {clean(email) for email in emails}
+        cleaned = set(map(clean, emails))
         return len(cleaned)
