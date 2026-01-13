@@ -9,15 +9,6 @@ class Solution:
         before_max = arr[:peak_idx + 1]
         after_max = arr[peak_idx:]
 
-        def is_unique(lst):
-            return len(set(lst)) == len(lst)
-
-        if not is_unique(after_max):
-            return False
-
-        if not is_unique(before_max):
-            return False
-
         def is_ascending(lst):
             prev = -math.inf
             for x in lst:
