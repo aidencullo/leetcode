@@ -6,16 +6,16 @@ class Solution:
         if peak_idx == 0 or peak_idx == len(arr) - 1:
             return False
 
-        ascent = arr[:peak_idx + 1]
-        descent = arr[peak_idx:]
+        before_max = arr[:peak_idx + 1]
+        after_max = arr[peak_idx:]
 
         def is_unique(lst):
             return len(set(lst)) == len(lst)
 
-        if not is_unique(descent):
+        if not is_unique(after_max):
             return False
 
-        if not is_unique(ascent):
+        if not is_unique(before_max):
             return False
 
         def is_ascending(lst):
@@ -34,10 +34,10 @@ class Solution:
                 prev = x
             return True
 
-        if not is_ascending(ascent):
+        if not is_ascending(before_max):
             return False
 
-        if not is_descending(descent):
+        if not is_descending(after_max):
             return False
 
         return True
