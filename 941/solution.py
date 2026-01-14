@@ -1,24 +1,16 @@
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
-        peak = max(arr)
-        peak_idx = arr.index(peak)
+        n = len(arr)
+        
+        i = 0
 
-        if peak_idx == 0 or peak_idx == len(arr) - 1:
+        while i < n - 1 and arr[i] < arr[i + 1]:
+            i += 1
+
+        if i == 0 or i == n - 1:
             return False
 
-        before_max = arr[:peak_idx + 1]
-        after_max = arr[peak_idx:]
+        while i < n - 1 and arr[i] > arr[i + 1]:
+            i += 1
 
-        def is_ascending(lst):
-            return all(starmap(lt, zip(lst, lst[1:])))
-
-        def is_descending(lst):
-            return all(starmap(gt, zip(lst, lst[1:])))
-
-        if not is_ascending(before_max):
-            return False
-
-        if not is_descending(after_max):
-            return False
-
-        return True
+        return i == n - 1
