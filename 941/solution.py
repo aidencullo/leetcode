@@ -18,12 +18,8 @@ class Solution:
             return True
 
         def is_descending(lst):
-            prev = math.inf
-            for x in lst:
-                if x >= prev:
-                    return False
-                prev = x
-            return True
+            return all(a < b for zip(lst, lst[1:]))
+
 
         if not is_ascending(before_max):
             return False
