@@ -10,16 +10,10 @@ class Solution:
         after_max = arr[peak_idx:]
 
         def is_ascending(lst):
-            prev = -math.inf
-            for x in lst:
-                if x <= prev:
-                    return False
-                prev = x
-            return True
+            return all(a < b for a, b in zip(lst, lst[1:]))
 
         def is_descending(lst):
-            return all(a < b for zip(lst, lst[1:]))
-
+            return all(a > b for a, b in zip(lst, lst[1:]))
 
         if not is_ascending(before_max):
             return False
