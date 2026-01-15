@@ -8,8 +8,6 @@ class Solution:
                     return True
                 if indexes[c1] > indexes[c2]:
                     return False
-                # else equal, keep going
-            # all equal so far → shorter word should come first
             return len(w1) <= len(w2)
 
         for a, b in pairwise(words):
