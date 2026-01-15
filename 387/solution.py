@@ -1,15 +1,7 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        seen = set()
-        uniq = set()
-        chars = set(s)
-
-        uniq |= chars
-
-        for c in s:
-            if c in seen:
-                uniq.discard(c)
-            seen.add(c)
+        repeat = set((Counter(s) - Counter(set(s))).keys())
+        uniq = set(s) - repeat
 
         for i, c in enumerate(s):
             if c in uniq:
