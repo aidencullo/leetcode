@@ -1,8 +1,8 @@
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:
-        items = {}
+        items = defaultdict(int)
         
         for num in nums:
-            if items.get(num) == 1:
+            if items[num] == 1:
                 return num
-            items[num] = items.get(num, 0) + 1
+            items[num] += 1
