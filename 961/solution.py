@@ -1,6 +1,8 @@
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:
-        counter = Counter(nums)
-        for k, v in counter.items():
-            if v == len(nums) // 2:
-                return k
+        items = {}
+        
+        for num in nums:
+            if items.get(num) == 1:
+                return num
+            items[num] = items.get(num, 0) + 1
