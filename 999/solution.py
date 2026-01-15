@@ -2,11 +2,7 @@ class Solution:
     def numRookCaptures(self, board: List[List[str]]) -> int:
         rows = len(board)
         cols = len(board[0])
-        for r in range(rows):
-            for c in range(cols):
-                if board[r][c] == 'R':
-                    rook_r, rook_c = r, c
-
+        rook_r, rook_c = next((i, j) for i, row in enumerate(board) for j, x in enumerate(row) if x == 'R')
         pawns = 0
                     
         r, c = rook_r, rook_c
