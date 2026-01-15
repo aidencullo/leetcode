@@ -1,16 +1,6 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        seen = set()
-        unique = set()
-
-        for c in s:
-            if c not in seen:
-                unique.add(c)
-            else:
-                unique.discard(c)
-            seen.add(c)
-        
-
+        counter = Counter(s)
         for i, c in enumerate(s):
             if c in unique:
                 return i
