@@ -1,7 +1,8 @@
 class Solution:
     def repeatedCharacter(self, s: str) -> str:
-        seen = set()
+        chars = defaultdict(int)
+        
         for c in s:
-            if c in seen:
+            chars[c] += 1
+            if chars[c] == 2:
                 return c
-            seen.add(c)
