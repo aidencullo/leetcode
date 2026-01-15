@@ -4,7 +4,8 @@ class Solution:
         cols = len(board[0])
         rook_r, rook_c = next((i, j) for i, row in enumerate(board) for j, x in enumerate(row) if x == 'R')
         pawns = 0
-                    
+
+
         r, c = rook_r, rook_c
         while r < rows: 
             if board[r][c] == 'p':
