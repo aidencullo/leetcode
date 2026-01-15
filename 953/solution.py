@@ -10,7 +10,4 @@ class Solution:
                     return False
             return len(w1) <= len(w2)
 
-        for a, b in pairwise(words):
-            if not compare(a, b):
-                return False
-        return True
+        return all(compare(a, b) for a, b in pairwise(words))
