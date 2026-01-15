@@ -9,9 +9,7 @@ class Solution:
             seen.add(c)
 
         all_chars = set(s)
-            
-        for c in seen_more:
-            all_chars.discard(c)
+        all_chars -= seen_more
 
         for i, c in enumerate(s):
             if c in all_chars:
