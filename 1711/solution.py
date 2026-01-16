@@ -1,16 +1,16 @@
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
-        good_meals = 0
-        n = len(deliciousness)
+
+        def is_pow(z):
+            return math.log2(z) ** 2 == z
         
-        for i in range(n):
-            x = deliciousness[i]
-            for j in range(i + 1, n):
-                y = deliciousness[j]
-                if x + y == 0:
-                    continue
-                p = math.log2(x + y)
-                if int(p) == p:
-                    good_meals += 1
+        good_meals = 0
+        counter = Counter(deliciousness)
+        unique_deliciousness = set(deliciousness)
+        
+        for i, x in enumerate(unique_deliciousness):
+            for y in islice(unique_deliciousness, i + 1, None):
+                if is_pow(x + y):
+                    good_meals += counter[x] * counter[y]
 
         return good_meals % (10 ** 9 + 7)
