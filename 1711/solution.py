@@ -6,9 +6,9 @@ class Solution:
         for i in range(n):
             x = deliciousness[i]
             for j in range(i + 1, n):
+                y = deliciousness[j]
                 if x + y == 0:
                     continue
-                y = deliciousness[j]
                 p = math.log2(x + y)
                 if int(p) == p:
                     good_meals += 1
