@@ -1,3 +1,18 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        return [list(c) for c in combinations(range(1, n + 1), k)]
+        combinations = []
+
+        def helper(i, remaining, lst):
+            if remaining == 0:
+                combinations.append(lst)
+                return
+
+            if i == n + 1:
+                return
+
+            helper(i + 1, remaining - 1, lst + [i])
+            helper(i + 1, remaining, lst)
+            
+
+        helper(1, k, [])
+        return combinations
