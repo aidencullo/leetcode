@@ -2,10 +2,10 @@ class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         def is_repeating(sub, s):
             k = len(substr)
-            if s % k != 0:
-                
-            
-            return sub * (s // len(substr))
+            n = len(s)
+            if n % k != 0:
+                return False
+            return sub * (n // k) == s
 
         
         for i in range(len(s) // 2):
