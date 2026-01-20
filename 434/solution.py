@@ -1,3 +1,3 @@
 class Solution:
     def countSegments(self, s: str) -> int:
-        pass
+        return len(s.split())
