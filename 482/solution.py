@@ -4,6 +4,7 @@ class Solution:
         characters = "".join(reversed(words))
         license = ""
         while characters:
-            formatted_word = characters[-k:]
-            formatted_words.app
-        return license
+            license += characters[:k]
+            license += '-'
+            characters = characters[k + 1:]
+        return license[:-1]
