@@ -4,9 +4,14 @@ class Solution:
         characters = "".join(words)
         characters = characters[::-1]
         characters = characters.upper()
-        license = ""
+        characters = characters[::-1]
+        license = []
+        offset = len(characters) % k
+        i = 1 + offset
         while characters:
-            license += characters[:k]
-            license += '-'
-            characters = characters[k:]
-        return license[:-1][::-1]
+            if i % (k + 1) == 0:
+                license.append('-')
+            else:
+                license.append(characters.pop())
+            i += 1
+        return ''.join(license)
