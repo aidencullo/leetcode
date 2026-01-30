@@ -1,17 +1,17 @@
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
         words = s.split('-')
-        characters = "".join(words)
-        characters = characters[::-1]
+        characters = ''.join(words)
         characters = characters.upper()
-        characters = characters[::-1]
+        characters = list(characters)
         license = []
-        offset = len(characters) % k
+        n = len(characters)
+        offset = k - (n % k)
         i = 1 + offset
         while characters:
             if i % (k + 1) == 0:
                 license.append('-')
             else:
-                license.append(characters.pop())
+                license.append(characters.pop(0))
             i += 1
         return ''.join(license)
