@@ -4,13 +4,14 @@ class Solution:
         characters = ''.join(words)
         characters = characters.upper()
         characters = list(characters)
+        characters.reverse()
         license = []
         n = len(characters)
         offset = n % k
         i = 0
         while characters:
-            if i != 0and i % k == offset:
+            if i != 0 and i % k == offset:
                 license.append('-')
-            license.append(characters.pop(0))
+            license.append(characters.pop())
             i += 1
         return ''.join(license)
