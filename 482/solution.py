@@ -6,12 +6,11 @@ class Solution:
         characters = list(characters)
         license = []
         n = len(characters)
-        offset = k - (n % k)
-        i = 1 + offset
+        offset = n % k
+        i = 0
         while characters:
-            if i % (k + 1) == 0:
+            if i != 0and i % k == offset:
                 license.append('-')
-            else:
-                license.append(characters.pop(0))
+            license.append(characters.pop(0))
             i += 1
         return ''.join(license)
