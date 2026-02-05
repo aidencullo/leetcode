@@ -1,17 +1,13 @@
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
-        words = s.split('-')
-        characters = ''.join(words)
-        characters = characters.upper()
-        characters = list(characters)
-        characters.reverse()
+        cnt = 0
         license = []
-        n = len(characters)
-        offset = n % k
-        i = 0
-        while characters:
-            if i != 0 and i % k == offset:
+        for c in reversed(s):
+            if c == '-':
+                continue
+            if cnt == k:
+                cnt = 0
                 license.append('-')
-            license.append(characters.pop())
-            i += 1
-        return ''.join(license)
+            license.append(c)
+        return ''.join(reversed(license))
+            
