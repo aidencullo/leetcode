@@ -10,7 +10,7 @@ class Solution:
                 cnt = 0
                 license.append('-')
             cnt += 1
-            license.append(c)
+            license.append(c.upper())
 
         return ''.join(reversed(license))
             
