@@ -1,8 +1,11 @@
+
 class Solution:
     def licenseKeyFormatting(self, s: str, k: int) -> str:
         license = []
         is_dash = lambda x: x == '-'
-        s = ''.join([c for c in s if not is_dash])
+        from operator import not_
+        is_not_dash = lambda x: not_(is_dash(x))
+        s = ''.join(list(filter(s, is_not_dash)))
         cnt = (k - (len(s) % k)) % k
         for c in s:
             if cnt == k:
