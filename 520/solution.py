@@ -32,15 +32,14 @@ class Solution:
         Returns:
             True if capitalization is correct, False otherwise
         """
-        if word.lower() == word:
-            return True
-
         if word.upper() == word:
             return True
 
-        new_word = word[0].lower() + word[1:]
+        from itertools import islice
 
-        if new_word == new_word.lower():
-            return True
+        for c in islice(s, 1, None):
+            if c.isupper():
+                return False
+            
 
-        return False
+        return True
