@@ -32,5 +32,15 @@ class Solution:
         Returns:
             True if capitalization is correct, False otherwise
         """
-        # TODO: Implement solution
-        pass
+        if word.lower() == word:
+            return True
+
+        if word.upper() == word:
+            return True
+
+        new_word = word[0].lower() + word[1:]
+
+        if new_word == new_word.lower():
+            return True
+
+        return False
