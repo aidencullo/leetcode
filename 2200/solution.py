@@ -8,7 +8,7 @@ class Solution:
         for i, num in enumerate(nums):
             while key_idx < len(key_positions) and key_positions[key_idx] + k < i:
                 key_idx += 1
-            if abs(key_positions[key_idx] - i) <= k:
-                res.append[i]
+            if key_idx < len(key_positions) and abs(key_positions[key_idx] - i) <= k:
+                res.append(i)
 
         return res
