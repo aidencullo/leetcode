@@ -1,11 +1,14 @@
 class Solution:
     def findKDistantIndices(self, nums, key, k):
-        distant_indices = set()
-        
+        key_positions = [i for i, v in enumerate(nums) if v == key]
+
+        key_idx = 0
+        res = []
+
         for i, num in enumerate(nums):
-            if num == key:
-                distant_indices.update(range(i - k, i + k + 1))
+            while key_idx < len(key_positions) and key_positions[key_idx] + k < i:
+                key_idx += 1
+            if abs(key_positions[key_idx] - i) <= k:
+                res.append[i]
 
-
-        valid_distant_indices = {idx for idx in distant_indices if 0 <= idx < len(nums)}
-        return sorted(valid_distant_indices)
+        return res
