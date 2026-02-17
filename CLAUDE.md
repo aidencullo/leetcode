@@ -42,6 +42,7 @@ Use descriptive messages with problem number:
 ## Current Problems
 
 - 824: Goat Latin (Easy) - stub
+- 830: Positions of Large Groups (Easy) - stub
 
 ## Skills and Agents
 
