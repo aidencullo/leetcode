@@ -43,6 +43,7 @@ Use descriptive messages with problem number:
 
 - 824: Goat Latin (Easy) - stub
 - 830: Positions of Large Groups (Easy) - stub
+- 884: Uncommon Words from Two Sentences (Easy) - stub
 
 ## Skills and Agents
 
