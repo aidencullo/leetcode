@@ -39,6 +39,10 @@ Use descriptive messages with problem number:
 - `feat: Solve problem 482 (License Key Formatting)`
 - `fix: Problem 401 edge case handling`
 
+## Current Problems
+
+- 824: Goat Latin (Easy) - stub
+
 ## Skills and Agents
 
 - Use `/leetcode` skill to work on LeetCode problems in this directory
