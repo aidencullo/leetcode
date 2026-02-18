@@ -1,0 +1,6 @@
+from typing import List
+
+
+class Solution:
+    def findTheArrayConcVal(self, nums: List[int]) -> int:
+        pass
