@@ -21,7 +21,9 @@ class Solution:
                 cnt += 1
             if i == n:
                 break
-            captured = max(captured, cnt)
+
+            if forts[i] == -1:
+                captured = max(captured, cnt)
 
 
         forts = list(reversed(forts))
@@ -41,6 +43,8 @@ class Solution:
                 cnt += 1
             if i == n:
                 break
-            captured = max(captured, cnt)
+
+            if forts[i] == -1:
+                captured = max(captured, cnt)
 
         return captured
