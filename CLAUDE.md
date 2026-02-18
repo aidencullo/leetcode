@@ -27,6 +27,13 @@ Or run directly:
 pytest <problem_number>/test_solution.py
 ```
 
+## Workflow for New Problems
+
+When the `/leetcode <number>` skill is invoked:
+1. Create an empty stub solution (just `pass`) and push it immediately
+2. Open the solution in emacs
+3. Do NOT implement a full solution upfront — the user will fill it in
+
 ## Code Conventions
 
 - Solutions are methods within a `Solution` class
