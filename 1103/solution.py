@@ -7,10 +7,10 @@ class Solution:
         i = 0
 
         while candies:
+            print(res)
             share = min(candies, i + 1)
             candies -= share
-            res[i] += share
-            i = (i + 1) % num_people
-            
+            res[i % num_people] += share
+            i += 1
 
         return res
