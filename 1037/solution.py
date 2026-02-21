@@ -9,16 +9,26 @@ class Solution:
 
             return (y2 - y1) / (x2 - x1)
 
-        from itertools import pairwise
+        def is_straight_line(points):
 
-        p1, p2 = points[0], points[1]
-        slope = calculate_slope(p1, p2)
+            from itertools import pairwise
 
-        for a, b in pairwise(points):
-            if slope != calculate_slope(a, b):
-                return False
+            p1, p2 = points[0], points[1]
+            slope = calculate_slope(p1, p2)
 
-        return True
+            for a, b in pairwise(points):
+                if slope != calculate_slope(a, b):
+                    return False
+            return True
+
+        def is_not_straight_line(points):
+            return not is_straight_line(points)
+
+        def is_distinct(points):
+            return len(set(tuple(point) for point in points)) == len(points)
+            
+
+        return is_distinct(points) and is_not_straight_line(points)
         
 
         
