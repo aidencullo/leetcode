@@ -24,10 +24,12 @@ class Solution:
                 i += 1
         
         while i < n:
+            xi, x = nums1[i]
             res.append([xi, x])
             i += 1
 
         while j < m:
+            yi, y = nums2[j]
             res.append([yi, y])
             j += 1
 
