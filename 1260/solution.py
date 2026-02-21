@@ -9,15 +9,10 @@ class Solution:
         def shift_first_row(old):
             import copy
             new = copy.deepcopy(old)
-            from itertools import product
 
             rows = len(new)
-            cols = len(new[0])
             for row in range(rows):
-                old_row = (row - 1) % rows
-                old_col = 0
-                col = 0
-                new[row][col] = old[old_row][old_col]
+                new[row][0] = old[row - 1][0]
 
             return new
 
