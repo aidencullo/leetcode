@@ -3,4 +3,4 @@ from typing import List
 
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
-        pass
+        return len(set(arr)) == len(set(Counter(arr).values()))
