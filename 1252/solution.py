@@ -12,7 +12,7 @@ class Solution:
             return new_mat
 
         
-        mat = [[0] * m for i in range(n)]
+        mat = [[0] * n for i in range(m)]
         for r, c in indices:
             mat = transform(mat, r, c)
 
