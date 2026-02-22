@@ -12,7 +12,7 @@ class Solution:
         runner = head
 
         while runner and runner.next:
-            if runner.val == runner.next.val:
+            while runner.next and runner.val == runner.next.val:
                 runner.next = runner.next.next
             runner = runner.next
 
