@@ -2,6 +2,9 @@ class Solution:
     def maximumGap(self, nums: List[int]) -> int:
         if len(nums) < 2:
             return 0
+
+        if len(set(nums)) == 1:
+            return 0
         
         min_val = min(nums)
         max_val = max(nums)
