@@ -24,9 +24,9 @@ class Solution:
                 if val in boxes[box]:
                     return False
 
-            cols[c].add(val)
-            rows[r].add(val)
-            boxes[box].add(val)
+                cols[c].add(val)
+                rows[r].add(val)
+                boxes[box].add(val)
 
 
         return True

@@ -1,10 +1,6 @@
-from typing import List
-
-
 class Solution:
     def countElements(self, nums: List[int]) -> int:
-        if len(set(nums)) == 1:
-            return 0
-        low = min(nums)
-        high = max(nums)
-        return len(nums) - nums.count(low) - nums.count(high)
+        min_val = min(nums)
+        max_val = max(nums)
+        return sum(1 for x in nums if min_val < x < max_val)
+        
