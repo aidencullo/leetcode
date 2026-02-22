@@ -1,9 +1,11 @@
-from typing import List
-
 class Solution:
     def maximumGap(self, nums: List[int]) -> int:
+        if len(nums) < 2:
+            return 0
+        
         min_val = min(nums)
         max_val = max(nums)
+        n = len(nums)
 
         bucket_size = ceil((max_val - min_val) / (n-1))
 
@@ -13,9 +15,9 @@ class Solution:
         mins = [None] * bucket_count
 
         for num in nums:
-            bucket = num // bucket_size
-            maxs[bucket] = max(num, maxs[bucket]) if max[bucket] else num
-            mins[bucket] = min(num, mins[bucket]) if min[bucket] else num
+            bucket = (num - min_val) // bucket_size
+            maxs[bucket] = max(num, maxs[bucket]) if maxs[bucket] else num
+            mins[bucket] = min(num, mins[bucket]) if mins[bucket] else num
 
         prev = None
         for i in range(bucket_count):
