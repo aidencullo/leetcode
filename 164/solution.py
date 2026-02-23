@@ -1,9 +1,6 @@
 class Solution:
     def maximumGap(self, nums: List[int]) -> int:
-        if len(nums) < 2:
-            return 0
-
-        if len(set(nums)) == 1:
+        if len(set(nums)) < 2:
             return 0
         
         min_val = min(nums)
@@ -11,7 +8,6 @@ class Solution:
         n = len(nums)
 
         bucket_size = ceil((max_val - min_val) / (n-1))
-
         bucket_count = (max_val - min_val) // bucket_size + 1
 
         maxs = [None] * bucket_count
@@ -19,14 +15,18 @@ class Solution:
 
         for num in nums:
             bucket = (num - min_val) // bucket_size
-            maxs[bucket] = max(num, maxs[bucket]) if maxs[bucket] else num
-            mins[bucket] = min(num, mins[bucket]) if mins[bucket] else num
+            if maxs[bucket] is None:
+                maxs[bucket] = mins[bucket] = num
+            else:
+                maxs[bucket] = max(num, maxs[bucket])
+                mins[bucket] = min(num, mins[bucket])
 
-        prev = None
+        prev = min_val
+        max_gap = 0
         for i in range(bucket_count):
-            if not maxs[i]:
+            if maxs[i] is None:
                 continue
-            max_gap = max(max_gap, mins[i] - prev) if prev else 0
+            max_gap = max(max_gap, mins[i] - prev)
             prev = maxs[i]
 
         return max_gap
