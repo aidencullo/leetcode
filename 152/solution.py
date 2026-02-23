@@ -7,6 +7,8 @@ class Solution:
         n = len(nums)
         max_prod = float('-inf')
         for i in range(n):
-            for j in range(i + 1, n + 1):
-                max_prod = max(max_prod, math.prod(islice(nums, i, j)))
+            prod = 1
+            for j in range(i, n):
+                prod *= nums[j]
+                max_prod = max(max_prod, prod)
         return max_prod
