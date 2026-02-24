@@ -9,16 +9,12 @@ class Solution:
 
         for x, y in pairwise(arr):
             cur_cmp = cmp(x, y)
-            if cur_cmp == -1 and prev_cmp == 1:
-                running_turbulence += 1
-            if cur_cmp == 1 and prev_cmp != -1:
-                running_turbulence = 1
-            if cur_cmp == 1 and prev_cmp == -1:
-                running_turbulence += 1
-            if cur_cmp == -1 and prev_cmp != 1:
-                running_turbulence = 1
             if cur_cmp == 0:
                 running_turbulence = 0
+            elif cur_cmp * prev_cmp == -1:
+                running_turbulence += 1
+            else:
+                running_turbulence = 1
             prev_cmp = cur_cmp
             max_turbulence = max(max_turbulence, running_turbulence)
                 
