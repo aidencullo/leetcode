@@ -3,6 +3,9 @@ class Solution:
         if hamsters == "H":
             return -1
 
+        if hamsters == ".":
+            return 0
+
         if (
             len(hamsters) >= 2
             and (
@@ -20,26 +23,27 @@ class Solution:
                 return -1
 
         food = 0
+        buckets = list(hamsters)
 
         # preprocess
         if hamsters[0] == 'H':
-            hamsters[1] = 'F'
+            buckets[1] = 'F'
             food += 1
 
         if hamsters[-1] == 'H':
-            hamsters[-21] = 'F'
+            buckets[-2] = 'F'
             food += 1
 
         def no_food(idx):
             return (
-                hamsters[idx - 1] != 'F'
-                and hamsters[idx + 1] != 'F'
+                buckets[idx - 1] != 'F'
+                and buckets[idx + 1] != 'F'
             )
                 
             
         for i in range(1, n - 1):
-            if space == 'H' and no_food(i):
-                hamsters[idx + 1] = 'F'
+            if hamsters[i] == 'H' and no_food(i):
+                buckets[i + 1] = 'F'
                 food += 1
 
         return food
