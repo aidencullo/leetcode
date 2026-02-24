@@ -11,11 +11,11 @@ class Solution:
             cur_cmp = cmp(x, y)
             if cur_cmp == -1 and prev_cmp == 1:
                 running_turbulence += 1
-            if cur_cmp == 1 and prev_cmp == 1:
+            if cur_cmp == 1 and prev_cmp != -1:
                 running_turbulence = 1
             if cur_cmp == 1 and prev_cmp == -1:
                 running_turbulence += 1
-            if cur_cmp == -1 and prev_cmp == -1:
+            if cur_cmp == -1 and prev_cmp != 1:
                 running_turbulence = 1
             if cur_cmp == 0:
                 running_turbulence = 0
