@@ -30,7 +30,7 @@ class Solution:
             buckets[1] = 'F'
             food += 1
 
-        if hamsters[-1] == 'H':
+        if hamsters[-1] == 'H' and buckets[-2] != 'F':
             buckets[-2] = 'F'
             food += 1
 
@@ -43,7 +43,10 @@ class Solution:
             
         for i in range(1, n - 1):
             if hamsters[i] == 'H' and no_food(i):
-                buckets[i + 1] = 'F'
+                if hamsters[i + 1] == 'H':
+                    buckets[i - 1] = 'F'
+                else:
+                    buckets[i + 1] = 'F'
                 food += 1
 
         return food
