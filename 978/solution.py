@@ -1,18 +1,20 @@
 class Solution:
     def maxTurbulenceSize(self, arr: List[int]) -> int:
-        max_turbulence = 0
-        running_turbulence = 0
-        prev_cmp = 0
+        down = up = max_turbulence = 1
 
         for x, y in pairwise(arr):
             cur_cmp = (x > y) - (x < y)
-            if cur_cmp == 0:
-                running_turbulence = 0
-            elif cur_cmp * prev_cmp == -1:
-                running_turbulence += 1
-            else:
-                running_turbulence = 1
-            prev_cmp = cur_cmp
-            max_turbulence = max(max_turbulence, running_turbulence)
 
-        return max_turbulence + 1
+            if cur_cmp == -1:
+                up = down + 1
+                down = 1
+            elif cur_cmp == 1:
+                down = up + 1
+                up = 1
+            else:
+                down = 1
+                up = 1
+
+            max_turbulence = max(up, down, max_turbulence)
+
+        return max_turbulence
